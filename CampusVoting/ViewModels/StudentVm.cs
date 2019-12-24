@@ -12,7 +12,7 @@
         public string GradeId { get; set; }
         public string GradeName { get; set; }
         public string CurrentGradeAndSectionId { get; set; }
-        public string CurrentGradeAndSection { get; set; }
+        public string CurrentSectionName { get; set; }
         
 
         public StudentVm()
@@ -27,7 +27,7 @@
             GradeId = "0";
             GradeName = "";
             CurrentGradeAndSectionId = "0";
-            CurrentGradeAndSection = "";
+            CurrentSectionName = "";
         }
     }
 }

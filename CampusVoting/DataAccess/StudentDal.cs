@@ -29,7 +29,7 @@ namespace CampusVoting.DataAccess
             command.Parameters.AddWithValue("strMiddleName", p.MiddleName).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strSectionName", p.SectionName).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strGradeName", p.GradeName).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strCurrentGradeAndSection", p.CurrentGradeAndSection).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strCurrentSectionName", p.CurrentSectionName).Direction = ParameterDirection.Input;
 
             List<StudentVm> items = new List<StudentVm>();
             DataTable dt = MyHelper.GetData(command, ref msg);
@@ -47,8 +47,8 @@ namespace CampusVoting.DataAccess
                     item.GradeName = row["GradeName"].GetString();
                     item.SectionId = row["SectionId"].GetString();
                     item.SectionName = row["SectionName"].GetString();
-                    item.CurrentGradeAndSectionId = row["CurrentGradeAndSectionId"].GetString();
-                    item.CurrentGradeAndSection = row["CurrentGradeAndSectionId"].GetString();
+                    item.CurrentGradeAndSectionId = row["GradeAndSectionId"].GetString();
+                    item.CurrentSectionName = row["CurrentSectionName"].GetString();
                     
                     items.Add(item);
                 }

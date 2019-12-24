@@ -46,6 +46,7 @@ namespace CampusVoting.Views
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
+            GetParams();
             LoadList();
         }
     }

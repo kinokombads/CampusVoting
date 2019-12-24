@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogics\StudentBl.cs" />
     <Compile Include="DataAccess\StudentDal.cs" />
     <Compile Include="Helpers\DialogMessage.cs" />
     <Compile Include="Helpers\EntryChecker.cs" />

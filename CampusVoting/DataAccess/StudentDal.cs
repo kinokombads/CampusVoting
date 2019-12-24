@@ -50,7 +50,6 @@ namespace CampusVoting.DataAccess
                     item.CurrentGradeAndSectionId = row["CurrentGradeAndSectionId"].GetString();
                     item.CurrentGradeAndSection = row["CurrentGradeAndSectionId"].GetString();
                     
-
                     items.Add(item);
                 }
 

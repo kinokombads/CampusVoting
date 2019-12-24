@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using CampusVoting.BusinessLogics;
 
 namespace CampusVoting.Views
 {
@@ -18,8 +19,20 @@ namespace CampusVoting.Views
             InitializeComponent();
         }
 
-        
+        string msg = "";
+        StudentBl bl = new StudentBl();
 
+        private void GetParams()
+        {
+            bl.ResetParameters();
+            bl.Parameters.Lrn = TitleTextEdit.Text;
+        }
+
+        private void LoadList()
+        {
+            gridControl1.RefreshDataSource();
+            gridControl1.DataSource = bl.GetList(bl.Parameters, ref msg);            
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -29,6 +42,11 @@ namespace CampusVoting.Views
         private void searchControl1_QueryIsSearchColumn(object sender, QueryIsSearchColumnEventArgs args)
         {
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            LoadList();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace CampusVoting.BusinessLogics
         public Student Params { get; set; }
         public List<Student> Items { get; set; }
         public StudentVm Parameters { get; set; }
-
+        public List<StudentVm> ViewModels { get; set; }
 
         public StudentBl()
         {
@@ -21,6 +21,7 @@ namespace CampusVoting.BusinessLogics
             ResetOne();
             ResetParameters();
             ResetList();
+            ResetViewModels();
         }
 
         public void ResetOne()
@@ -41,6 +42,11 @@ namespace CampusVoting.BusinessLogics
         public void ResetList()
         {
             Items = new List<Student>();
+        }
+
+        public void ResetViewModels()
+        {
+            ViewModels = new List<StudentVm>();
         }
         
         public List<StudentVm> GetList(StudentVm p, ref string msg)

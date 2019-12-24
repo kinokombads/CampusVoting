@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using CampusVoting.BusinessLogics;
+using CampusVoting.Helpers;
 
 namespace CampusVoting.Views
 {
@@ -29,9 +30,18 @@ namespace CampusVoting.Views
         }
 
         private void LoadList()
-        {
-            gridControl1.RefreshDataSource();
-            gridControl1.DataSource = bl.GetList(bl.Parameters, ref msg);            
+        {   
+            bl.ResetViewModels();
+            bl.ViewModels = bl.GetList(bl.Parameters, ref msg);
+
+            if (msg == "")
+            {
+                gridControl1.DataSource = bl.ViewModels;
+            }
+            else
+            {
+                MessageBox.Show(msg, DialogMessage.RetrieveFail, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

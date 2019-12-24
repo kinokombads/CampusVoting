@@ -40,15 +40,16 @@ namespace CampusVoting.DataAccess
                 {
                     StudentVm item = new StudentVm();
                     item.Id = row["StudentId"].GetString();
-                    item.Lrn = row["Lrn"].GetString();
-                    item.LastName = row["LastName"].GetString();
+                    item.Lrn = row["Lrn"].GetString();item.LastName = row["LastName"].GetString();
                     item.FirstName = row["FirstName"].GetString();
                     item.MiddleName = row["MiddleName"].GetString();
+                    item.GradeId = row["GradeId"].GetString();
+                    item.GradeName = row["GradeName"].GetString();
+                    item.SectionId = row["SectionId"].GetString();
+                    item.SectionName = row["SectionName"].GetString();
                     item.CurrentGradeAndSectionId = row["CurrentGradeAndSectionId"].GetString();
                     item.CurrentGradeAndSection = row["CurrentGradeAndSectionId"].GetString();
-                    item.SectionName = row["createdByName"].GetString();
-                    item.GradeName = row["createdOn"].GetString();
-
+                    
 
                     items.Add(item);
                 }
@@ -82,9 +83,9 @@ namespace CampusVoting.DataAccess
             command.CommandText = "AddStudent";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("intCreatedById", p.CreatedById).Direction = ParameterDirection.Input;
+            //command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            //command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
+            //command.Parameters.AddWithValue("intCreatedById", p.CreatedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
 
             try
@@ -109,9 +110,9 @@ namespace CampusVoting.DataAccess
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("intModifiedById", p.ModifiedById).Direction = ParameterDirection.Input;
+            //command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            //command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
+            //command.Parameters.AddWithValue("intModifiedById", p.ModifiedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
 
             try

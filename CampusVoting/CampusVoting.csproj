@@ -90,6 +90,7 @@
     <Compile Include="Models\VoterClearance.cs" />
     <Compile Include="Models\VotingSession.cs" />
     <Compile Include="Models\Winner.cs" />
+    <Compile Include="PageHelpers\GridControlOption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CampaignGroupVm.cs" />
@@ -158,7 +159,38 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="ImageSource\cross.png" />
+    <Content Include="ImageSource\data.png" />
+    <Content Include="ImageSource\delete trash can.png" />
+    <Content Include="ImageSource\delete trash.png" />
+    <Content Include="ImageSource\delete.png" />
+    <Content Include="ImageSource\edit.png" />
+    <Content Include="ImageSource\icons8-add-50 25x25.png" />
+    <Content Include="ImageSource\icons8-add-50.png" />
+    <Content Include="ImageSource\icons8-add-new-50.png" />
+    <Content Include="ImageSource\icons8-add-user-male-50.png" />
+    <Content Include="ImageSource\icons8-edit-25x25.png" />
+    <Content Include="ImageSource\icons8-edit-50.png" />
+    <Content Include="ImageSource\icons8-elections-50.png" />
+    <Content Include="ImageSource\icons8-pencil-50.png" />
+    <Content Include="ImageSource\icons8-registration-50.png" />
+    <Content Include="ImageSource\icons8-remove-25x25.png" />
+    <Content Include="ImageSource\icons8-remove-50.png" />
+    <Content Include="ImageSource\icons8-search-25x25.png" />
+    <Content Include="ImageSource\icons8-search-50.png" />
+    <Content Include="ImageSource\icons8-trash-50.png" />
+    <Content Include="ImageSource\icons8-trash-can-50.png" />
+    <Content Include="ImageSource\icons8-user-account-50.png" />
+    <Content Include="ImageSource\icons8-waste-50.png" />
+    <Content Include="ImageSource\idea.png" />
+    <Content Include="ImageSource\magnifying-glass.png" />
+    <Content Include="ImageSource\money.png" />
+    <Content Include="ImageSource\plus.png" />
+    <Content Include="ImageSource\school.png" />
+    <Content Include="ImageSource\search.png" />
     <Content Include="ImageSource\Transparent.png" />
+    <Content Include="ImageSource\user.png" />
+    <Content Include="ImageSource\work.png" />
     <Content Include="MySqlLibraries\Antlr3.Runtime.dll" />
     <Content Include="MySqlLibraries\mysql.data.dll" />
     <Content Include="MySqlLibraries\mysql.data.entity.dll" />

@@ -36,7 +36,7 @@ namespace CampusVoting.Views
 
             if (msg == "")
             {
-                gridControl1.DataSource = bl.ViewModels;
+                //gridControl1.DataSource = bl.ViewModels;
             }
             else
             {

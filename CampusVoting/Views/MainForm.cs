@@ -15,7 +15,7 @@ namespace CampusVoting.Views
         public MainForm()
         {
             InitializeComponent();
-            MainContentPanel.Controls.Add(new GradeListDevPage());
+            MainContentPanel.Controls.Add(new GradeListDevPage() { Dock = DockStyle.Fill });
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

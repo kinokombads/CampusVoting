@@ -61,7 +61,7 @@
             this.IdLabel.AutoSize = true;
             this.IdLabel.Location = new System.Drawing.Point(323, 9);
             this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(45, 19);
+            this.IdLabel.Size = new System.Drawing.Size(60, 22);
             this.IdLabel.TabIndex = 1;
             this.IdLabel.Text = "label4";
             this.IdLabel.Visible = false;
@@ -72,7 +72,7 @@
             this.PageLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PageLabel.Location = new System.Drawing.Point(12, 9);
             this.PageLabel.Name = "PageLabel";
-            this.PageLabel.Size = new System.Drawing.Size(133, 31);
+            this.PageLabel.Size = new System.Drawing.Size(164, 39);
             this.PageLabel.TabIndex = 0;
             this.PageLabel.Text = "Edit Grade";
             // 
@@ -107,7 +107,7 @@
             // DetailsTextBox
             // 
             this.DetailsTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DetailsTextBox.Location = new System.Drawing.Point(0, 64);
+            this.DetailsTextBox.Location = new System.Drawing.Point(0, 74);
             this.DetailsTextBox.Multiline = true;
             this.DetailsTextBox.Name = "DetailsTextBox";
             this.DetailsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -118,18 +118,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Location = new System.Drawing.Point(0, 45);
+            this.label3.Location = new System.Drawing.Point(0, 52);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 19);
+            this.label3.Size = new System.Drawing.Size(73, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Details:";
             // 
             // TitleTextBox
             // 
             this.TitleTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitleTextBox.Location = new System.Drawing.Point(0, 19);
+            this.TitleTextBox.Location = new System.Drawing.Point(0, 22);
             this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(354, 26);
+            this.TitleTextBox.Size = new System.Drawing.Size(354, 30);
             this.TitleTextBox.TabIndex = 1;
             // 
             // label2
@@ -138,7 +138,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 19);
+            this.label2.Size = new System.Drawing.Size(116, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Grade Name:";
             // 
@@ -189,7 +189,7 @@
             // GradeEditForm
             // 
             this.AcceptButton = this.SaveButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(384, 362);

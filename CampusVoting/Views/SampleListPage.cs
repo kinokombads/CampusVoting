@@ -10,12 +10,13 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.PageHelpers;
 
 namespace CampusVoting.Views
 {
-    public partial class GradeListDevPage : DevExpress.XtraEditors.XtraUserControl
+    public partial class SampleListPage : DevExpress.XtraEditors.XtraUserControl
     {
-        public GradeListDevPage()
+        public SampleListPage()
         {
             InitializeComponent();
         }
@@ -36,7 +37,7 @@ namespace CampusVoting.Views
 
             if (msg == "")
             {
-                //gridControl1.DataSource = bl.ViewModels;
+                ListGridControl.DataSource = bl.ViewModels;
             }
             else
             {
@@ -58,6 +59,12 @@ namespace CampusVoting.Views
         {
             GetParams();
             LoadList();
+        }
+
+        private void GradeListDevPage_Load(object sender, EventArgs e)
+        {
+            GridControlOption.CustomDrawRowIndicator(ListGridControl, ItemsGridView);
+            ItemsGridView.OptionsBehavior.AutoPopulateColumns = false;
         }
     }
 }

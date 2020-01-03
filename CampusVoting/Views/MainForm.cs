@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CampusVoting.Views.UserCons;
 
 namespace CampusVoting.Views
 {
@@ -15,7 +16,9 @@ namespace CampusVoting.Views
         public MainForm()
         {
             InitializeComponent();
-            MainContentPanel.Controls.Add(new GradeListDevPage() { Dock = DockStyle.Fill });
+            //MainContentPanel.Controls.Add(new SampleListPage() { Dock = DockStyle.Fill });
+            //MainContentPanel.Controls.Add(new GradeListXtraCon());
+            MainContentPanel.Controls.Add(new GradeListXtraCon{ Dock = DockStyle.Fill });
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

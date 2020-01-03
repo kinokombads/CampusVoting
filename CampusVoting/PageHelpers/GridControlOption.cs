@@ -15,7 +15,7 @@ namespace CampusVoting.PageHelpers
             {
                 if (!e.Info.IsRowIndicator) return;
 
-                e.Appearance.Font = new Font("Tahoma", 11.75f, FontStyle.Regular);
+                e.Appearance.Font = new Font("Tahoma", 8.5F, FontStyle.Regular);
                 int argb = Int32.Parse("00F3F3F3", NumberStyles.HexNumber);
                 Color clr = Color.FromArgb(argb);
                 e.Appearance.ForeColor = clr;

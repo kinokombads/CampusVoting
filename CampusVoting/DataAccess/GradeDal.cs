@@ -14,59 +14,39 @@ namespace CampusVoting.DataAccess
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
-        public List<Grade> GetList(Grade p, ref string msg)
+        public DataTable GetList(Grade p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
             command.CommandText = "GetGrades";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intId", p.Id.GetInt()).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
-
-            List<Grade> items = new List<Grade>();
+            
             DataTable dt = MyHelper.GetData(command, ref msg);
             try
             {
-                if (dt.Rows.Count <= 0) return items;
-                foreach (DataRow row in dt.Rows)
-                {
-                    Grade item = new Grade();
-                    item.Id = row["gradeId"].GetInt();
-                    item.Title = row["title"].GetString();
-                    item.Details = row["details"].GetString();
-                    item.CreatedById = row["createdById"].GetInt();
-                    item.CreatedByName = row["createdByName"].GetString();
-                    item.CreatedOn = row["createdOn"].GetDateTime();
-                    item.ModifiedById = row["modifiedById"].GetInt();
-                    item.ModifiedByName = row["modifiedByName"].GetString();
-                    item.ModifiedOn = row["modifiedOn"].GetNullableDateTime();
-                    
-
-                    items.Add(item);
-                }
-
-                return items;
-
+                return dt.Rows.Count <= 0 ? new DataTable() : dt;
             }
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new List<Grade>();
+                return new DataTable();
             }
         }
 
-        public Grade GetOne(Grade p, ref string msg)
-        {
-            try
-            {
-                var x = GetList(p, ref msg).Single();
-                return x;
-            }
-            catch (Exception)
-            {
-                return new Grade();
-            }
-        }
+        //public GradeVm GetOne(Grade p, ref string msg)
+        //{
+        //    try
+        //    {
+        //        var x = GetList(p, ref msg).Single();
+        //        return x;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new GradeVm();
+        //    }
+        //}
 
         public bool AddOne(Grade p, ref string msg)
         {

@@ -1,6 +1,17 @@
-﻿namespace CampusVoting.Views
+﻿using System.ComponentModel;
+using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+using System.Windows.Forms;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid;
+
+namespace CampusVoting.Views
 {
-    partial class GradeListDevPage
+    partial class SampleListPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +39,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradeListDevPage));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(SampleListPage));
+            SerializableAppearanceObject serializableAppearanceObject1 = new SerializableAppearanceObject();
+            SerializableAppearanceObject serializableAppearanceObject2 = new SerializableAppearanceObject();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -37,14 +50,23 @@
             this.TitleTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.GridPanelControl = new DevExpress.XtraEditors.PanelControl();
-            this.ListGridControl = new DevExpress.XtraGrid.GridControl();
+            this.ListGridControl = new GridControl();
             this.ItemsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.IdColumn = new GridColumn();
+            this.LrnColumn = new GridColumn();
+            this.LastNameColumn = new GridColumn();
+            this.EditColumn = new GridColumn();
+            this.repositoryItemButtonEdit2 = new RepositoryItemButtonEdit();
+            this.DeleteColumn = new GridColumn();
+            this.repositoryItemButtonEdit1 = new RepositoryItemButtonEdit();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridPanelControl)).BeginInit();
             this.GridPanelControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchPanel
@@ -154,8 +176,13 @@
             // 
             this.ListGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ListGridControl.Location = new System.Drawing.Point(2, 2);
+            this.ListGridControl.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.ListGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
             this.ListGridControl.MainView = this.ItemsGridView;
             this.ListGridControl.Name = "ListGridControl";
+            this.ListGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1,
+            this.repositoryItemButtonEdit2});
             this.ListGridControl.Size = new System.Drawing.Size(844, 461);
             this.ListGridControl.TabIndex = 0;
             this.ListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -163,6 +190,12 @@
             // 
             // ItemsGridView
             // 
+            this.ItemsGridView.Columns.AddRange(new GridColumn[] {
+            this.IdColumn,
+            this.LrnColumn,
+            this.LastNameColumn,
+            this.EditColumn,
+            this.DeleteColumn});
             this.ItemsGridView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.ItemsGridView.GridControl = this.ListGridControl;
             this.ItemsGridView.Name = "ItemsGridView";
@@ -170,7 +203,61 @@
             this.ItemsGridView.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.ItemsGridView.OptionsBehavior.Editable = false;
             // 
-            // GradeListDevPage
+            // IdColumn
+            // 
+            this.IdColumn.Caption = "Id";
+            this.IdColumn.FieldName = "Id";
+            this.IdColumn.Name = "IdColumn";
+            // 
+            // LrnColumn
+            // 
+            this.LrnColumn.Caption = "LRN";
+            this.LrnColumn.FieldName = "Lrn";
+            this.LrnColumn.Name = "LrnColumn";
+            this.LrnColumn.Visible = true;
+            this.LrnColumn.VisibleIndex = 0;
+            // 
+            // LastNameColumn
+            // 
+            this.LastNameColumn.Caption = "Last Name";
+            this.LastNameColumn.FieldName = "LastName";
+            this.LastNameColumn.Name = "LastNameColumn";
+            this.LastNameColumn.Visible = true;
+            this.LastNameColumn.VisibleIndex = 1;
+            // 
+            // EditColumn
+            // 
+            this.EditColumn.Caption = "Edit";
+            this.EditColumn.ColumnEdit = this.repositoryItemButtonEdit2;
+            this.EditColumn.Name = "EditColumn";
+            this.EditColumn.Visible = true;this.EditColumn.VisibleIndex = 3;
+            // 
+            // repositoryItemButtonEdit2
+            // 
+            this.repositoryItemButtonEdit2.AutoHeight = false;
+            this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
+            this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // DeleteColumn
+            // 
+            this.DeleteColumn.Caption = "Delete";
+            this.DeleteColumn.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.DeleteColumn.Name = "DeleteColumn";
+            this.DeleteColumn.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowForFocusedRow;
+            this.DeleteColumn.Visible = true;
+            this.DeleteColumn.VisibleIndex = 2;
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Delete), serializableAppearanceObject2, "", null, null, true)});
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // SampleListPage
             // 
             this.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Appearance.Options.UseFont = true;
@@ -180,8 +267,9 @@
             this.Controls.Add(this.SearchPanel);
             this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "GradeListDevPage";
+            this.Name = "SampleListPage";
             this.Size = new System.Drawing.Size(848, 592);
+            this.Load += new System.EventHandler(this.GradeListDevPage_Load);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleTextEdit.Properties)).EndInit();
@@ -189,21 +277,32 @@
             this.GridPanelControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ListGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel SearchPanel;
-        private DevExpress.XtraEditors.TextEdit TitleTextEdit;
-        private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.PanelControl GridPanelControl;
-        private DevExpress.XtraGrid.GridControl ListGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView ItemsGridView;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private Panel SearchPanel;
+        private TextEdit TitleTextEdit;
+        private Label label1;
+        private SimpleButton simpleButton1;
+        private SimpleButton simpleButton2;
+        private PanelControl GridPanelControl;
+        private GridControl ListGridControl;
+        private GridView ItemsGridView;
+        private SimpleButton simpleButton3;
+        private SimpleButton simpleButton4;
+        private GridColumn IdColumn;
+        private GridColumn LrnColumn;
+        private GridColumn LastNameColumn;
+        private GridColumn EditColumn;
+        private RepositoryItemButtonEdit repositoryItemButtonEdit2;
+        private GridColumn DeleteColumn;
+        private RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        
+        
     }
 }

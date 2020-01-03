@@ -48,21 +48,21 @@ namespace CampusVoting.Views
 
         private void DisplayData()
         {
-            GetParams();
-            bl.ResetOne();
+            //GetParams();
+            //bl.ResetOne();
 
-            string msg = "";
-            bl.Item = bl.GetOne(bl.Params, ref msg);
+            //string msg = "";
+            //bl.Item = bl.GetOne(bl.Params, ref msg);
 
-            if (msg != "")
-            {
-                MessageBox.Show(msg, "Retrieving Grade", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (msg != "")
+            //{
+            //    MessageBox.Show(msg, "Retrieving Grade", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
-            IdLabel.Text = bl.Item.Id.GetString();
-            TitleTextBox.Text = bl.Item.Title;
-            DetailsTextBox.Text = bl.Item.Details;
+            //IdLabel.Text = bl.Item.Id.GetString();
+            //TitleTextBox.Text = bl.Item.Title;
+            //DetailsTextBox.Text = bl.Item.Details;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)

@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogics\StudentBl.cs" />
     <Compile Include="DataAccess\StudentDal.cs" />
+    <Compile Include="Enums\ProcessMode.cs" />
     <Compile Include="Helpers\DialogMessage.cs" />
     <Compile Include="Helpers\EntryChecker.cs" />
     <Compile Include="BusinessLogics\GradeBl.cs" />
@@ -109,17 +110,23 @@
     <Compile Include="Views\GradeEditForm.Designer.cs">
       <DependentUpon>GradeEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\GradeListDevPage.cs">
+    <Compile Include="Views\SampleListPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\GradeListDevPage.Designer.cs">
-      <DependentUpon>GradeListDevPage.cs</DependentUpon>
+    <Compile Include="Views\SampleListPage.Designer.cs">
+      <DependentUpon>SampleListPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserCons\GradeListXtraCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\GradeListXtraCon.Designer.cs">
+      <DependentUpon>GradeListXtraCon.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -138,11 +145,14 @@
     <EmbeddedResource Include="Views\GradeEditForm.resx">
       <DependentUpon>GradeEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\GradeListDevPage.resx">
-      <DependentUpon>GradeListDevPage.cs</DependentUpon>
+    <EmbeddedResource Include="Views\SampleListPage.resx">
+      <DependentUpon>SampleListPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\GradeListXtraCon.resx">
+      <DependentUpon>GradeListXtraCon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

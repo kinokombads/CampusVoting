@@ -17,6 +17,8 @@ namespace CampusVoting.BusinessLogics
 
         public Grade Item { get; set; }
         public Grade Params { get; set; }
+
+        public GradeVm VmItem { get; set; }
         public GradeVm VmParams { get; set; }
         public List<Grade> Items { get; set; }
         public List<GradeVm> ListVm { get; set; }
@@ -32,6 +34,11 @@ namespace CampusVoting.BusinessLogics
         public void ResetOne()
         {
             Item = new Grade();
+        }
+
+        public void ResetVmItem()
+        {
+            VmItem = new GradeVm();
         }
 
         public void ResetParams()
@@ -65,25 +72,27 @@ namespace CampusVoting.BusinessLogics
             baseObj.CreatedOn = p.CreatedOn.GetDateTime();
             baseObj.ModifiedById = p.ModifiedById.GetInt();
             baseObj.ModifiedByName = p.ModifiedBy;
-            baseObj.ModifiedOn = p.ModifiedOn.GetDateTime();
+            baseObj.ModifiedOn = p.ModifiedOn.GetNullableDateTime();
 
             return baseObj;
         }
-
-
-
-
+        
+        public void MapToViewModel(object item)
+        {
+            if (item == null) return;
+            ResetVmParams();
+            VmParams = (GradeVm)item;
+        }
         
         public List<GradeVm> GetList(GradeVm p, ref string msg)
         {
             List<GradeVm> items = new List<GradeVm>();
             Grade param = MapProperties(p);
             DataTable dt = db.GetList(param, ref msg);
+            if (msg != "") return new List<GradeVm>();
 
             try
             {
-                if (msg != "") return new List<GradeVm>();
-
                 foreach (DataRow row in dt.Rows)
                 {
                     GradeVm item = new GradeVm();
@@ -95,7 +104,7 @@ namespace CampusVoting.BusinessLogics
                     item.CreatedOn = row["createdOn"].GetDateTime().ToLongDateString();
                     item.ModifiedById = row["modifiedById"].GetString();
                     item.ModifiedBy = row["modifiedByName"].GetString();
-                    item.ModifiedOn = row["modifiedOn"].GetDateTime().ToLongDateString();
+                    item.ModifiedOn = row["modifiedOn"].GetNullableDateTime().ToString();
 
                     items.Add(item);
                 }
@@ -107,7 +116,6 @@ namespace CampusVoting.BusinessLogics
                 msg = ef.GetExceptionMessage(ex, msg);
                 return new List<GradeVm>();
             }
-            
         }
 
         public GradeVm GetOne(GradeVm p, ref string msg)
@@ -122,19 +130,29 @@ namespace CampusVoting.BusinessLogics
                 return new GradeVm();
             }
         }
-        
+
         public bool AddOne(Grade p, ref string msg)
         {
-
-
-            return (EntryChecker.IsNotNullOrWhiteSpace(p.Title, ref msg)) 
+            return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
                 && db.AddOne(p, ref msg);
+        }
+
+        public bool AddOne(GradeVm viewModel, ref string msg)
+        {
+            if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
+            return db.AddOne(MapProperties(viewModel), ref msg);
         }
 
         public bool EditOne(Grade p, ref string msg)
         {
-            return (EntryChecker.IsNotNullOrWhiteSpace(p.Title, ref msg)) 
+            return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
                 && db.EditOne(p, ref msg);
+        }
+
+        public bool EditOne(GradeVm viewModel, ref string msg)
+        {
+            if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
+            return db.EditOne(MapProperties(viewModel), ref msg);
         }
 
         public bool DeleteOne(Grade p, ref string msg)
@@ -143,11 +161,12 @@ namespace CampusVoting.BusinessLogics
                 && db.DeleteOne(p, ref msg);
         }
 
-        public void MapToViewModel(object item)
+        public bool DeleteOne(GradeVm viewModel, ref string msg)
         {
-            if (item == null) return;
-            ResetVmParams();
-            VmParams = (GradeVm) item;
+            if (EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
+            return db.DeleteOne(MapProperties(viewModel), ref msg);
         }
+
+        
     }
 }

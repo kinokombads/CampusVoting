@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
+using CampusVoting.ViewModels;
+using CampusVoting.Views.UserCons;
 using Vota.Helpers;
 
 namespace CampusVoting.Views
@@ -12,17 +14,19 @@ namespace CampusVoting.Views
             InitializeComponent();
         }
 
-        public GradeEditForm(int id)
+        public GradeEditForm(GradeListXtraCon listCon, GradeVm item)
         {
             InitializeComponent();
-            IdLabel.Text = id.GetString();
+            MainCon = listCon;
+            IdLabel.Text = item.Id.GetString();
             pageLabel = PageLabel.Text;
             GetParams();
             DisplayData();
         }
 
+        public GradeListXtraCon MainCon { get; set; }
         GradeBl bl = new GradeBl();
-        private string pageLabel = "";
+        private readonly string pageLabel = "";
 
         private void GetParams()
         {
@@ -39,6 +43,8 @@ namespace CampusVoting.Views
             if (bl.EditOne(bl.Params, ref msg))
             {
                 MessageBox.Show("Updated", pageLabel);
+                MainCon.GetParams();
+                MainCon.LoadList();
             }
             else if (msg != "")
             {
@@ -48,27 +54,21 @@ namespace CampusVoting.Views
 
         private void DisplayData()
         {
-            //GetParams();
-            //bl.ResetOne();
+            IdLabel.Text = bl.Item.Id.GetString();
+            TitleTextBox.Text = bl.Item.Title;
+            DetailsTextBox.Text = bl.Item.Details;
+        }
 
-            //string msg = "";
-            //bl.Item = bl.GetOne(bl.Params, ref msg);
-
-            //if (msg != "")
-            //{
-            //    MessageBox.Show(msg, "Retrieving Grade", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //IdLabel.Text = bl.Item.Id.GetString();
-            //TitleTextBox.Text = bl.Item.Title;
-            //DetailsTextBox.Text = bl.Item.Details;
+        private void Exiter()
+        {
+            Close();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             GetParams();
             Save();
+            Exiter();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

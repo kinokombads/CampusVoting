@@ -62,13 +62,13 @@ namespace CampusVoting.BusinessLogics
         
         public bool AddOne(Student p, ref string msg)
         {
-            return (EntryChecker.IsNotNullOrWhiteSpace(p.Lrn, ref msg)) 
+            return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Lrn, ref msg)) 
                 && db.AddOne(p, ref msg);
         }
 
         public bool EditOne(Student p, ref string msg)
         {
-            return (EntryChecker.IsNotNullOrWhiteSpace(p.Lrn, ref msg)) 
+            return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Lrn, ref msg)) 
                 && db.EditOne(p, ref msg);
         }
 

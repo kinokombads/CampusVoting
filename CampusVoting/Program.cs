@@ -19,5 +19,4 @@ namespace CampusVoting
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
-    }
-}
+    }}

@@ -19,13 +19,13 @@ namespace CampusVoting.Views.UserCons
         private string msg = "";
         GradeBl bl = new GradeBl();
 
-        private void GetParams()
+        public void GetParams()
         {
             bl.ResetVmParams();
             bl.Params.Title = NameTextEdit.Text;
         }
 
-        private void LoadList()
+        public void LoadList()
         {
             bl.ListVm = bl.GetList(bl.VmParams, ref msg);
             if (msg == "")
@@ -44,11 +44,20 @@ namespace CampusVoting.Views.UserCons
 
             if (gridView == null) return;
 
-            var item = gridView.GetRow(gridView.FocusedRowHandle);
+            object item = gridView.GetRow(gridView.FocusedRowHandle);
 
             bl.MapToViewModel(item);
 
-            string sdfsda = "";
+            if (process == ProcessMode.Update)
+            {
+                //load edit form
+            }
+            else
+            {
+                //load delete form
+            }
+
+        
         }
 
 

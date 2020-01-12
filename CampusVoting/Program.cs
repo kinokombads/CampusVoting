@@ -7,16 +7,17 @@ using CampusVoting.Views;
 
 namespace CampusVoting
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        /// </summary>[STAThread]
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new GradeEditForm());
             Application.Run(new MainForm());
         }
-    }}
+    }
+}

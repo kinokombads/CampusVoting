@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using CampusVoting.DataAccess;
 using CampusVoting.Helpers;
@@ -22,6 +23,7 @@ namespace CampusVoting.BusinessLogics
         public GradeVm VmParams { get; set; }
         public List<Grade> Items { get; set; }
         public List<GradeVm> ListVm { get; set; }
+        public bool ChangeOccured { get; set; }
 
         public GradeBl()
         {
@@ -29,6 +31,7 @@ namespace CampusVoting.BusinessLogics
             ResetOne();
             ResetVmParams();
             ResetList();
+            ChangeOccured = false;
         }
 
         public void ResetOne()
@@ -65,13 +68,13 @@ namespace CampusVoting.BusinessLogics
         {
             Grade baseObj = new Grade();
             baseObj.Id = p.Id.GetInt();
-            baseObj.Title = p.Title;
-            baseObj.Details = p.Details;
+            baseObj.Title = p.Title.GetString();
+            baseObj.Details = p.Details.GetString();
             baseObj.CreatedById = p.CreatedById.GetInt();
-            baseObj.CreatedByName = p.CreatedBy;
+            baseObj.CreatedByName = p.CreatedBy.GetString();
             baseObj.CreatedOn = p.CreatedOn.GetDateTime();
             baseObj.ModifiedById = p.ModifiedById.GetInt();
-            baseObj.ModifiedByName = p.ModifiedBy;
+            baseObj.ModifiedByName = p.ModifiedBy.GetString();
             baseObj.ModifiedOn = p.ModifiedOn.GetNullableDateTime();
 
             return baseObj;
@@ -101,10 +104,10 @@ namespace CampusVoting.BusinessLogics
                     item.Details = row["details"].GetString();
                     item.CreatedById = row["createdById"].GetString();
                     item.CreatedBy = row["createdByName"].GetString();
-                    item.CreatedOn = row["createdOn"].GetDateTime().ToLongDateString();
+                    item.CreatedOn = row["createdOn"].GetDateTime().GetString();
                     item.ModifiedById = row["modifiedById"].GetString();
                     item.ModifiedBy = row["modifiedByName"].GetString();
-                    item.ModifiedOn = row["modifiedOn"].GetNullableDateTime().ToString();
+                    item.ModifiedOn = row["modifiedOn"].GetNullableDateTime().GetString();
 
                     items.Add(item);
                 }

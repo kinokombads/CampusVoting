@@ -1,6 +1,6 @@
 ﻿namespace CampusVoting.Views
 {
-    partial class MainForm
+    partial class MainXtraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainXtraForm));
             this.HeaderPanel = new DevExpress.XtraEditors.PanelControl();
             this.BannerTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.LogoutLink = new DevExpress.XtraEditors.HyperlinkLabelControl();
@@ -50,13 +50,14 @@
             this.SectionsElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.GradeAndSectionsElement = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ReportsHeader = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.MainContentPanel = new System.Windows.Forms.Panel();
+            this.ContentXtraPanel = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.HeaderPanel)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             this.BannerTablePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SidePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainNavAccordion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentXtraPanel)).BeginInit();
             this.SuspendLayout();
             // 
             // HeaderPanel
@@ -70,7 +71,7 @@
             this.HeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(1008, 70);
-            this.HeaderPanel.TabIndex = 1;
+            this.HeaderPanel.TabIndex = 0;
             // 
             // BannerTablePanel
             // 
@@ -94,7 +95,6 @@
             // LogoutLink
             // 
             this.LogoutLink.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogoutLink.Appearance.LinkColor = System.Drawing.Color.Navy;
             this.LogoutLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LogoutLink.Dock = System.Windows.Forms.DockStyle.Right;
             this.LogoutLink.LineColor = System.Drawing.Color.Transparent;
@@ -133,7 +133,6 @@
             // LoggedLink
             // 
             this.LoggedLink.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoggedLink.Appearance.LinkColor = System.Drawing.Color.Navy;
             this.LoggedLink.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LoggedLink.Dock = System.Windows.Forms.DockStyle.Right;
             this.LoggedLink.LineColor = System.Drawing.Color.Transparent;
@@ -151,7 +150,7 @@
             this.SidePanel.Location = new System.Drawing.Point(0, 70);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(200, 592);
-            this.SidePanel.TabIndex = 2;
+            this.SidePanel.TabIndex = 1;
             // 
             // MainNavAccordion
             // 
@@ -184,14 +183,13 @@
             this.VotingSessionsElement.Name = "VotingSessionsElement";
             this.VotingSessionsElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.VotingSessionsElement.Text = "Voting Session";
-            this.VotingSessionsElement.Click += new System.EventHandler(this.Navigation_Click);
+            this.VotingSessionsElement.Click += new System.EventHandler(this.NavigationElement_Click);
             // 
             // SchoolYearsElement
             // 
             this.SchoolYearsElement.Name = "SchoolYearsElement";
             this.SchoolYearsElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.SchoolYearsElement.Text = "School Years";
-            this.SchoolYearsElement.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // ParticipantHeader
             // 
@@ -207,14 +205,12 @@
             this.StudentsElement.Name = "StudentsElement";
             this.StudentsElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.StudentsElement.Text = "Students";
-            this.StudentsElement.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // CandidatesElements
             // 
             this.CandidatesElements.Name = "CandidatesElements";
             this.CandidatesElements.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.CandidatesElements.Text = "Candidates";
-            this.CandidatesElements.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // OthersHeader
             // 
@@ -233,68 +229,58 @@
             this.PositionsElement.Name = "PositionsElement";
             this.PositionsElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.PositionsElement.Text = "Positions";
-            this.PositionsElement.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // CampaignGroupsElements
             // 
             this.CampaignGroupsElements.Name = "CampaignGroupsElements";
             this.CampaignGroupsElements.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.CampaignGroupsElements.Text = "Campaign Groups";
-            this.CampaignGroupsElements.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // GradesElement
             // 
             this.GradesElement.Name = "GradesElement";
             this.GradesElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.GradesElement.Text = "Grades";
-            this.GradesElement.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // SectionsElement
             // 
             this.SectionsElement.Name = "SectionsElement";
             this.SectionsElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.SectionsElement.Text = "Sections";
-            this.SectionsElement.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // GradeAndSectionsElement
             // 
             this.GradeAndSectionsElement.Name = "GradeAndSectionsElement";
             this.GradeAndSectionsElement.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.GradeAndSectionsElement.Text = "Grade And Sections";
-            this.GradeAndSectionsElement.Click += new System.EventHandler(this.Navigation_Click);
             // 
             // ReportsHeader
             // 
             this.ReportsHeader.Name = "ReportsHeader";
             this.ReportsHeader.Text = "Reports";
             // 
-            // MainContentPanel
+            // ContentXtraPanel
             // 
-            this.MainContentPanel.AutoSize = true;
-            this.MainContentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.MainContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContentPanel.Location = new System.Drawing.Point(200, 70);
-            this.MainContentPanel.Name = "MainContentPanel";
-            this.MainContentPanel.Size = new System.Drawing.Size(808, 592);
-            this.MainContentPanel.TabIndex = 3;
+            this.ContentXtraPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContentXtraPanel.Location = new System.Drawing.Point(200, 70);
+            this.ContentXtraPanel.Name = "ContentXtraPanel";
+            this.ContentXtraPanel.Size = new System.Drawing.Size(808, 592);
+            this.ContentXtraPanel.TabIndex = 2;
             // 
-            // MainForm
+            // MainXtraForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Appearance.Options.UseFont = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1008, 662);
-            this.Controls.Add(this.MainContentPanel);
+            this.Controls.Add(this.ContentXtraPanel);
             this.Controls.Add(this.SidePanel);
             this.Controls.Add(this.HeaderPanel);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "MainForm";
+            this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.Name = "MainXtraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Text = "MainXtraForm";
             ((System.ComponentModel.ISupportInitialize)(this.HeaderPanel)).EndInit();
             this.HeaderPanel.ResumeLayout(false);
             this.BannerTablePanel.ResumeLayout(false);
@@ -302,8 +288,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.SidePanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainNavAccordion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContentXtraPanel)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -311,9 +297,9 @@
 
         private DevExpress.XtraEditors.PanelControl HeaderPanel;
         private System.Windows.Forms.TableLayoutPanel BannerTablePanel;
-        private DevExpress.XtraEditors.HyperlinkLabelControl LogoutLink;
         private System.Windows.Forms.PictureBox LogoPictureBox;
         private System.Windows.Forms.Label TitleLabel;
+        private DevExpress.XtraEditors.HyperlinkLabelControl LogoutLink;
         private DevExpress.XtraEditors.HyperlinkLabelControl LoggedLink;
         private System.Windows.Forms.Panel SidePanel;
         private DevExpress.XtraBars.Navigation.AccordionControl MainNavAccordion;
@@ -330,8 +316,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement SectionsElement;
         private DevExpress.XtraBars.Navigation.AccordionControlElement GradeAndSectionsElement;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ReportsHeader;
-        private System.Windows.Forms.Panel MainContentPanel;
-
+        private DevExpress.XtraEditors.PanelControl ContentXtraPanel;
 
     }
 }

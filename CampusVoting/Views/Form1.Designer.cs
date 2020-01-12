@@ -1,6 +1,6 @@
 ﻿namespace CampusVoting.Views
 {
-    partial class GradeAddForm
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.TitlePanel = new System.Windows.Forms.Panel();
+            this.IdLabel = new System.Windows.Forms.Label();
             this.PageLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -47,6 +48,7 @@
             // 
             // TitlePanel
             // 
+            this.TitlePanel.Controls.Add(this.IdLabel);
             this.TitlePanel.Controls.Add(this.PageLabel);
             this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
@@ -54,15 +56,25 @@
             this.TitlePanel.Size = new System.Drawing.Size(384, 60);
             this.TitlePanel.TabIndex = 0;
             // 
+            // IdLabel
+            // 
+            this.IdLabel.AutoSize = true;
+            this.IdLabel.Location = new System.Drawing.Point(323, 9);
+            this.IdLabel.Name = "IdLabel";
+            this.IdLabel.Size = new System.Drawing.Size(60, 22);
+            this.IdLabel.TabIndex = 1;
+            this.IdLabel.Text = "label4";
+            this.IdLabel.Visible = false;
+            // 
             // PageLabel
             // 
             this.PageLabel.AutoSize = true;
             this.PageLabel.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PageLabel.Location = new System.Drawing.Point(12, 9);
             this.PageLabel.Name = "PageLabel";
-            this.PageLabel.Size = new System.Drawing.Size(166, 39);
+            this.PageLabel.Size = new System.Drawing.Size(164, 39);
             this.PageLabel.TabIndex = 0;
-            this.PageLabel.Text = "Add Grade";
+            this.PageLabel.Text = "Edit Grade";
             // 
             // panel2
             // 
@@ -147,7 +159,7 @@
             // 
             // ExitButton
             // 
-            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Ignore;
             this.ExitButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExitButton.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -170,11 +182,11 @@
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(175, 38);
             this.SaveButton.TabIndex = 0;
-            this.SaveButton.Text = "Save";
+            this.SaveButton.Text = "Update";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // GradeAddForm
+            // Form1
             // 
             this.AcceptButton = this.SaveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -189,10 +201,10 @@
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "GradeAddForm";
+            this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GradeAddForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradeAddForm_FormClosing);
+            this.Text = "GradeEditForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradeEditForm_FormClosing);
             this.TitlePanel.ResumeLayout(false);
             this.TitlePanel.PerformLayout();
             this.FormPanel.ResumeLayout(false);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Label IdLabel;
     }
 }

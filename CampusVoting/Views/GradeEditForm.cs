@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.ViewModels;
@@ -14,72 +21,83 @@ namespace CampusVoting.Views
             InitializeComponent();
         }
 
-        public GradeEditForm(GradeListXtraCon listCon, GradeVm item)
+        public GradeEditForm(GradeBl bl)
         {
             InitializeComponent();
-            MainCon = listCon;
-            IdLabel.Text = item.Id.GetString();
-            pageLabel = PageLabel.Text;
-            GetParams();
-            DisplayData();
+            GradeBl = bl;
+
+            DisplayInfo();
         }
 
-        public GradeListXtraCon MainCon { get; set; }
-        GradeBl bl = new GradeBl();
-        private readonly string pageLabel = "";
+        private const string PageName = "Grade Edition";
+        private string id;
+        private string previousName = "";
+
+        public GradeBl GradeBl { get; set; }
+
+
+
+
+        private void DisplayInfo()
+        {
+            id = GradeBl.VmParams.Id;
+            previousName = GradeBl.VmParams.Title; //previous value
+
+            NameTextEdit.Text = GradeBl.VmParams.Title;
+            DetailMemoEdit.Text = GradeBl.VmParams.Details;
+        }
 
         private void GetParams()
         {
-            bl.ResetParams();
-            bl.Params.Id = IdLabel.Text.GetInt();
-            bl.Params.Title = TitleTextBox.Text;
-            bl.Params.Details = DetailsTextBox.Text;
-            bl.Params.ModifiedById = 1;
+            GradeBl.ResetVmParams();
+            GradeBl.VmParams.Id = id;
+            GradeBl.VmParams.Title = NameTextEdit.Text;
+            GradeBl.VmParams.Details = DetailMemoEdit.Text;
+            GradeBl.VmParams.ModifiedById = "1"; //todo temp
         }
 
         private void Save()
         {
             string msg = "";
-            if (bl.EditOne(bl.Params, ref msg))
+            if (GradeBl.EditOne(GradeBl.VmParams, ref msg))
             {
-                MessageBox.Show("Updated", pageLabel);
-                MainCon.GetParams();
-                MainCon.LoadList();
+                MessageBox.Show(string.Format("Grade {0} is updated to Grade {1}",
+                    previousName, NameTextEdit.Text), PageName);
+
+                GradeBl.ChangeOccured = true;
+                Close();
             }
             else if (msg != "")
             {
-                MessageBox.Show(msg, pageLabel, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void DisplayData()
+        private void Clearer()
         {
-            IdLabel.Text = bl.Item.Id.GetString();
-            TitleTextBox.Text = bl.Item.Title;
-            DetailsTextBox.Text = bl.Item.Details;
+            NameTextEdit.Text = "";
+            DetailMemoEdit.Text = "";
         }
 
-        private void Exiter()
+        
+        private void LogoPictureBox_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void SaveSimButton_Click(object sender, EventArgs e)
         {
             GetParams();
             Save();
-            Exiter();
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void ClearSimButton_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Clearer();
         }
 
         private void GradeEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Dispose();
         }
-
     }
 }

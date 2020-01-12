@@ -41,6 +41,7 @@
     <Reference Include="DevExpress.XtraEditors.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v15.2, Version=15.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="mysql.data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -99,6 +100,12 @@
     <Compile Include="ViewModels\ConfigTableVm.cs" />
     <Compile Include="ViewModels\GradeVm.cs" />
     <Compile Include="ViewModels\StudentVm.cs" />
+    <Compile Include="Views\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GradeAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +124,12 @@
     <Compile Include="Views\GradeEditXtraForm.Designer.cs">
       <DependentUpon>GradeEditXtraForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainXtraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainXtraForm.Designer.cs">
+      <DependentUpon>MainXtraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SampleListPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,11 +142,23 @@
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserCons\GradeListCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\GradeListCon.Designer.cs">
+      <DependentUpon>GradeListCon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\GradeListXtraCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\UserCons\GradeListXtraCon.Designer.cs">
       <DependentUpon>GradeListXtraCon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserCons\SectionListXtraCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\SectionListXtraCon.Designer.cs">
+      <DependentUpon>SectionListXtraCon.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -146,6 +171,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GradeAddForm.resx">
       <DependentUpon>GradeAddForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,14 +183,23 @@
     <EmbeddedResource Include="Views\GradeEditXtraForm.resx">
       <DependentUpon>GradeEditXtraForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainXtraForm.resx">
+      <DependentUpon>MainXtraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SampleListPage.resx">
       <DependentUpon>SampleListPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\GradeListCon.resx">
+      <DependentUpon>GradeListCon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\GradeListXtraCon.resx">
       <DependentUpon>GradeListXtraCon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\SectionListXtraCon.resx">
+      <DependentUpon>SectionListXtraCon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

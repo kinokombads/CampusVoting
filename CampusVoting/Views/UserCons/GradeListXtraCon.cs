@@ -51,6 +51,8 @@ namespace CampusVoting.Views.UserCons
             if (process == ProcessMode.Update)
             {
                 //load edit form
+                var editForm = new GradeEditXtraForm(this, bl.VmParams);
+                editForm.ShowDialog();
             }
             else
             {

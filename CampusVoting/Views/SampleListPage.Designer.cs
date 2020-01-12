@@ -39,9 +39,9 @@ namespace CampusVoting.Views
         /// </summary>
         private void InitializeComponent()
         {
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(SampleListPage));
-            SerializableAppearanceObject serializableAppearanceObject1 = new SerializableAppearanceObject();
-            SerializableAppearanceObject serializableAppearanceObject2 = new SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SampleListPage));
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -50,15 +50,15 @@ namespace CampusVoting.Views
             this.TitleTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.GridPanelControl = new DevExpress.XtraEditors.PanelControl();
-            this.ListGridControl = new GridControl();
+            this.ListGridControl = new DevExpress.XtraGrid.GridControl();
             this.ItemsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.IdColumn = new GridColumn();
-            this.LrnColumn = new GridColumn();
-            this.LastNameColumn = new GridColumn();
-            this.EditColumn = new GridColumn();
-            this.repositoryItemButtonEdit2 = new RepositoryItemButtonEdit();
-            this.DeleteColumn = new GridColumn();
-            this.repositoryItemButtonEdit1 = new RepositoryItemButtonEdit();
+            this.IdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LrnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LastNameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.EditColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.DeleteColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TitleTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GridPanelControl)).BeginInit();
@@ -190,7 +190,7 @@ namespace CampusVoting.Views
             // 
             // ItemsGridView
             // 
-            this.ItemsGridView.Columns.AddRange(new GridColumn[] {
+            this.ItemsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IdColumn,
             this.LrnColumn,
             this.LastNameColumn,
@@ -230,7 +230,8 @@ namespace CampusVoting.Views
             this.EditColumn.Caption = "Edit";
             this.EditColumn.ColumnEdit = this.repositoryItemButtonEdit2;
             this.EditColumn.Name = "EditColumn";
-            this.EditColumn.Visible = true;this.EditColumn.VisibleIndex = 3;
+            this.EditColumn.Visible = true;
+            this.EditColumn.VisibleIndex = 3;
             // 
             // repositoryItemButtonEdit2
             // 

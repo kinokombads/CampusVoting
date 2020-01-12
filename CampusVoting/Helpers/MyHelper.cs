@@ -8,7 +8,7 @@ namespace CampusVoting.Helpers
 {
     public static class MyHelper
     {
-        private static readonly string ConString = ConfigurationManager.ConnectionStrings["VoteContext"].ConnectionString;
+        private static string ConString = ConfigurationManager.ConnectionStrings["VoteContext"].ConnectionString;
         private const int ComTym = 500;
        
         

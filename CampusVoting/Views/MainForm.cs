@@ -50,7 +50,9 @@ namespace CampusVoting.Views
                 case "Candidates":
                     break;
                 case "Grades":
-                    MainContentPanel.Controls.Add(new GradeListCon());
+                    var gradeList = new GradeListCon { Dock = DockStyle.Fill };
+                    MainContentPanel.Controls.Add(gradeList);
+
                     break;
                 default:
                     break;

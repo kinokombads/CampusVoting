@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Enums;
@@ -20,13 +13,11 @@ namespace CampusVoting.Views.UserCons
         public GradeListCon()
         {
             InitializeComponent();
-            ChangeOccured = false;
         }
-
-        public bool ChangeOccured { get; set; }
-
+        
         private string msg = "";
         GradeBl gradeBl = new GradeBl();
+
 
         public void GetParams()
         {
@@ -49,8 +40,12 @@ namespace CampusVoting.Views.UserCons
 
         protected override bool ProcessCmdKey(ref Message message, Keys keyData)
         {
-            switch (keyData)
+            if (!ItemsGridView.IsFocusedView)
             {
+                return false;
+            }
+
+            switch (keyData){
                 case Keys.Delete:
                     GetSelected(ProcessMode.Delete);
                     break;
@@ -74,28 +69,38 @@ namespace CampusVoting.Views.UserCons
 
             if (process == ProcessMode.Update)
             {
-                //load edit form
                 GradeEditForm editForm = new GradeEditForm(gradeBl);
                 editForm.ShowDialog();
-
-                if (!gradeBl.ChangeOccured) return;
-                LoadList();
-                gradeBl.ChangeOccured = false;
+                RefreshWhenChanged();
             }
             else
             {
-                //load delete form
+                GradeDeleteForm deleteForm = new GradeDeleteForm(gradeBl);
+                deleteForm.ShowDialog();
+                RefreshWhenChanged();
             }
-
 
         }
 
+        private void RefreshWhenChanged()
+        {
+            if (!gradeBl.ChangeOccured) return;
+            LoadList();
+            gradeBl.ChangeOccured = false;
+        }
 
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
             GetParams();
             LoadList();
+        }
+
+        private void AddSimButton_Click(object sender, EventArgs e)
+        {
+            GradeAddForm addForm = new GradeAddForm(gradeBl);
+            addForm.ShowDialog();
+            RefreshWhenChanged();
         }
 
         private void EditRepoButton_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -106,6 +111,18 @@ namespace CampusVoting.Views.UserCons
         private void ListGridControl_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             GetSelected(ProcessMode.Update);
+        }
+
+        private void GradeListCon_VisibleChanged(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void NameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 13 || ItemsGridView.IsFocusedView) return;
+            GetParams();
+            LoadList();
         }
 
 

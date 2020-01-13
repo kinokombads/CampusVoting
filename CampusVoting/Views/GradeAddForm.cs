@@ -9,44 +9,64 @@ namespace CampusVoting.Views
         public GradeAddForm()
         {
             InitializeComponent();
-            pageLabel = PageLabel.Text;
-
         }
 
-        GradeBl bl = new GradeBl();
-        private string pageLabel = "";
+        public GradeAddForm(GradeBl bl)
+        {
+            InitializeComponent();
+            GradeBl = bl;
+        }
+
+        public GradeBl GradeBl { get; set; }
+        private const string PageName = "Grade Addition";
+
         private void GetParams()
         {
-            bl.ResetParams();
-            bl.Params.Title = TitleTextBox.Text;
-            bl.Params.Details = DetailsTextBox.Text;
-            bl.Params.CreatedById = 1;
+            GradeBl.ResetVmParams();
+            GradeBl.VmParams.Title = NameTextEdit.Text;
+            GradeBl.VmParams.Details = DetailMemoEdit.Text;
+            GradeBl.VmParams.CreatedById = "1"; //todo temp
         }
 
         private void Save()
         {
             string msg = "";
-            if (bl.AddOne(bl.Params, ref msg))
+            if (GradeBl.AddOne(GradeBl.Params, ref msg))
             {
-                MessageBox.Show("Saved", pageLabel);
+                MessageBox.Show(string.Format("Grade {0} has been added.", NameTextEdit.Text), PageName);
+                GradeBl.ChangeOccured = true;
+                Close();
+
             }
             else if (msg != "")
             {
-                MessageBox.Show(msg, pageLabel, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void Clearer()
+        {
+            NameTextEdit.Text = "";
+            DetailMemoEdit.Text = "";
+        }
+
+        
+        private void LogoPictureBox_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void SaveSimButton_Click(object sender, EventArgs e)
         {
             GetParams();
             Save();
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void ClearSimButton_Click(object sender, EventArgs e)
         {
-            Dispose();
+            Clearer();
         }
-
+        
         private void GradeAddForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Dispose();

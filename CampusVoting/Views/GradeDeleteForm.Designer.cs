@@ -1,6 +1,6 @@
 ﻿namespace CampusVoting.Views
 {
-    partial class GradeEditForm
+    partial class GradeDeleteForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradeEditForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradeDeleteForm));
             this.MainPanelControl = new DevExpress.XtraEditors.PanelControl();
             this.MainScrollCon = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.ClearSimButton = new DevExpress.XtraEditors.SimpleButton();
+            this.CancelSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.panel10 = new System.Windows.Forms.Panel();
             this.SaveSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -41,7 +41,6 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.NameTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.HeaderPanel = new System.Windows.Forms.Panel();
@@ -79,7 +78,7 @@
             // 
             // MainScrollCon
             // 
-            this.MainScrollCon.Controls.Add(this.ClearSimButton);
+            this.MainScrollCon.Controls.Add(this.CancelSimButton);
             this.MainScrollCon.Controls.Add(this.panel10);
             this.MainScrollCon.Controls.Add(this.SaveSimButton);
             this.MainScrollCon.Controls.Add(this.panel9);
@@ -96,20 +95,21 @@
             this.MainScrollCon.Size = new System.Drawing.Size(448, 384);
             this.MainScrollCon.TabIndex = 10;
             // 
-            // ClearSimButton
+            // CancelSimButton
             // 
-            this.ClearSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearSimButton.Appearance.Options.UseFont = true;
-            this.ClearSimButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ClearSimButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearSimButton.Image")));
-            this.ClearSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.ClearSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.ClearSimButton.Location = new System.Drawing.Point(0, 242);
-            this.ClearSimButton.Name = "ClearSimButton";
-            this.ClearSimButton.Size = new System.Drawing.Size(448, 40);
-            this.ClearSimButton.TabIndex = 27;
-            this.ClearSimButton.Text = "CLEAR  ";
-            this.ClearSimButton.Click += new System.EventHandler(this.ClearSimButton_Click);
+            this.CancelSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelSimButton.Appearance.Options.UseFont = true;
+            this.CancelSimButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelSimButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CancelSimButton.Image = ((System.Drawing.Image)(resources.GetObject("CancelSimButton.Image")));
+            this.CancelSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.CancelSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.CancelSimButton.Location = new System.Drawing.Point(0, 242);
+            this.CancelSimButton.Name = "CancelSimButton";
+            this.CancelSimButton.Size = new System.Drawing.Size(448, 40);
+            this.CancelSimButton.TabIndex = 27;
+            this.CancelSimButton.Text = "CANCEL";
+            this.CancelSimButton.Click += new System.EventHandler(this.CancelSimButton_Click);
             // 
             // panel10
             // 
@@ -132,7 +132,7 @@
             this.SaveSimButton.Name = "SaveSimButton";
             this.SaveSimButton.Size = new System.Drawing.Size(448, 40);
             this.SaveSimButton.TabIndex = 25;
-            this.SaveSimButton.Text = "UPDATE";
+            this.SaveSimButton.Text = "DELETE   ";
             this.SaveSimButton.Click += new System.EventHandler(this.SaveSimButton_Click);
             // 
             // panel9
@@ -153,6 +153,7 @@
             this.DetailMemoEdit.Properties.Appearance.Options.UseFont = true;
             this.DetailMemoEdit.Properties.NullValuePrompt = "Some description";
             this.DetailMemoEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            this.DetailMemoEdit.Properties.ReadOnly = true;
             this.DetailMemoEdit.Size = new System.Drawing.Size(448, 100);
             this.DetailMemoEdit.TabIndex = 23;
             // 
@@ -195,13 +196,13 @@
             this.NameTextEdit.Properties.Appearance.Options.UseFont = true;
             this.NameTextEdit.Properties.NullValuePrompt = "Grade name";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            this.NameTextEdit.Properties.ReadOnly = true;
             this.NameTextEdit.Size = new System.Drawing.Size(448, 28);
             this.NameTextEdit.TabIndex = 20;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.DimGray;
-            this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.label1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,18 +210,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(448, 22);
             this.panel6.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(56, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "*";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -260,7 +249,7 @@
             this.PageLabel.Name = "PageLabel";
             this.PageLabel.Size = new System.Drawing.Size(368, 40);
             this.PageLabel.TabIndex = 3;
-            this.PageLabel.Text = "Edit Grade";
+            this.PageLabel.Text = "Delete Grade";
             this.PageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -309,18 +298,20 @@
             this.panel2.Size = new System.Drawing.Size(458, 5);
             this.panel2.TabIndex = 6;
             // 
-            // GradeEditForm
+            // GradeDeleteForm
             // 
+            this.AcceptButton = this.SaveSimButton;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.CancelButton = this.CancelSimButton;
             this.ClientSize = new System.Drawing.Size(462, 433);
             this.Controls.Add(this.MainPanelControl);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Name = "GradeEditForm";
+            this.Name = "GradeDeleteForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradeEditForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradeEditForm_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradeDeleteForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelControl)).EndInit();
             this.MainPanelControl.ResumeLayout(false);
             this.MainScrollCon.ResumeLayout(false);
@@ -347,7 +338,6 @@
         private System.Windows.Forms.PictureBox LogoPictureBox;
         private DevExpress.XtraEditors.XtraScrollableControl MainScrollCon;
         private System.Windows.Forms.Panel panel4;
-        private DevExpress.XtraEditors.SimpleButton ClearSimButton;
         private System.Windows.Forms.Panel panel10;
         private DevExpress.XtraEditors.SimpleButton SaveSimButton;
         private System.Windows.Forms.Panel panel9;
@@ -359,11 +349,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label2;
-
-
-
-
-
+        private DevExpress.XtraEditors.SimpleButton CancelSimButton;
     }
 }

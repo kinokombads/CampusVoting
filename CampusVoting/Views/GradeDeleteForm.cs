@@ -4,42 +4,31 @@ using CampusVoting.BusinessLogics;
 
 namespace CampusVoting.Views
 {
-    public partial class GradeEditForm : Form
+    public partial class GradeDeleteForm : Form
     {
-        public GradeEditForm()
+        public GradeDeleteForm()
         {
             InitializeComponent();
         }
 
-        public GradeEditForm(GradeBl bl)
+        public GradeDeleteForm(GradeBl bl)
         {
             InitializeComponent();
             GradeBl = bl;
             DisplayInfo();
         }
 
-        private const string PageName = "Grade Edition";
+        private const string PageName = "Grade Deletion";
         private string id;
-        private string previousName = "";
 
         public GradeBl GradeBl { get; set; }
         
+
         private void DisplayInfo()
         {
             id = GradeBl.VmParams.Id;
-            previousName = GradeBl.VmParams.Title; //previous value
-
             NameTextEdit.Text = GradeBl.VmParams.Title;
             DetailMemoEdit.Text = GradeBl.VmParams.Details;
-        }
-
-        private void GetParams()
-        {
-            GradeBl.ResetVmParams();
-            GradeBl.VmParams.Id = id;
-            GradeBl.VmParams.Title = NameTextEdit.Text;
-            GradeBl.VmParams.Details = DetailMemoEdit.Text;
-            GradeBl.VmParams.ModifiedById = "1"; //todo temp
         }
 
         private void Save()
@@ -47,8 +36,8 @@ namespace CampusVoting.Views
             string msg = "";
             if (GradeBl.EditOne(GradeBl.VmParams, ref msg))
             {
-                MessageBox.Show(string.Format("Grade {0} is updated to Grade {1}",
-                    previousName, NameTextEdit.Text), PageName);
+                MessageBox.Show(string.Format("Grade {0} has been deleted.",
+                    NameTextEdit.Text), PageName);
 
                 GradeBl.ChangeOccured = true;
                 Close();
@@ -58,13 +47,8 @@ namespace CampusVoting.Views
                 MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void Clearer()
-        {
-            NameTextEdit.Text = "";
-            DetailMemoEdit.Text = "";
-        }
 
-        
+
         private void LogoPictureBox_Click(object sender, EventArgs e)
         {
             Close();
@@ -72,18 +56,22 @@ namespace CampusVoting.Views
 
         private void SaveSimButton_Click(object sender, EventArgs e)
         {
-            GetParams();
-            Save();
+            DialogResult result = MessageBox.Show(string.Format("Are you sure to delete {0}?", NameTextEdit.Text), PageName, 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            
+            if (result == DialogResult.Yes) Save();
         }
 
-        private void ClearSimButton_Click(object sender, EventArgs e)
+        private void CancelSimButton_Click(object sender, EventArgs e)
         {
-            Clearer();
+            Close();
         }
 
-        private void GradeEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void GradeDeleteForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Dispose();
         }
+
+        
     }
 }

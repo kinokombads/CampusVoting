@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogics\SectionBl.cs" />
     <Compile Include="BusinessLogics\StudentBl.cs" />
     <Compile Include="DataAccess\SectionDal.cs" />
     <Compile Include="DataAccess\StudentDal.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="ViewModels\CampaignGroupVm.cs" />
     <Compile Include="ViewModels\ConfigTableVm.cs" />
     <Compile Include="ViewModels\GradeVm.cs" />
+    <Compile Include="ViewModels\SectionVm.cs" />
     <Compile Include="ViewModels\StudentVm.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
@@ -126,18 +128,6 @@
     <Compile Include="Views\GradeEditForm.Designer.cs">
       <DependentUpon>GradeEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\GradeEditXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\GradeEditXtraForm.Designer.cs">
-      <DependentUpon>GradeEditXtraForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainXtraForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\MainXtraForm.Designer.cs">
-      <DependentUpon>MainXtraForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\SampleListPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,17 +152,11 @@
     <Compile Include="Views\UserCons\GradeListCon.Designer.cs">
       <DependentUpon>GradeListCon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserCons\GradeListXtraCon.cs">
+    <Compile Include="Views\UserCons\SectionListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UserCons\GradeListXtraCon.Designer.cs">
-      <DependentUpon>GradeListXtraCon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserCons\SectionListXtraCon.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\UserCons\SectionListXtraCon.Designer.cs">
-      <DependentUpon>SectionListXtraCon.cs</DependentUpon>
+    <Compile Include="Views\UserCons\SectionListCon.Designer.cs">
+      <DependentUpon>SectionListCon.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -197,12 +181,6 @@
     <EmbeddedResource Include="Views\GradeEditForm.resx">
       <DependentUpon>GradeEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\GradeEditXtraForm.resx">
-      <DependentUpon>GradeEditXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\MainXtraForm.resx">
-      <DependentUpon>MainXtraForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\SampleListPage.resx">
       <DependentUpon>SampleListPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,11 +193,8 @@
     <EmbeddedResource Include="Views\UserCons\GradeListCon.resx">
       <DependentUpon>GradeListCon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserCons\GradeListXtraCon.resx">
-      <DependentUpon>GradeListXtraCon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserCons\SectionListXtraCon.resx">
-      <DependentUpon>SectionListXtraCon.cs</DependentUpon>
+    <EmbeddedResource Include="Views\UserCons\SectionListCon.resx">
+      <DependentUpon>SectionListCon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

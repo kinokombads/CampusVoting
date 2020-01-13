@@ -16,48 +16,48 @@ namespace CampusVoting.BusinessLogics
         private readonly GradeDal db = new GradeDal();
         private ExceptionFound ef = new ExceptionFound();
 
-        public Grade Item { get; set; }
-        public Grade Params { get; set; }
+        //public Grade Item { get; set; }
+        //public Grade Params { get; set; }
 
         public GradeVm VmItem { get; set; }
         public GradeVm VmParams { get; set; }
-        public List<Grade> Items { get; set; }
+        //public List<Grade> Items { get; set; }
         public List<GradeVm> ListVm { get; set; }
         public bool ChangeOccured { get; set; }
 
         public GradeBl()
         {
-            ResetParams();
-            ResetOne();
+            //ResetParams();
+            //ResetOne();
             ResetVmParams();
-            ResetList();
+            //ResetList();
             ChangeOccured = false;
         }
 
-        public void ResetOne()
-        {
-            Item = new Grade();
-        }
+        //public void ResetOne()
+        //{
+        //    Item = new Grade();
+        //}
 
         public void ResetVmItem()
         {
             VmItem = new GradeVm();
         }
 
-        public void ResetParams()
-        {
-            Params = new Grade();
-        }
+        //public void ResetParams()
+        //{
+        //    Params = new Grade();
+        //}
 
         public void ResetVmParams()
         {
             VmParams = new GradeVm();
         }
 
-        public void ResetList()
-        {
-            Items = new List<Grade>();
-        }
+        //public void ResetList()
+        //{
+        //    Items = new List<Grade>();
+        //}
 
         public void ResetVmList()
         {
@@ -134,11 +134,11 @@ namespace CampusVoting.BusinessLogics
             }
         }
 
-        public bool AddOne(Grade p, ref string msg)
-        {
-            return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
-                && db.AddOne(p, ref msg);
-        }
+        //public bool AddOne(Grade p, ref string msg)
+        //{
+        //    return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
+        //        && db.AddOne(p, ref msg);
+        //}
 
         public bool AddOne(GradeVm viewModel, ref string msg)
         {
@@ -146,11 +146,11 @@ namespace CampusVoting.BusinessLogics
             return db.AddOne(MapProperties(viewModel), ref msg);
         }
 
-        public bool EditOne(Grade p, ref string msg)
-        {
-            return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
-                && db.EditOne(p, ref msg);
-        }
+        //public bool EditOne(Grade p, ref string msg)
+        //{
+        //    return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
+        //        && db.EditOne(p, ref msg);
+        //}
 
         public bool EditOne(GradeVm viewModel, ref string msg)
         {
@@ -158,15 +158,14 @@ namespace CampusVoting.BusinessLogics
             return db.EditOne(MapProperties(viewModel), ref msg);
         }
 
-        public bool DeleteOne(Grade p, ref string msg)
-        {
-            return EntryChecker.IsNotZeroOrNull(p.Id, ref msg)
-                && db.DeleteOne(p, ref msg);
-        }
+        //public bool DeleteOne(Grade p, ref string msg)
+        //{
+        //    return EntryChecker.IsNotZeroOrNull(p.Id, ref msg)
+        //        && db.DeleteOne(p, ref msg);
+        //}
 
         public bool DeleteOne(GradeVm viewModel, ref string msg)
         {
-            //var isZero = EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg);
             if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
         }

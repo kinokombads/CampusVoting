@@ -72,10 +72,7 @@ namespace CampusVoting.Views
         {
             Dispose();
         }
-        private void GradeAddForm_Load(object sender, EventArgs e)
-        {
-            //NameTextEdit.Focus();
-        }
+        
 
     }
 }

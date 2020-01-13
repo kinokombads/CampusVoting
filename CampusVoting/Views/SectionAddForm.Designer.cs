@@ -320,6 +320,7 @@
             this.Name = "SectionAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradeEditForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SectionAddForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelControl)).EndInit();
             this.MainPanelControl.ResumeLayout(false);
             this.MainScrollCon.ResumeLayout(false);

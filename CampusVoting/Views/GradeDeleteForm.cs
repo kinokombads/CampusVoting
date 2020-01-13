@@ -28,13 +28,12 @@ namespace CampusVoting.Views
         {
             id = GradeBl.VmParams.Id;
             NameTextEdit.Text = GradeBl.VmParams.Title;
-            DetailMemoEdit.Text = GradeBl.VmParams.Details;
-        }
+            DetailMemoEdit.Text = GradeBl.VmParams.Details;}
 
         private void Save()
         {
             string msg = "";
-            if (GradeBl.EditOne(GradeBl.VmParams, ref msg))
+            if (GradeBl.DeleteOne(GradeBl.VmParams, ref msg))
             {
                 MessageBox.Show(string.Format("Grade {0} has been deleted.",
                     NameTextEdit.Text), PageName);

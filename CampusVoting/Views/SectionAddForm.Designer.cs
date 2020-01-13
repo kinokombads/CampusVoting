@@ -1,6 +1,6 @@
 ﻿namespace CampusVoting.Views
 {
-    partial class GradeAddForm
+    partial class SectionAddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradeAddForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SectionAddForm));
             this.MainPanelControl = new DevExpress.XtraEditors.PanelControl();
             this.MainScrollCon = new DevExpress.XtraEditors.XtraScrollableControl();
             this.ClearSimButton = new DevExpress.XtraEditors.SimpleButton();
@@ -260,7 +260,7 @@
             this.PageLabel.Name = "PageLabel";
             this.PageLabel.Size = new System.Drawing.Size(368, 40);
             this.PageLabel.TabIndex = 3;
-            this.PageLabel.Text = "Add Grade";
+            this.PageLabel.Text = "Add Section";
             this.PageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -309,7 +309,7 @@
             this.panel2.Size = new System.Drawing.Size(458, 5);
             this.panel2.TabIndex = 6;
             // 
-            // GradeAddForm
+            // SectionAddForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -317,10 +317,9 @@
             this.Controls.Add(this.MainPanelControl);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Name = "GradeAddForm";
+            this.Name = "SectionAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GradeEditForm";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradeAddForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelControl)).EndInit();
             this.MainPanelControl.ResumeLayout(false);
             this.MainScrollCon.ResumeLayout(false);
@@ -360,8 +359,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-
-
-
     }
 }

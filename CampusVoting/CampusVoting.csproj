@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogics\StudentBl.cs" />
+    <Compile Include="DataAccess\SectionDal.cs" />
     <Compile Include="DataAccess\StudentDal.cs" />
     <Compile Include="Enums\ProcessMode.cs" />
     <Compile Include="Helpers\DialogMessage.cs" />
@@ -149,6 +150,12 @@
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SectionAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SectionAddForm.Designer.cs">
+      <DependentUpon>SectionAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\GradeListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SectionAddForm.resx">
+      <DependentUpon>SectionAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\GradeListCon.resx">
       <DependentUpon>GradeListCon.cs</DependentUpon>

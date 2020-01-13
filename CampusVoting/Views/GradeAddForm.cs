@@ -15,6 +15,7 @@ namespace CampusVoting.Views
         {
             InitializeComponent();
             GradeBl = bl;
+            NameTextEdit.Select();
         }
 
         public GradeBl GradeBl { get; set; }
@@ -31,7 +32,7 @@ namespace CampusVoting.Views
         private void Save()
         {
             string msg = "";
-            if (GradeBl.AddOne(GradeBl.Params, ref msg))
+            if (GradeBl.AddOne(GradeBl.VmParams, ref msg))
             {
                 MessageBox.Show(string.Format("Grade {0} has been added.", NameTextEdit.Text), PageName);
                 GradeBl.ChangeOccured = true;
@@ -70,6 +71,10 @@ namespace CampusVoting.Views
         private void GradeAddForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Dispose();
+        }
+        private void GradeAddForm_Load(object sender, EventArgs e)
+        {
+            //NameTextEdit.Focus();
         }
 
     }

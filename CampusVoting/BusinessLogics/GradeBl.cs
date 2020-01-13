@@ -166,7 +166,8 @@ namespace CampusVoting.BusinessLogics
 
         public bool DeleteOne(GradeVm viewModel, ref string msg)
         {
-            if (EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
+            //var isZero = EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg);
+            if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
         }
 

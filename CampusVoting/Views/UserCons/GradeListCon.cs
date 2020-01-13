@@ -13,6 +13,7 @@ namespace CampusVoting.Views.UserCons
         public GradeListCon()
         {
             InitializeComponent();
+            NameTextEdit.Select();
         }
         
         private string msg = "";

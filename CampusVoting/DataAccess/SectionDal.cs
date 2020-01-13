@@ -6,19 +6,19 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class GradeDal
+    public class SectionDal
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
-        public DataTable GetList(Grade p, ref string msg)
+        public DataTable GetList(Section p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "GetGrades";
+            command.CommandText = "GetSections";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
-            
+
             DataTable dt = MyHelper.GetData(command, ref msg);
             try
             {
@@ -30,11 +30,11 @@ namespace CampusVoting.DataAccess
                 return new DataTable();
             }
         }
-        
-        public bool AddOne(Grade p, ref string msg)
+
+        public bool AddOne(Section p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "AddGrade";
+            command.CommandText = "AddSection";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
@@ -45,7 +45,7 @@ namespace CampusVoting.DataAccess
             try
             {
                 MyHelper.ExecuteNonQuery(command, ref msg);
-                if ((int) command.Parameters["itExists"].Value == 0) return true;
+                if ((int)command.Parameters["itExists"].Value == 0) return true;
                 msg = msg + "\nThis item is already in the database";
                 return false;
             }
@@ -57,10 +57,10 @@ namespace CampusVoting.DataAccess
 
         }
 
-        public bool EditOne(Grade p, ref string msg)
+        public bool EditOne(Section p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "EditGrade";
+            command.CommandText = "EditSection";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
@@ -83,13 +83,13 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool DeleteOne(Grade p, ref string msg)
+        public bool DeleteOne(Section p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "DeleteGrade";
+            command.CommandText = "DeleteSection";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intGradeId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intSectionId", p.Id).Direction = ParameterDirection.Input;
 
             try
             {
@@ -101,6 +101,5 @@ namespace CampusVoting.DataAccess
                 return false;
             }
         }
-        
     }
 }

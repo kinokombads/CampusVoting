@@ -16,6 +16,7 @@ namespace CampusVoting.Views
             InitializeComponent();
             GradeBl = bl;
             DisplayInfo();
+            NameTextEdit.Select();
         }
 
         private const string PageName = "Grade Edition";

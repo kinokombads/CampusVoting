@@ -6,17 +6,17 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class SectionDal
+    public class GradeAndSectionAndSectionDal
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
-        public DataTable GetList(Section p, ref string msg)
+        public DataTable GetList(GradeAndSection p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "GetSections";
+            command.CommandText = "GetGradeAndSections";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intSectionId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
 
             DataTable dt = MyHelper.GetData(command, ref msg);
@@ -31,14 +31,15 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool AddOne(Section p, ref string msg)
+        public bool AddOne(GradeAndSection p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "AddSection";
+            command.CommandText = "AddGradeAndSection";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intGradeId", p.GradeId).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intSectionId", p.SectionId).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intCreatedById", p.CreatedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
 
@@ -57,15 +58,16 @@ namespace CampusVoting.DataAccess
 
         }
 
-        public bool EditOne(Section p, ref string msg)
+        public bool EditOne(GradeAndSection p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "EditSection";
+            command.CommandText = "EditGradeAndSection";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intSectionId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intGradeId", p.GradeId).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intSectionId", p.SectionId).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intModifiedById", p.ModifiedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
 
@@ -83,13 +85,13 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool DeleteOne(Section p, ref string msg)
+        public bool DeleteOne(GradeAndSection p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "DeleteSection";
+            command.CommandText = "DeleteGradeAndSection";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intSectionId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intGradeAndSectionId", p.Id).Direction = ParameterDirection.Input;
 
             try
             {

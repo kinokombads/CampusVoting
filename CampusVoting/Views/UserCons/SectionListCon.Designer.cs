@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SectionListCon));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             this.SearchPanel = new System.Windows.Forms.Panel();
             this.AddSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.SearchButton = new DevExpress.XtraEditors.SimpleButton();
@@ -115,6 +115,7 @@
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.NameTextEdit.Size = new System.Drawing.Size(300, 30);
             this.NameTextEdit.TabIndex = 3;
+            this.NameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextEdit_KeyPress);
             // 
             // ListNameLabel
             // 
@@ -143,6 +144,7 @@
             this.ListGridControl.TabIndex = 1;
             this.ListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ItemsGridView});
+            this.ListGridControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListGridControl_MouseDoubleClick);
             // 
             // ItemsGridView
             // 
@@ -234,13 +236,13 @@
             // EditRepoButton
             // 
             this.EditRepoButton.AutoHeight = false;
-            toolTipItem1.Text = "Edit";
-            superToolTip1.Items.Add(toolTipItem1);
-            toolTipItem2.Text = "Delete";
-            superToolTip2.Items.Add(toolTipItem2);
+            toolTipItem5.Text = "Edit";
+            superToolTip5.Items.Add(toolTipItem5);
+            toolTipItem6.Text = "Delete";
+            superToolTip6.Items.Add(toolTipItem6);
             this.EditRepoButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Edit Item", null, superToolTip1, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Delete Item", null, superToolTip2, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "Edit Item", null, superToolTip5, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "Delete Item", null, superToolTip6, true)});
             this.EditRepoButton.Name = "EditRepoButton";
             this.EditRepoButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.EditRepoButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.EditRepoButton_ButtonClick);
@@ -255,6 +257,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "SectionListCon";
             this.Size = new System.Drawing.Size(848, 592);
+            this.VisibleChanged += new System.EventHandler(this.SectionListCon_VisibleChanged);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).EndInit();

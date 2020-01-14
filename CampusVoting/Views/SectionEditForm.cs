@@ -4,54 +4,54 @@ using CampusVoting.BusinessLogics;
 
 namespace CampusVoting.Views
 {
-    public partial class GradeEditForm : Form
+    public partial class SectionEditForm : Form
     {
-        public GradeEditForm()
+        public SectionEditForm()
         {
             InitializeComponent();
         }
 
-        public GradeEditForm(GradeBl bl)
+        public SectionEditForm(SectionBl bl)
         {
             InitializeComponent();
-            GradeBl = bl;
+            SectionBl = bl;
             DisplayInfo();
             NameTextEdit.Select();
         }
 
-        private const string PageName = "Grade Edition";
+        private const string PageName = "Section Edition";
         private string id;
         private string previousName = "";
 
-        public GradeBl GradeBl { get; set; }
-        
+        public SectionBl SectionBl { get; set; }
+
         private void DisplayInfo()
         {
-            id = GradeBl.VmParams.Id;
-            previousName = GradeBl.VmParams.Title; //previous value
+            id = SectionBl.VmParams.Id;
+            previousName = SectionBl.VmParams.Title; //previous value
 
-            NameTextEdit.Text = GradeBl.VmParams.Title;
-            DetailMemoEdit.Text = GradeBl.VmParams.Details;
+            NameTextEdit.Text = SectionBl.VmParams.Title;
+            DetailMemoEdit.Text = SectionBl.VmParams.Details;
         }
 
         private void GetParams()
         {
-            GradeBl.ResetVmParams();
-            GradeBl.VmParams.Id = id;
-            GradeBl.VmParams.Title = NameTextEdit.Text;
-            GradeBl.VmParams.Details = DetailMemoEdit.Text;
-            GradeBl.VmParams.ModifiedById = "1"; //todo temp
+            SectionBl.ResetVmParams();
+            SectionBl.VmParams.Id = id;
+            SectionBl.VmParams.Title = NameTextEdit.Text;
+            SectionBl.VmParams.Details = DetailMemoEdit.Text;
+            SectionBl.VmParams.ModifiedById = "1"; //todo temp
         }
 
         private void Save()
         {
             string msg = "";
-            if (GradeBl.EditOne(GradeBl.VmParams, ref msg))
+            if (SectionBl.EditOne(SectionBl.VmParams, ref msg))
             {
-                MessageBox.Show(string.Format("Grade {0} is updated to Grade {1}",
+                MessageBox.Show(string.Format("Section {0} is updated to Section {1}",
                     previousName, NameTextEdit.Text), PageName);
 
-                GradeBl.ChangeOccured = true;
+                SectionBl.ChangeOccured = true;
                 Close();
             }
             else if (msg != "")
@@ -66,7 +66,7 @@ namespace CampusVoting.Views
             DetailMemoEdit.Text = "";
         }
 
-        
+
         private void LogoPictureBox_Click(object sender, EventArgs e)
         {
             Close();
@@ -82,8 +82,8 @@ namespace CampusVoting.Views
         {
             Clearer();
         }
-
-        private void GradeEditForm_FormClosing(object sender, FormClosingEventArgs e)
+        
+        private void SectionEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Dispose();
         }

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogics\SectionBl.cs" />
     <Compile Include="BusinessLogics\StudentBl.cs" />
+    <Compile Include="DataAccess\GradeAndSectionDal.cs" />
     <Compile Include="DataAccess\SectionDal.cs" />
     <Compile Include="DataAccess\StudentDal.cs" />
     <Compile Include="Enums\ProcessMode.cs" />
@@ -146,6 +147,18 @@
     <Compile Include="Views\SectionAddForm.Designer.cs">
       <DependentUpon>SectionAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SectionDeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SectionDeleteForm.Designer.cs">
+      <DependentUpon>SectionDeleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SectionEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SectionEditForm.Designer.cs">
+      <DependentUpon>SectionEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\GradeListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,6 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SectionAddForm.resx">
       <DependentUpon>SectionAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SectionDeleteForm.resx">
+      <DependentUpon>SectionDeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SectionEditForm.resx">
+      <DependentUpon>SectionEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\GradeListCon.resx">
       <DependentUpon>GradeListCon.cs</DependentUpon>

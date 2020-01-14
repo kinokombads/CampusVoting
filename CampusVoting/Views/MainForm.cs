@@ -18,26 +18,12 @@ namespace CampusVoting.Views
         public MainForm()
         {
             InitializeComponent();
-            //MainContentPanel.Controls.Add(new SampleListPage() { Dock = DockStyle.Fill });
-            //MainContentPanel.Controls.Add(new GradeListXtraCon());
-            MainContentPanel.Controls.Add(new GradeListCon{ Dock = DockStyle.Fill });
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Dispose();
-        }
-        
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            //GridControlOption.CustomDrawRowIndicator(ListGridControl, ItemsGridView);
-            //ItemsGridView.OptionsBehavior.AutoPopulateColumns = false;
         }
 
         private void Navigation_Click(object sender, EventArgs e)
         {
             AccordionControlElement navPressed = (AccordionControlElement)sender;
+            MainContentPanel.Controls.Clear();
 
             switch (navPressed.Text)
             {
@@ -52,11 +38,29 @@ namespace CampusVoting.Views
                 case "Grades":
                     var gradeList = new GradeListCon { Dock = DockStyle.Fill };
                     MainContentPanel.Controls.Add(gradeList);
-
+                    break;
+                case "Sections":
+                    var sectionList = new SectionListCon() { Dock = DockStyle.Fill };
+                    MainContentPanel.Controls.Add(sectionList);
+                    break;
+                case "Grade And Sections":
+                    //var sectionList = new SectionListCon() { Dock = DockStyle.Fill };
+                    //MainContentPanel.Controls.Add(sectionList);
                     break;
                 default:
                     break;
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Dispose();
+        }
+        
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            //GridControlOption.CustomDrawRowIndicator(ListGridControl, ItemsGridView);
+            //ItemsGridView.OptionsBehavior.AutoPopulateColumns = false;
         }
 
      

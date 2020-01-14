@@ -1,10 +1,7 @@
 ﻿namespace CampusVoting.Views
 {
-    partial class GradeEditForm
+    partial class SectionEditForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -28,7 +25,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradeEditForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SectionEditForm));
             this.MainPanelControl = new DevExpress.XtraEditors.PanelControl();
             this.MainScrollCon = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -163,7 +160,7 @@
             this.NameTextEdit.Name = "NameTextEdit";
             this.NameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NameTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.NameTextEdit.Properties.NullValuePrompt = "Grade name";
+            this.NameTextEdit.Properties.NullValuePrompt = "Section name";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.NameTextEdit.Size = new System.Drawing.Size(448, 28);
             this.NameTextEdit.TabIndex = 20;
@@ -230,7 +227,7 @@
             this.PageLabel.Name = "PageLabel";
             this.PageLabel.Size = new System.Drawing.Size(368, 40);
             this.PageLabel.TabIndex = 3;
-            this.PageLabel.Text = "Edit Grade";
+            this.PageLabel.Text = "Edit Section";
             this.PageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel3
@@ -309,7 +306,7 @@
             this.LogoPictureBox.TabStop = false;
             this.LogoPictureBox.Click += new System.EventHandler(this.LogoPictureBox_Click);
             // 
-            // GradeEditForm
+            // SectionEditForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
@@ -317,10 +314,10 @@
             this.Controls.Add(this.MainPanelControl);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Name = "GradeEditForm";
+            this.Name = "SectionEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Grade Edit Form";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GradeEditForm_FormClosing);
+            this.Text = "Section Edit Form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SectionEditForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelControl)).EndInit();
             this.MainPanelControl.ResumeLayout(false);
             this.MainScrollCon.ResumeLayout(false);
@@ -360,10 +357,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-
-
-
-
-
     }
 }

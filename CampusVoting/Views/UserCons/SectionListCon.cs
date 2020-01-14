@@ -71,15 +71,15 @@ namespace CampusVoting.Views.UserCons
 
             if (process == ProcessMode.Update)
             {
-                //SectionEditForm editForm = new SectionEditForm(sectionBl);
-                //editForm.ShowDialog();
-                //RefreshWhenChanged();
+                SectionEditForm editForm = new SectionEditForm(sectionBl);
+                editForm.ShowDialog();
+                RefreshWhenChanged();
             }
             else
             {
-                //SectionDeleteForm deleteForm = new SectionDeleteForm(sectionBl);
-                //deleteForm.ShowDialog();
-                //RefreshWhenChanged();
+                SectionDeleteForm deleteForm = new SectionDeleteForm(sectionBl);
+                deleteForm.ShowDialog();
+                RefreshWhenChanged();
             }
 
         }
@@ -94,17 +94,39 @@ namespace CampusVoting.Views.UserCons
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
+            GetParams();
+            LoadList();
         }
 
         private void AddSimButton_Click(object sender, EventArgs e)
         {
-
+            SectionAddForm addForm = new SectionAddForm(sectionBl);
+            addForm.ShowDialog();
+            RefreshWhenChanged();
         }
 
         private void EditRepoButton_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-
+            GetSelected(e.Button.Caption.Equals("Edit") ? ProcessMode.Update : ProcessMode.Delete);
         }
+
+        private void ListGridControl_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            GetSelected(ProcessMode.Update);
+        }
+
+        private void SectionListCon_VisibleChanged(object sender, EventArgs e)
+        {
+            Dispose();
+        }
+
+        private void NameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 13 || ItemsGridView.IsFocusedView) return;
+            GetParams();
+            LoadList();
+        }
+
+
     }
 }

@@ -10,23 +10,23 @@ using Vota.Helpers;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class SectionBl
+    public class GradeAndSectionBl
     {
-        private readonly SectionDal db = new SectionDal();
+        private readonly GradeAndSectionDal db = new GradeAndSectionDal();
         private ExceptionFound ef = new ExceptionFound();
 
-        public SectionVm VmItem { get; set; }
+        public GradeAndSectionVm VmItem { get; set; }
 
-        public SectionVm VmParams { get; set; }
+        public GradeAndSectionVm VmParams { get; set; }
 
-        public List<SectionVm> ListVm { get; set; }
+        public List<GradeAndSectionVm> ListVm { get; set; }
 
-        public List<SectionComboVm> ComboItems { get; set; }
+        public List<GradeAndSectionComboVm> ComboItems { get; set; }
 
         public bool ChangeOccured { get; set; }
 
 
-        public SectionBl()
+        public GradeAndSectionBl()
         {
             ResetVmItem();
             ResetVmParams();
@@ -37,32 +37,31 @@ namespace CampusVoting.BusinessLogics
 
         public void ResetVmItem()
         {
-            VmItem = new SectionVm();
+            VmItem = new GradeAndSectionVm();
         }
 
         public void ResetVmParams()
         {
-            VmParams = new SectionVm();
+            VmParams = new GradeAndSectionVm();
         }
 
         public void ResetVmList()
         {
-            ListVm = new List<SectionVm>();
+            ListVm = new List<GradeAndSectionVm>();
         }
 
         public void ResetCombo()
         {
-            ComboItems = new List<SectionComboVm>();
+            ComboItems = new List<GradeAndSectionComboVm>();
         }
 
         
 
-        private Section MapProperties(SectionVm p)
+        private GradeAndSection MapProperties(GradeAndSectionVm p)
         {
-            Section baseObj = new Section();
+            GradeAndSection baseObj = new GradeAndSection();
             baseObj.Id = p.Id.GetInt();
             baseObj.Title = p.Title.GetString();
-            baseObj.Details = p.Details.GetString();
             baseObj.CreatedById = p.CreatedById.GetInt();
             baseObj.CreatedOn = p.CreatedOn.GetDateTime();
             baseObj.ModifiedById = p.ModifiedById.GetInt();
@@ -75,23 +74,26 @@ namespace CampusVoting.BusinessLogics
         {
             if (item == null) return;
             ResetVmParams();
-            VmParams = (SectionVm)item;
+            VmParams = (GradeAndSectionVm)item;
         }
         
-        public List<SectionVm> GetList(SectionVm p, ref string msg)
+        public List<GradeAndSectionVm> GetList(GradeAndSectionVm p, ref string msg)
         {
-            List<SectionVm> items = new List<SectionVm>();
+            List<GradeAndSectionVm> items = new List<GradeAndSectionVm>();
             DataTable dt = db.GetList(MapProperties(p), ref msg);
-            if (msg != "") return new List<SectionVm>();
+            if (msg != "") return new List<GradeAndSectionVm>();
 
             try
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    SectionVm item = new SectionVm();
-                    item.Id = row["sectionId"].GetString();
+                    GradeAndSectionVm item = new GradeAndSectionVm();
+                    item.Id = row["gradeAndSectionId"].GetString();
                     item.Title = row["title"].GetString();
-                    item.Details = row["details"].GetString();
+                    item.GradeId = row["gradeId"].GetString();
+                    item.Grade = row["gradeName"].GetString();
+                    item.SectionId = row["sectionId"].GetString();
+                    item.Section = row["sectionName"].GetString();
                     item.CreatedById = row["createdById"].GetString();
                     item.CreatedBy = row["createdByName"].GetString();
                     item.CreatedOn = row["createdOn"].GetDateTime().GetString();
@@ -107,11 +109,11 @@ namespace CampusVoting.BusinessLogics
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new List<SectionVm>();
+                return new List<GradeAndSectionVm>();
             }
         }
 
-        public SectionVm GetOne(SectionVm p, ref string msg)
+        public GradeAndSectionVm GetOne(GradeAndSectionVm p, ref string msg)
         {
             try
             {
@@ -120,42 +122,45 @@ namespace CampusVoting.BusinessLogics
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new SectionVm();
+                return new GradeAndSectionVm();
             }
         }
        
-        public bool AddOne(SectionVm viewModel, ref string msg)
+        public bool AddOne(GradeAndSectionVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
             return db.AddOne(MapProperties(viewModel), ref msg);
         }
         
-        public bool EditOne(SectionVm viewModel, ref string msg)
+        public bool EditOne(GradeAndSectionVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
             return db.EditOne(MapProperties(viewModel), ref msg);
         }
 
-        public bool DeleteOne(SectionVm viewModel, ref string msg)
+        public bool DeleteOne(GradeAndSectionVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
         }
 
-        public List<SectionComboVm> GetCombo(SectionVm p, ref string msg)
+        public List<GradeAndSectionComboVm> GetCombo(GradeAndSectionVm p, ref string msg)
         {
-            List<SectionComboVm> items = new List<SectionComboVm>();
+            List<GradeAndSectionComboVm> items = new List<GradeAndSectionComboVm>();
             DataTable dt = db.GetList(MapProperties(p), ref msg);
-            if (msg != "") return new List<SectionComboVm>();
+            if (msg != "") return new List<GradeAndSectionComboVm>();
 
             try
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    SectionComboVm item = new SectionComboVm();
-                    item.Id = row["sectionId"].GetString();
+                    GradeAndSectionComboVm item = new GradeAndSectionComboVm();
+                    item.Id = row["gradeAndSectionId"].GetString();
                     item.Title = row["title"].GetString();
-                    item.Details = row["details"].GetString();
+                    item.GradeId = row["gradeId"].GetString();
+                    item.Grade = row["gradeName"].GetString();
+                    item.SectionId = row["sectionId"].GetString();
+                    item.Section = row["sectionName"].GetString();
 
                     items.Add(item);
                 }
@@ -165,9 +170,8 @@ namespace CampusVoting.BusinessLogics
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new List<SectionComboVm>();
+                return new List<GradeAndSectionComboVm>();
             }
         }
- 
     }
 }

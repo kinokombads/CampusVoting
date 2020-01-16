@@ -43,11 +43,11 @@ namespace CampusVoting.DataAccess
                     item.Lrn = row["Lrn"].GetString();item.LastName = row["LastName"].GetString();
                     item.FirstName = row["FirstName"].GetString();
                     item.MiddleName = row["MiddleName"].GetString();
-                    item.GradeId = row["GradeId"].GetString();
+                    item.GradeId = row["Id"].GetString();
                     item.GradeName = row["GradeName"].GetString();
-                    item.SectionId = row["SectionId"].GetString();
+                    item.SectionId = row["Id"].GetString();
                     item.SectionName = row["SectionName"].GetString();
-                    item.CurrentGradeAndSectionId = row["GradeAndSectionId"].GetString();
+                    item.CurrentGradeAndSectionId = row["Id"].GetString();
                     item.CurrentSectionName = row["CurrentSectionName"].GetString();
                     
                     items.Add(item);

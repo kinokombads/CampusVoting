@@ -46,13 +46,13 @@ namespace CampusVoting.Views.UserCons
                 return false;
             }
 
-            switch (keyData){
+            switch (keyData)
+            {
                 case Keys.Delete:
                     GetSelected(ProcessMode.Delete);
                     break;
                 case Keys.Enter:
-                    GetSelected(ProcessMode.Update);
-                    break;
+                    GetSelected(ProcessMode.Update);break;
             }
 
             return base.ProcessCmdKey(ref message, keyData);

@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogics\GradeAndSectionBl.cs" />
     <Compile Include="BusinessLogics\SectionBl.cs" />
     <Compile Include="BusinessLogics\StudentBl.cs" />
     <Compile Include="DataAccess\GradeAndSectionDal.cs" />
@@ -102,7 +103,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CampaignGroupVm.cs" />
     <Compile Include="ViewModels\ConfigTableVm.cs" />
+    <Compile Include="ViewModels\GradeAndSectionComboVm.cs" />
+    <Compile Include="ViewModels\GradeAndSectionVm.cs" />
+    <Compile Include="ViewModels\GradeComboVm.cs" />
     <Compile Include="ViewModels\GradeVm.cs" />
+    <Compile Include="ViewModels\SectionComboVm.cs" />
     <Compile Include="ViewModels\SectionVm.cs" />
     <Compile Include="ViewModels\StudentVm.cs" />
     <Compile Include="Views\Form1.cs">
@@ -116,6 +121,12 @@
     </Compile>
     <Compile Include="Views\GradeAddForm.Designer.cs">
       <DependentUpon>GradeAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GradeAndSectionAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GradeAndSectionAddForm.Designer.cs">
+      <DependentUpon>GradeAndSectionAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\GradeDeleteForm.cs">
       <SubType>Form</SubType>
@@ -187,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GradeAddForm.resx">
       <DependentUpon>GradeAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GradeAndSectionAddForm.resx">
+      <DependentUpon>GradeAndSectionAddForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GradeDeleteForm.resx">
       <DependentUpon>GradeDeleteForm.cs</DependentUpon>

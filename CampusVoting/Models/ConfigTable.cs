@@ -9,10 +9,10 @@ namespace CampusVoting.Models
         public string Details { get; set; }
         public int StatId { get; set; }
         public int CreatedById { get; set; }
-        public string CreatedByName { get; set; }
+        //public string CreatedByName { get; set; }
         public DateTime? CreatedOn { get; set; }
         public int ModifiedById { get; set; }
-        public string ModifiedByName { get; set; }
+        //public string ModifiedByName { get; set; }
         public DateTime? ModifiedOn { get; set; }
 
         protected ConfigTable()
@@ -22,10 +22,10 @@ namespace CampusVoting.Models
             Details = "";
             StatId = 0;
             CreatedById = 0;
-            CreatedByName = "";
+            //CreatedByName = "";
             CreatedOn = null;
             ModifiedById = 0;
-            ModifiedByName = "";
+            //ModifiedByName = "";
             ModifiedOn = null;
         }
         

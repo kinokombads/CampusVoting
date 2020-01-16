@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class GradeAndSectionAndSectionDal
+    public class GradeAndSectionDal
     {
         readonly ExceptionFound ef = new ExceptionFound();
 

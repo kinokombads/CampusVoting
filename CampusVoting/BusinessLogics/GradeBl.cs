@@ -16,53 +16,47 @@ namespace CampusVoting.BusinessLogics
         private readonly GradeDal db = new GradeDal();
         private ExceptionFound ef = new ExceptionFound();
 
-        //public Grade Item { get; set; }
-        //public Grade Params { get; set; }
-
         public GradeVm VmItem { get; set; }
+
         public GradeVm VmParams { get; set; }
-        //public List<Grade> Items { get; set; }
+
         public List<GradeVm> ListVm { get; set; }
+
+        public List<GradeComboVm> ComboItems { get; set; }
+
         public bool ChangeOccured { get; set; }
+
 
         public GradeBl()
         {
-            //ResetParams();
-            //ResetOne();
+            ResetVmItem();
             ResetVmParams();
-            //ResetList();
+            ResetVmList();
+            ResetCombo();
             ChangeOccured = false;
         }
-
-        //public void ResetOne()
-        //{
-        //    Item = new Grade();
-        //}
 
         public void ResetVmItem()
         {
             VmItem = new GradeVm();
         }
 
-        //public void ResetParams()
-        //{
-        //    Params = new Grade();
-        //}
-
         public void ResetVmParams()
         {
             VmParams = new GradeVm();
         }
 
-        //public void ResetList()
-        //{
-        //    Items = new List<Grade>();
-        //}
-
         public void ResetVmList()
         {
             ListVm = new List<GradeVm>();
         }
+
+        public void ResetCombo()
+        {
+            ComboItems = new List<GradeComboVm>();
+        }
+
+        
 
         private Grade MapProperties(GradeVm p)
         {
@@ -71,10 +65,8 @@ namespace CampusVoting.BusinessLogics
             baseObj.Title = p.Title.GetString();
             baseObj.Details = p.Details.GetString();
             baseObj.CreatedById = p.CreatedById.GetInt();
-            baseObj.CreatedByName = p.CreatedBy.GetString();
             baseObj.CreatedOn = p.CreatedOn.GetDateTime();
             baseObj.ModifiedById = p.ModifiedById.GetInt();
-            baseObj.ModifiedByName = p.ModifiedBy.GetString();
             baseObj.ModifiedOn = p.ModifiedOn.GetNullableDateTime();
 
             return baseObj;
@@ -90,8 +82,7 @@ namespace CampusVoting.BusinessLogics
         public List<GradeVm> GetList(GradeVm p, ref string msg)
         {
             List<GradeVm> items = new List<GradeVm>();
-            Grade param = MapProperties(p);
-            DataTable dt = db.GetList(param, ref msg);
+            DataTable dt = db.GetList(MapProperties(p), ref msg);
             if (msg != "") return new List<GradeVm>();
 
             try
@@ -133,36 +124,18 @@ namespace CampusVoting.BusinessLogics
                 return new GradeVm();
             }
         }
-
-        //public bool AddOne(Grade p, ref string msg)
-        //{
-        //    return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
-        //        && db.AddOne(p, ref msg);
-        //}
-
+       
         public bool AddOne(GradeVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
             return db.AddOne(MapProperties(viewModel), ref msg);
         }
-
-        //public bool EditOne(Grade p, ref string msg)
-        //{
-        //    return (EntryChecker.IsNotNullOrNotWhiteSpace(p.Title, ref msg))
-        //        && db.EditOne(p, ref msg);
-        //}
-
+        
         public bool EditOne(GradeVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
             return db.EditOne(MapProperties(viewModel), ref msg);
         }
-
-        //public bool DeleteOne(Grade p, ref string msg)
-        //{
-        //    return EntryChecker.IsNotZeroOrNull(p.Id, ref msg)
-        //        && db.DeleteOne(p, ref msg);
-        //}
 
         public bool DeleteOne(GradeVm viewModel, ref string msg)
         {
@@ -170,6 +143,31 @@ namespace CampusVoting.BusinessLogics
             return db.DeleteOne(MapProperties(viewModel), ref msg);
         }
 
-        
+        public List<GradeComboVm> GetCombo(GradeVm p, ref string msg)
+        {
+            List<GradeComboVm> items = new List<GradeComboVm>();
+            DataTable dt = db.GetList(MapProperties(p), ref msg);
+            if (msg != "") return new List<GradeComboVm>();
+
+            try
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    GradeComboVm item = new GradeComboVm();
+                    item.Id = row["gradeId"].GetString();
+                    item.Title = row["title"].GetString();
+                    item.Details = row["details"].GetString();
+
+                    items.Add(item);
+                }
+
+                return items;
+            }
+            catch (Exception ex)
+            {
+                msg = ef.GetExceptionMessage(ex, msg);
+                return new List<GradeComboVm>();
+            }
+        }
     }
 }

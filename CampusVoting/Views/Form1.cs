@@ -39,7 +39,7 @@ namespace CampusVoting.Views
 
         private void Save()
         {
-            string msg = "";
+            //string msg = "";
             //if (bl.EditOne(bl.Params, ref msg))
             //{
             //    MessageBox.Show("Updated", pageLabel);

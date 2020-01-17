@@ -1,4 +1,7 @@
-﻿namespace CampusVoting.ViewModels
+﻿
+
+
+namespace CampusVoting.ViewModels
 {
     public class GradeComboVm
     {

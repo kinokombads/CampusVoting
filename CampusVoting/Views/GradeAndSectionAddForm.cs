@@ -39,7 +39,8 @@ namespace CampusVoting.Views
         {
             GradeAndSectionBl.ResetVmParams();
             GradeAndSectionBl.VmParams.Title = NameTextEdit.Text;
-            //GradeLookUp.
+            GradeAndSectionBl.VmParams.GradeId = GradeLookUp.EditValue.ToString();
+            GradeAndSectionBl.VmParams.SectionId = SectionLookUp.EditValue.ToString();
             GradeAndSectionBl.VmParams.CreatedById = "1"; //todo temp
         }
 
@@ -78,24 +79,19 @@ namespace CampusVoting.Views
             GradeLookUp.Properties.DataSource = gradebl.ComboItems;
             GradeLookUp.Properties.DisplayMember = "Title";
             GradeLookUp.Properties.ValueMember = "Id";
-            //GradeLookUp.Properties.View.Columns["Id"].Visible = false;
-            //GradeLookUp.Properties.PopulateColumns();
-            GradeLookUp.Properties.View.PopulateColumns(gridLookUpEdit1View.DataSource);
             
-            //RepositoryItemGridLookUpEdit1.View.PopulateColumns(RepositoryItemGridLookUpEdit1.DataSource) 
-
 
             sectionBl.ComboItems = sectionBl.GetCombo(sectionBl.VmParams, ref msg);
+
             if (msg != "")
             {
-                MessageBox.Show(msg, PageLabel.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, "Grade & Section Addition", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             SectionLookUp.Properties.DataSource = sectionBl.ComboItems;
             SectionLookUp.Properties.DisplayMember = "Title";
             SectionLookUp.Properties.ValueMember = "Id";
-            //SectionLookUp.Properties.View.Columns["Id"].Visible = false;
         }
 
 
@@ -107,7 +103,8 @@ namespace CampusVoting.Views
 
         private void SaveSimButton_Click(object sender, EventArgs e)
         {
-
+            GetParams();
+            Save();
         }
 
         private void ClearSimButton_Click(object sender, EventArgs e)
@@ -123,6 +120,22 @@ namespace CampusVoting.Views
         private void GradeLookUp_EditValueChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(GradeLookUp.EditValue.ToString());
+        }
+
+        private void GradeLookUp_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            if (GradeLookUp.Properties.View.Columns["Id"].Visible)
+            {
+                GradeLookUp.Properties.View.Columns["Id"].Visible = false;
+            }
+        }
+
+        private void SectionLookUp_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            if (SectionLookUp.Properties.View.Columns["Id"].Visible)
+            {
+                SectionLookUp.Properties.View.Columns["Id"].Visible = false;
+            }
         }
 
 

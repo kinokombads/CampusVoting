@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GradeAndSectionListCon));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.SectionEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.AddSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.SearchButton = new DevExpress.XtraEditors.SimpleButton();
             this.NameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -46,27 +48,25 @@
             this.ItemsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TitleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GradeIdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.GradeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SectionIdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SectionColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CreatedByColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CreatedOnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ModifiedByColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.ModifiedOnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EditColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EditRepoButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.SectionEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.GradeIdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GradeColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SectionIdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SectionNameColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SearchPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SectionEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GradeEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditRepoButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SectionEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // SearchPanel
@@ -82,6 +82,32 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(848, 125);
             this.SearchPanel.TabIndex = 0;
+            // 
+            // SectionEdit
+            // 
+            this.SectionEdit.Location = new System.Drawing.Point(488, 39);
+            this.SectionEdit.Margin = new System.Windows.Forms.Padding(2);
+            this.SectionEdit.Name = "SectionEdit";
+            this.SectionEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SectionEdit.Properties.Appearance.Options.UseFont = true;
+            this.SectionEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.SectionEdit.Properties.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.SectionEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.SectionEdit.Properties.NullText = "";
+            this.SectionEdit.Properties.NullValuePrompt = "Search By Section";
+            this.SectionEdit.Properties.NullValuePromptShowForEmptyValue = true;
+            this.SectionEdit.Properties.View = this.gridView1;
+            this.SectionEdit.Size = new System.Drawing.Size(171, 30);
+            this.SectionEdit.TabIndex = 7;
+            this.SectionEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.SectionEdit_QueryPopUp);
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // AddSimButton
             // 
@@ -183,6 +209,7 @@
             this.ListGridControl.TabIndex = 1;
             this.ListGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.ItemsGridView});
+            this.ListGridControl.Layout += new System.Windows.Forms.LayoutEventHandler(this.ListGridControl_Layout);
             this.ListGridControl.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListGridControl_MouseDoubleClick);
             // 
             // ItemsGridView
@@ -195,7 +222,7 @@
             this.GradeIdColumn,
             this.GradeColumn,
             this.SectionIdColumn,
-            this.SectionNameColumn,
+            this.SectionColumn,
             this.CreatedByColumn,
             this.CreatedOnColumn,
             this.ModifiedByColumn,
@@ -233,6 +260,7 @@
             this.GradeColumn.Caption = "Grade";
             this.GradeColumn.FieldName = "Grade";
             this.GradeColumn.Name = "GradeColumn";
+            this.GradeColumn.OptionsColumn.AllowEdit = false;
             this.GradeColumn.Visible = true;
             this.GradeColumn.VisibleIndex = 1;
             // 
@@ -242,13 +270,14 @@
             this.SectionIdColumn.FieldName = "SectionId";
             this.SectionIdColumn.Name = "SectionIdColumn";
             // 
-            // SectionNameColumn
+            // SectionColumn
             // 
-            this.SectionNameColumn.Caption = "Section";
-            this.SectionNameColumn.FieldName = "Section";
-            this.SectionNameColumn.Name = "SectionNameColumn";
-            this.SectionNameColumn.Visible = true;
-            this.SectionNameColumn.VisibleIndex = 2;
+            this.SectionColumn.Caption = "Section";
+            this.SectionColumn.FieldName = "Section";
+            this.SectionColumn.Name = "SectionColumn";
+            this.SectionColumn.OptionsColumn.AllowEdit = false;
+            this.SectionColumn.Visible = true;
+            this.SectionColumn.VisibleIndex = 2;
             // 
             // CreatedByColumn
             // 
@@ -297,42 +326,16 @@
             // EditRepoButton
             // 
             this.EditRepoButton.AutoHeight = false;
-            toolTipItem1.Text = "Edit";
-            superToolTip1.Items.Add(toolTipItem1);
-            toolTipItem2.Text = "Delete";
-            superToolTip2.Items.Add(toolTipItem2);
+            toolTipItem3.Text = "Edit";
+            superToolTip3.Items.Add(toolTipItem3);
+            toolTipItem4.Text = "Delete";
+            superToolTip4.Items.Add(toolTipItem4);
             this.EditRepoButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Edit Item", null, superToolTip1, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Delete Item", null, superToolTip2, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "Edit Item", null, superToolTip3, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "Delete Item", null, superToolTip4, true)});
             this.EditRepoButton.Name = "EditRepoButton";
             this.EditRepoButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.EditRepoButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.EditRepoButton_ButtonClick);
-            // 
-            // SectionEdit
-            // 
-            this.SectionEdit.Location = new System.Drawing.Point(488, 39);
-            this.SectionEdit.Margin = new System.Windows.Forms.Padding(2);
-            this.SectionEdit.Name = "SectionEdit";
-            this.SectionEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SectionEdit.Properties.Appearance.Options.UseFont = true;
-            this.SectionEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SectionEdit.Properties.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
-            this.SectionEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.SectionEdit.Properties.NullText = "";
-            this.SectionEdit.Properties.NullValuePrompt = "Search By Section";
-            this.SectionEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            this.SectionEdit.Properties.View = this.gridView1;
-            this.SectionEdit.Size = new System.Drawing.Size(171, 30);
-            this.SectionEdit.TabIndex = 7;
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            
             // 
             // GradeAndSectionListCon
             // 
@@ -347,14 +350,14 @@
             this.VisibleChanged += new System.EventHandler(this.GradeAndSectionListCon_VisibleChanged);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SectionEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GradeEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemsGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditRepoButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SectionEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,6 +386,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn GradeIdColumn;
         private DevExpress.XtraGrid.Columns.GridColumn GradeColumn;
         private DevExpress.XtraGrid.Columns.GridColumn SectionIdColumn;
-        private DevExpress.XtraGrid.Columns.GridColumn SectionNameColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn SectionColumn;
     }
 }

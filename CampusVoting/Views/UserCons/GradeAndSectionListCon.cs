@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Enums;
 using CampusVoting.Helpers;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using Vota.Helpers;
 
@@ -22,6 +25,28 @@ namespace CampusVoting.Views.UserCons
         GradeBl gradeBl = new GradeBl();
         SectionBl sectionBl = new SectionBl();
 
+        private void ListGridControl_Layout(object sender, LayoutEventArgs e)
+        {
+            GridControl control = sender as GridControl;
+            
+            FindControl findControl = control.Controls.OfType<FindControl>().FirstOrDefault();
+            if (findControl == null) return;
+            findControl.FindButton.Click -= FindButton_Click;
+            findControl.ClearButton.Click -= ClearButton_Click;
+            findControl.FindButton.Click += FindButton_Click;
+            findControl.ClearButton.Click += ClearButton_Click;
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            LoadList();
+        }
+
         private void LoadCombo()
         {
             string msg = "";
@@ -38,8 +63,7 @@ namespace CampusVoting.Views.UserCons
 
             sectionBl.ComboItems = sectionBl.GetCombo(sectionBl.VmParams, ref msg);
             SectionEdit.Properties.DataSource = sectionBl.ComboItems;
-            SectionEdit.Properties.DisplayMember = "Title";
-            SectionEdit.Properties.ValueMember = "Id";
+            SectionEdit.Properties.DisplayMember = "Title";SectionEdit.Properties.ValueMember = "Title";
 
             if (msg != "")
             {
@@ -159,6 +183,14 @@ namespace CampusVoting.Views.UserCons
             if (GradeEdit.Properties.View.Columns["Id"].Visible)
             {
                 GradeEdit.Properties.View.Columns["Id"].Visible = false;
+            }
+        }
+
+        private void SectionEdit_QueryPopUp(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (SectionEdit.Properties.View.Columns["Id"].Visible)
+            {
+                SectionEdit.Properties.View.Columns["Id"].Visible = false;
             }
         }
     }

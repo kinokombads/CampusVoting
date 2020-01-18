@@ -2,6 +2,7 @@
 using System.Data;
 using CampusVoting.Helpers;
 using CampusVoting.Models;
+using CampusVoting.ViewModels;
 using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
@@ -10,7 +11,7 @@ namespace CampusVoting.DataAccess
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
-        public DataTable GetList(GradeAndSection p, ref string msg)
+        public DataTable GetList(GradeAndSectionVm p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
             command.CommandText = "GetGradeAndSections";
@@ -18,13 +19,14 @@ namespace CampusVoting.DataAccess
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strGrade", p.Grade).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strSection", p.Section).Direction = ParameterDirection.Input;
 
             DataTable dt = MyHelper.GetData(command, ref msg);
             try
             {
                 return dt.Rows.Count <= 0 ? new DataTable() : dt;
-            }
-            catch (Exception ex)
+            }catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
                 return new DataTable();
@@ -91,7 +93,7 @@ namespace CampusVoting.DataAccess
             command.CommandText = "DeleteGradeAndSection";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intGradeAndSectionId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
 
             try
             {

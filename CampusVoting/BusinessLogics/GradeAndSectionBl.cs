@@ -62,6 +62,8 @@ namespace CampusVoting.BusinessLogics
             GradeAndSection baseObj = new GradeAndSection();
             baseObj.Id = p.Id.GetInt();
             baseObj.Title = p.Title.GetString();
+            baseObj.GradeId = p.GradeId.GetInt();
+            baseObj.SectionId = p.SectionId.GetInt();
             baseObj.CreatedById = p.CreatedById.GetInt();
             baseObj.CreatedOn = p.CreatedOn.GetDateTime();
             baseObj.ModifiedById = p.ModifiedById.GetInt();
@@ -80,7 +82,7 @@ namespace CampusVoting.BusinessLogics
         public List<GradeAndSectionVm> GetList(GradeAndSectionVm p, ref string msg)
         {
             List<GradeAndSectionVm> items = new List<GradeAndSectionVm>();
-            DataTable dt = db.GetList(MapProperties(p), ref msg);
+            DataTable dt = db.GetList(p, ref msg);
             if (msg != "") return new List<GradeAndSectionVm>();
 
             try
@@ -128,7 +130,10 @@ namespace CampusVoting.BusinessLogics
        
         public bool AddOne(GradeAndSectionVm viewModel, ref string msg)
         {
-            if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
+            if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg) 
+                && !EntryChecker.IsNotZeroOrNull(viewModel.GradeId.GetInt(), 
+                viewModel.SectionId.GetInt(), ref msg)) return false;
+
             return db.AddOne(MapProperties(viewModel), ref msg);
         }
         
@@ -147,7 +152,7 @@ namespace CampusVoting.BusinessLogics
         public List<GradeAndSectionComboVm> GetCombo(GradeAndSectionVm p, ref string msg)
         {
             List<GradeAndSectionComboVm> items = new List<GradeAndSectionComboVm>();
-            DataTable dt = db.GetList(MapProperties(p), ref msg);
+            DataTable dt = db.GetList(p, ref msg);
             if (msg != "") return new List<GradeAndSectionComboVm>();
 
             try

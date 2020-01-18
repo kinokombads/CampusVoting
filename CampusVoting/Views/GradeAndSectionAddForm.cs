@@ -20,7 +20,9 @@ namespace CampusVoting.Views
         public GradeAndSectionAddForm()
         {
             InitializeComponent();
+            GradeAndSectionBl = new GradeAndSectionBl();
             LoadCombo();
+
         }
 
         public GradeAndSectionAddForm(GradeAndSectionBl bl)
@@ -39,8 +41,8 @@ namespace CampusVoting.Views
         {
             GradeAndSectionBl.ResetVmParams();
             GradeAndSectionBl.VmParams.Title = NameTextEdit.Text;
-            GradeAndSectionBl.VmParams.GradeId = GradeLookUp.EditValue.ToString();
-            GradeAndSectionBl.VmParams.SectionId = SectionLookUp.EditValue.ToString();
+            GradeAndSectionBl.VmParams.GradeId = GradeLookUp.EditValue.GetString();
+            GradeAndSectionBl.VmParams.SectionId = SectionLookUp.EditValue.GetString();
             GradeAndSectionBl.VmParams.CreatedById = "1"; //todo temp
         }
 
@@ -49,7 +51,7 @@ namespace CampusVoting.Views
             string msg = "";
             if (GradeAndSectionBl.AddOne(GradeAndSectionBl.VmParams, ref msg))
             {
-                MessageBox.Show(string.Format("Grade {0} has been added.", NameTextEdit.Text), PageName);
+                MessageBox.Show(string.Format("Grade And Section {0} has been added.", NameTextEdit.Text), PageName);
                 GradeAndSectionBl.ChangeOccured = true;
                 Close();
 
@@ -63,6 +65,8 @@ namespace CampusVoting.Views
         private void Clearer()
         {
             NameTextEdit.Text = "";
+            GradeLookUp.EditValue = null;
+            SectionLookUp.EditValue = null;
         }
 
         private void LoadCombo()
@@ -109,19 +113,14 @@ namespace CampusVoting.Views
 
         private void ClearSimButton_Click(object sender, EventArgs e)
         {
-
+            Clearer();
         }
 
         private void GradeAndSectionAddForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Dispose();
         }
-
-        private void GradeLookUp_EditValueChanged(object sender, EventArgs e)
-        {
-            //MessageBox.Show(GradeLookUp.EditValue.ToString());
-        }
-
+        
         private void GradeLookUp_QueryPopUp(object sender, CancelEventArgs e)
         {
             if (GradeLookUp.Properties.View.Columns["Id"].Visible)

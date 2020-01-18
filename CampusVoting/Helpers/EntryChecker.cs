@@ -54,10 +54,10 @@
             return false;
         }
 
-        //public static bool IsNotNullOrNotWhiteSpace(string p1, string p2, string p3, string p4)
+        //public static bool IsNotNullOrNotWhiteSpace(string p1, int p2, int p3, ref string msg)
         //{
-        //    if (!(string.IsNullOrWhiteSpace(p1) && string.IsNullOrWhiteSpace(p2) && string.IsNullOrWhiteSpace(p3) && string.IsNullOrWhiteSpace(p4))) return true;
-        //    ErrorMessage();
+        //    if (!(string.IsNullOrWhiteSpace(p1) && IsNotZeroOrNull(p2, p3, ref msg))) return true;
+        //    msg = ErrorMessage2();
         //    return false;
         //}
 

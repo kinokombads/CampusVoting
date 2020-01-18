@@ -40,12 +40,12 @@ namespace CampusVoting.Views
                     MainContentPanel.Controls.Add(gradeList);
                     break;
                 case "Sections":
-                    var sectionList = new SectionListCon() { Dock = DockStyle.Fill };
+                    var sectionList = new SectionListCon { Dock = DockStyle.Fill };
                     MainContentPanel.Controls.Add(sectionList);
                     break;
                 case "Grade And Sections":
-                    //var sectionList = new SectionListCon() { Dock = DockStyle.Fill };
-                    //MainContentPanel.Controls.Add(sectionList);
+                    var gradeSectionList = new GradeAndSectionListCon { Dock = DockStyle.Fill };
+                    MainContentPanel.Controls.Add(gradeSectionList);
                     break;
                 default:
                     break;

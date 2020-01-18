@@ -170,6 +170,12 @@
     <Compile Include="Views\SectionEditForm.Designer.cs">
       <DependentUpon>SectionEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserCons\GradeAndSectionListCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\GradeAndSectionListCon.Designer.cs">
+      <DependentUpon>GradeAndSectionListCon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\GradeListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SectionEditForm.resx">
       <DependentUpon>SectionEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\GradeAndSectionListCon.resx">
+      <DependentUpon>GradeAndSectionListCon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\GradeListCon.resx">
       <DependentUpon>GradeListCon.cs</DependentUpon>

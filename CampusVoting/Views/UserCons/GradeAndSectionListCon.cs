@@ -32,14 +32,9 @@ namespace CampusVoting.Views.UserCons
             FindControl findControl = control.Controls.OfType<FindControl>().FirstOrDefault();
             if (findControl == null) return;
             findControl.FindButton.Click -= FindButton_Click;
-            findControl.ClearButton.Click -= ClearButton_Click;
+            //findControl.ClearButton.Click -= ClearButton_Click;
             findControl.FindButton.Click += FindButton_Click;
-            findControl.ClearButton.Click += ClearButton_Click;
-        }
-
-        private void ClearButton_Click(object sender, EventArgs e)
-        {
-            
+            //findControl.ClearButton.Click += ClearButton_Click;
         }
 
         private void FindButton_Click(object sender, EventArgs e)

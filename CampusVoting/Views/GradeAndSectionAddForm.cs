@@ -28,7 +28,8 @@ namespace CampusVoting.Views
         public GradeAndSectionAddForm(GradeAndSectionBl bl)
         {
             InitializeComponent();
-            GradeAndSectionBl = bl;
+            GradeAndSectionBl = new GradeAndSectionBl();
+            LoadCombo();
             NameTextEdit.Select();
         }
 

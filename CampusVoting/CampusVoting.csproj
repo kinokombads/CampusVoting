@@ -128,6 +128,12 @@
     <Compile Include="Views\GradeAndSectionAddForm.Designer.cs">
       <DependentUpon>GradeAndSectionAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\GradeAndSectionEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GradeAndSectionEditForm.Designer.cs">
+      <DependentUpon>GradeAndSectionEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GradeDeleteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GradeAndSectionAddForm.resx">
       <DependentUpon>GradeAndSectionAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\GradeAndSectionEditForm.resx">
+      <DependentUpon>GradeAndSectionEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GradeDeleteForm.resx">
       <DependentUpon>GradeDeleteForm.cs</DependentUpon>

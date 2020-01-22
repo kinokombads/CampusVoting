@@ -6,14 +6,14 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class SectionDal : IRetrieve<Section>, IManipulate<Section>
+    public class SchoolYearDal : IRetrieve<SchoolYear>, IManipulate<SchoolYear>
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
-        public DataTable GetList(Section p, ref string msg)
+        public DataTable GetList(SchoolYear p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "GetSections";
+            command.CommandText = "GetSchoolYears";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
@@ -31,10 +31,10 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool AddOne(Section p, ref string msg)
+        public bool AddOne(SchoolYear p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "AddSection";
+            command.CommandText = "AddSchoolYear";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
@@ -57,10 +57,10 @@ namespace CampusVoting.DataAccess
 
         }
 
-        public bool EditOne(Section p, ref string msg)
+        public bool EditOne(SchoolYear p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "EditSection";
+            command.CommandText = "EditSchoolYear";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
@@ -83,13 +83,13 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool DeleteOne(Section p, ref string msg)
+        public bool DeleteOne(SchoolYear p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "DeleteSection";
+            command.CommandText = "DeleteSchoolYear";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intSchoolYearId", p.Id).Direction = ParameterDirection.Input;
 
             try
             {

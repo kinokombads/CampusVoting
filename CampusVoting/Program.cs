@@ -16,8 +16,8 @@ namespace CampusVoting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new GradeAndSectionAddForm());
-            Application.Run(new MainForm());
+            Application.Run(new SchoolYearAddForm());
+            //Application.Run(new MainForm());
         }
     }
 }

@@ -77,7 +77,7 @@ namespace CampusVoting.Views
 
             if (msg != "")
             {
-                MessageBox.Show(msg, "Grade & Section Addition", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -90,7 +90,7 @@ namespace CampusVoting.Views
 
             if (msg != "")
             {
-                MessageBox.Show(msg, "Grade & Section Addition", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

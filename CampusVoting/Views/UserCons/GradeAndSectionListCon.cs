@@ -118,9 +118,9 @@ namespace CampusVoting.Views.UserCons
 
             if (process == ProcessMode.Update)
             {
-                //GradeEditForm editForm = new GradeEditForm(gradeBl);
-                //editForm.ShowDialog();
-                //RefreshWhenChanged();
+                GradeAndSectionEditForm editForm = new GradeAndSectionEditForm(gradeAndSectionBl);
+                editForm.ShowDialog();
+                RefreshWhenChanged();
             }
             else
             {

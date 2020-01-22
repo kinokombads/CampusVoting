@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class GradeDal
+    public class GradeDal : IRetrieve<Grade>, IManipulate<Grade>
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
@@ -89,7 +89,7 @@ namespace CampusVoting.DataAccess
             command.CommandText = "DeleteGrade";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intGradeId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
 
             try
             {

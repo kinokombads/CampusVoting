@@ -70,26 +70,9 @@ namespace CampusVoting.Views
 
         private void LoadCombo()
         {
-            List<PositionTypeComboVm> types = new List<PositionTypeComboVm>();
-            types.Add(new PositionTypeComboVm
-            {
-                Id = "Regular",
-                Title = "Regular",
-                Details = "Regular positions that has requires one winner."
-            });
-
-            types.Add(new PositionTypeComboVm
-            {
-                Id = "Representative",
-                Title = "Representative",
-                Details = "Positions in which the required number of winner is based on the grade level population."
-            });
-
-
-            TypeLookUp.Properties.DataSource = types;
+            TypeLookUp.Properties.DataSource = PositionBl.PositionTypes; 
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
-            
         }
 
         
@@ -127,6 +110,11 @@ namespace CampusVoting.Views
             GridLookUpEdit editor = (GridLookUpEdit)sender;
             RepositoryItemGridLookUpEdit properties = editor.Properties;
             properties.PopupFormSize = new Size(editor.Width, properties.PopupFormSize.Height);
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         

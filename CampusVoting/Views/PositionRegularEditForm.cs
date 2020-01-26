@@ -29,7 +29,7 @@ namespace CampusVoting.Views
             NameTextEdit.Select();
         }
 
-        private const string PageName = "Position Edition";
+        private const string PageName = "Regular Position Edition";
         private string id;
         private string previousName = "";
 
@@ -80,43 +80,34 @@ namespace CampusVoting.Views
 
         private void LoadCombo()
         {
-            List<PositionTypeComboVm> types = new List<PositionTypeComboVm>();
-            types.Add(new PositionTypeComboVm
-            {
-                Id = "Regular",
-                Title = "Regular",
-                Details = "Regular positions that has requires one winner."
-            });
 
-            types.Add(new PositionTypeComboVm
-            {
-                Id = "Representative",
-                Title = "Representative",
-                Details = "Positions in which the required number of winner is based on the grade level population."
-            });
-
-
-            TypeLookUp.Properties.DataSource = types;
+            TypeLookUp.Properties.DataSource = PositionBl.PositionTypes;
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
-
         }
 
 
 
         private void LogoPictureBox_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void SaveSimButton_Click(object sender, EventArgs e)
         {
+            GetParams();
+            Save();
+        }
 
+        private void ClearSimButton_Click(object sender, EventArgs e)
+        {
+            this.Clearer();
         }
 
         private void PositioniRegularEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            this.Dispose();
         }
+
     }
 }

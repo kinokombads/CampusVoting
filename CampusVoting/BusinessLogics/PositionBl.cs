@@ -22,6 +22,8 @@ namespace CampusVoting.BusinessLogics
 
         public List<PositionComboVm> ComboItems { get; set; }
 
+        public List<PositionTypeComboVm> PositionTypes { get; set; }
+
         public bool ChangeOccured { get; set; }
 
 
@@ -31,6 +33,8 @@ namespace CampusVoting.BusinessLogics
             ResetVmParams();
             ResetVmList();
             ResetCombo();
+            PositionTypes = new List<PositionTypeComboVm>();
+            GetPositionTypes();
             ChangeOccured = false;
         }
 
@@ -170,6 +174,25 @@ namespace CampusVoting.BusinessLogics
                 msg = ef.GetExceptionMessage(ex, msg);
                 return new List<PositionComboVm>();
             }
+        }
+
+        private void GetPositionTypes()
+        {
+            PositionTypes.Add(new PositionTypeComboVm
+            {
+                Id = "Regular",
+                Title = "Regular",
+                Details = "Regular positions that has requires one winner."
+            });
+
+            PositionTypes.Add(new PositionTypeComboVm
+            {
+                Id = "Representative",
+                Title = "Representative",
+                Details = "Positions in which the required number of winner is based on the grade level population."
+            });
+
+
         }
     }
 }

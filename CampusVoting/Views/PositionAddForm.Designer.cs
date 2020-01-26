@@ -46,9 +46,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.MainPanelControl = new DevExpress.XtraEditors.PanelControl();
             this.MainScrollCon = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.ClearSimButton = new DevExpress.XtraEditors.SimpleButton();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.SaveSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.panel9 = new System.Windows.Forms.Panel();
             this.DetailMemoEdit = new DevExpress.XtraEditors.MemoEdit();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -56,10 +53,10 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.TypeLookUp = new DevExpress.XtraEditors.GridLookUpEdit();
             this.PositionEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.IdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TitleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
@@ -156,7 +153,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(56, 0);
+            this.label2.Location = new System.Drawing.Point(46, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 22);
             this.label2.TabIndex = 1;
@@ -169,7 +166,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 22);
+            this.label1.Size = new System.Drawing.Size(46, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
@@ -177,7 +174,7 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 65);
+            this.panel7.Location = new System.Drawing.Point(0, 63);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(448, 5);
             this.panel7.TabIndex = 21;
@@ -191,7 +188,7 @@
             this.NameTextEdit.Properties.Appearance.Options.UseFont = true;
             this.NameTextEdit.Properties.NullValuePrompt = "Position name";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            this.NameTextEdit.Size = new System.Drawing.Size(448, 28);
+            this.NameTextEdit.Size = new System.Drawing.Size(448, 26);
             this.NameTextEdit.TabIndex = 0;
             // 
             // label3
@@ -200,7 +197,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 22);
+            this.label3.Size = new System.Drawing.Size(91, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Position Type";
             // 
@@ -211,7 +208,7 @@
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel8.Location = new System.Drawing.Point(0, 70);
+            this.panel8.Location = new System.Drawing.Point(0, 68);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(448, 22);
             this.panel8.TabIndex = 22;
@@ -221,7 +218,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(119, 0);
+            this.label4.Location = new System.Drawing.Point(91, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 22);
             this.label4.TabIndex = 2;
@@ -245,9 +242,6 @@
             // 
             // MainScrollCon
             // 
-            this.MainScrollCon.Controls.Add(this.ClearSimButton);
-            this.MainScrollCon.Controls.Add(this.panel10);
-            this.MainScrollCon.Controls.Add(this.SaveSimButton);
             this.MainScrollCon.Controls.Add(this.panel9);
             this.MainScrollCon.Controls.Add(this.DetailMemoEdit);
             this.MainScrollCon.Controls.Add(this.panel11);
@@ -265,50 +259,11 @@
             this.MainScrollCon.Size = new System.Drawing.Size(448, 384);
             this.MainScrollCon.TabIndex = 10;
             // 
-            // ClearSimButton
-            // 
-            this.ClearSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearSimButton.Appearance.Options.UseFont = true;
-            this.ClearSimButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ClearSimButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearSimButton.Image")));
-            this.ClearSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.ClearSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.ClearSimButton.Location = new System.Drawing.Point(0, 297);
-            this.ClearSimButton.Name = "ClearSimButton";
-            this.ClearSimButton.Size = new System.Drawing.Size(448, 40);
-            this.ClearSimButton.TabIndex = 34;
-            this.ClearSimButton.Text = "CLEAR";
-            this.ClearSimButton.Click += new System.EventHandler(this.ClearSimButton_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(0, 292);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(448, 5);
-            this.panel10.TabIndex = 33;
-            // 
-            // SaveSimButton
-            // 
-            this.SaveSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveSimButton.Appearance.Options.UseFont = true;
-            this.SaveSimButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SaveSimButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveSimButton.Image")));
-            this.SaveSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.SaveSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.SaveSimButton.Location = new System.Drawing.Point(0, 252);
-            this.SaveSimButton.Name = "SaveSimButton";
-            this.SaveSimButton.Size = new System.Drawing.Size(448, 40);
-            this.SaveSimButton.TabIndex = 32;
-            this.SaveSimButton.Text = "SAVE  ";
-            this.SaveSimButton.Click += new System.EventHandler(this.SaveSimButton_Click);
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 247);
+            this.panel9.Location = new System.Drawing.Point(0, 243);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(448, 5);
             this.panel9.TabIndex = 31;
@@ -316,7 +271,7 @@
             // DetailMemoEdit
             // 
             this.DetailMemoEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DetailMemoEdit.Location = new System.Drawing.Point(0, 147);
+            this.DetailMemoEdit.Location = new System.Drawing.Point(0, 143);
             this.DetailMemoEdit.Name = "DetailMemoEdit";
             this.DetailMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailMemoEdit.Properties.Appearance.Options.UseFont = true;
@@ -331,7 +286,7 @@
             this.panel11.Controls.Add(this.label5);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel11.Location = new System.Drawing.Point(0, 125);
+            this.panel11.Location = new System.Drawing.Point(0, 121);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(448, 22);
             this.panel11.TabIndex = 29;
@@ -342,7 +297,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 22);
+            this.label5.Size = new System.Drawing.Size(50, 19);
             this.label5.TabIndex = 0;
             this.label5.Text = "Details";
             // 
@@ -350,7 +305,7 @@
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 120);
+            this.panel12.Location = new System.Drawing.Point(0, 116);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(448, 5);
             this.panel12.TabIndex = 28;
@@ -358,7 +313,7 @@
             // TypeLookUp
             // 
             this.TypeLookUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TypeLookUp.Location = new System.Drawing.Point(0, 92);
+            this.TypeLookUp.Location = new System.Drawing.Point(0, 90);
             this.TypeLookUp.Name = "TypeLookUp";
             this.TypeLookUp.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeLookUp.Properties.Appearance.Options.UseFont = true;
@@ -368,7 +323,7 @@
             this.TypeLookUp.Properties.NullValuePrompt = "Select Position Type";
             this.TypeLookUp.Properties.NullValuePromptShowForEmptyValue = true;
             this.TypeLookUp.Properties.View = this.PositionEditView;
-            this.TypeLookUp.Size = new System.Drawing.Size(448, 28);
+            this.TypeLookUp.Size = new System.Drawing.Size(448, 26);
             this.TypeLookUp.TabIndex = 24;
             this.TypeLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.TypeLookUp_QueryPopUp);
             this.TypeLookUp.SizeChanged += new System.EventHandler(this.TypeLookUp_SizeChanged);
@@ -398,18 +353,6 @@
             this.PositionEditView.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.PositionEditView.OptionsView.RowAutoHeight = true;
             this.PositionEditView.OptionsView.ShowGroupPanel = false;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.DimGray;
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(0, 15);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(448, 22);
-            this.panel6.TabIndex = 19;
             // 
             // IdColumn
             // 
@@ -443,6 +386,18 @@
             this.DetailsColumn.OptionsColumn.AllowEdit = false;
             this.DetailsColumn.Visible = true;
             this.DetailsColumn.VisibleIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.DimGray;
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(0, 15);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(448, 22);
+            this.panel6.TabIndex = 19;
             // 
             // PositionAddForm
             // 
@@ -495,9 +450,6 @@
         private System.Windows.Forms.Panel panel6;
         private DevExpress.XtraEditors.GridLookUpEdit TypeLookUp;
         private DevExpress.XtraGrid.Views.Grid.GridView PositionEditView;
-        private DevExpress.XtraEditors.SimpleButton ClearSimButton;
-        private System.Windows.Forms.Panel panel10;
-        private DevExpress.XtraEditors.SimpleButton SaveSimButton;
         private System.Windows.Forms.Panel panel9;
         private DevExpress.XtraEditors.MemoEdit DetailMemoEdit;
         private System.Windows.Forms.Panel panel11;

@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
-using CampusVoting.ViewModels;
-using CampusVoting.Views.UserCons;
-using DevExpress.XtraEditors.Repository;
 
 namespace CampusVoting.Views
 {
@@ -28,7 +19,7 @@ namespace CampusVoting.Views
         public GradeAndSectionAddForm(GradeAndSectionBl bl)
         {
             InitializeComponent();
-            GradeAndSectionBl = new GradeAndSectionBl();
+            GradeAndSectionBl = bl;
             LoadCombo();
             NameTextEdit.Select();
         }

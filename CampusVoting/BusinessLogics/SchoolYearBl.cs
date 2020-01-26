@@ -9,7 +9,7 @@ using CampusVoting.ViewModels;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class SchoolYearBl : IRetrieve<List<SchoolYearVm>, SchoolYearVm>, IManipulate<SchoolYearVm>, IDropDown<SchoolYearComboVm, SchoolYearVm>, IResetable
+    public class SchoolYearBl : IRetrieve<List<SchoolYearVm>, SchoolYearVm>, IManipulate<SchoolYearVm>, IDropDown<SchoolYearComboVm>, IResetable
     {
          private readonly SchoolYearDal db = new SchoolYearDal();
         private ExceptionFound ef = new ExceptionFound();
@@ -144,10 +144,10 @@ namespace CampusVoting.BusinessLogics
             ComboItems = new List<SchoolYearComboVm>();
         }
 
-        public List<SchoolYearComboVm> GetCombo(SchoolYearVm p, ref string msg)
+        public List<SchoolYearComboVm> GetCombo(ref string msg)
         {
             List<SchoolYearComboVm> items = new List<SchoolYearComboVm>();
-            DataTable dt = db.GetList(MapProperties(p), ref msg);
+            DataTable dt = db.GetList(MapProperties(new SchoolYearVm()), ref msg);
             if (msg != "") return new List<SchoolYearComboVm>();
 
             try

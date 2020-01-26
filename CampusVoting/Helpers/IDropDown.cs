@@ -2,9 +2,9 @@
 
 namespace CampusVoting.Helpers
 {
-    public interface IDropDown<T, TParams>
+    public interface IDropDown<T>
     {
         void ResetCombo();
-        List<T> GetCombo(TParams p, ref string msg);
+        List<T> GetCombo(ref string msg);
     }
 }

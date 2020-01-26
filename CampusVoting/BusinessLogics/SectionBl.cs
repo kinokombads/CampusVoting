@@ -9,7 +9,7 @@ using CampusVoting.ViewModels;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class SectionBl : IRetrieve<List<SectionVm>, SectionVm>, IManipulate<SectionVm>, IDropDown<SectionComboVm, SectionVm>, IResetable
+    public class SectionBl : IRetrieve<List<SectionVm>, SectionVm>, IManipulate<SectionVm>, IDropDown<SectionComboVm>, IResetable
     {
         private readonly SectionDal db = new SectionDal();
         private ExceptionFound ef = new ExceptionFound();
@@ -142,10 +142,10 @@ namespace CampusVoting.BusinessLogics
             ComboItems = new List<SectionComboVm>();
         }
 
-        public List<SectionComboVm> GetCombo(SectionVm p, ref string msg)
+        public List<SectionComboVm> GetCombo(ref string msg)
         {
             List<SectionComboVm> items = new List<SectionComboVm>();
-            DataTable dt = db.GetList(MapProperties(p), ref msg);
+            DataTable dt = db.GetList(MapProperties(new SectionVm()), ref msg);
             if (msg != "") return new List<SectionComboVm>();
 
             try

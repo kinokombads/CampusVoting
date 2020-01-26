@@ -81,12 +81,12 @@ namespace CampusVoting.Views
 
         private void LoadCombo()
         {
-            string msg = "";
-            gradebl.ComboItems = gradebl.GetCombo(gradebl.VmParams, ref msg);
+            string msgs = "";
+            gradebl.ComboItems = gradebl.GetCombo(ref msgs);
 
-            if (msg != "")
+            if (msgs != "")
             {
-                MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msgs, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -95,11 +95,11 @@ namespace CampusVoting.Views
             GradeLookUp.Properties.ValueMember = "Id";
 
 
-            sectionBl.ComboItems = sectionBl.GetCombo(sectionBl.VmParams, ref msg);
+            sectionBl.ComboItems = sectionBl.GetCombo(ref msgs);
 
-            if (msg != "")
+            if (msgs != "")
             {
-                MessageBox.Show(msg, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(msgs, PageName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

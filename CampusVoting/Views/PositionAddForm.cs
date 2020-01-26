@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.Models;
 using CampusVoting.ViewModels;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
@@ -74,12 +75,16 @@ namespace CampusVoting.Views
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
 
-            checkedListBoxControl1.DataSource = PositionBl.PositionTypes;
-            checkedListBoxControl1.DisplayMember = "Title";
-            checkedListBoxControl1.ValueMember = "Title";
+            string msgs = "";
+            GradeBl bl = new GradeBl();
 
-            checkedListBoxControl1.
-            
+            CandidateClearanceCheckedListBoxCon.DataSource = bl.GetCombo(ref msgs);
+            CandidateClearanceCheckedListBoxCon.DisplayMember = "Title";
+            CandidateClearanceCheckedListBoxCon.ValueMember = "Id";
+
+            VoterClearanceCheckedListBoxCon.DataSource = bl.GetCombo(ref msgs);
+            VoterClearanceCheckedListBoxCon.DisplayMember = "Title";
+            VoterClearanceCheckedListBoxCon.ValueMember = "Id";
         }
 
         

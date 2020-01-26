@@ -9,7 +9,7 @@ using CampusVoting.ViewModels;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class GradeBl : IRetrieve<List<GradeVm>, GradeVm>, IManipulate<GradeVm>, IDropDown<GradeComboVm, GradeVm>, IResetable
+    public class GradeBl : IRetrieve<List<GradeVm>, GradeVm>, IManipulate<GradeVm>, IDropDown<GradeComboVm>, IResetable
     {
         private readonly GradeDal db = new GradeDal();
         private ExceptionFound ef = new ExceptionFound();
@@ -142,10 +142,10 @@ namespace CampusVoting.BusinessLogics
             ComboItems = new List<GradeComboVm>();
         }
 
-        public List<GradeComboVm> GetCombo(GradeVm p, ref string msg)
+        public List<GradeComboVm> GetCombo(ref string msg)
         {
             List<GradeComboVm> items = new List<GradeComboVm>();
-            DataTable dt = db.GetList(MapProperties(p), ref msg);
+            DataTable dt = db.GetList(MapProperties(new GradeVm()), ref msg);
             if (msg != "") return new List<GradeComboVm>();
 
             try

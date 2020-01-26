@@ -42,9 +42,8 @@ namespace CampusVoting.Views.UserCons
         }
 
         private void LoadCombo()
-        {
-            string msg = "";
-            gradeBl.ComboItems = gradeBl.GetCombo(gradeBl.VmParams, ref msg);
+        {string msgs = "";
+            gradeBl.ComboItems = gradeBl.GetCombo(ref msgs);
             GradeEdit.Properties.DataSource = gradeBl.ComboItems;
             GradeEdit.Properties.DisplayMember = "Title";
             GradeEdit.Properties.ValueMember = "Title";
@@ -55,7 +54,7 @@ namespace CampusVoting.Views.UserCons
                 return;
             }
 
-            sectionBl.ComboItems = sectionBl.GetCombo(sectionBl.VmParams, ref msg);
+            sectionBl.ComboItems = sectionBl.GetCombo(ref msgs);
             SectionEdit.Properties.DataSource = sectionBl.ComboItems;
             SectionEdit.Properties.DisplayMember = "Title";SectionEdit.Properties.ValueMember = "Title";
 

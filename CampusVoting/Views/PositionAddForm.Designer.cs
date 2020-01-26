@@ -57,6 +57,7 @@
             this.TitleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.checkedListBoxControl1 = new DevExpress.XtraEditors.CheckedListBoxControl();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.TypeLookUp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionEditView)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // LogoPictureBox
@@ -242,6 +244,7 @@
             // 
             // MainScrollCon
             // 
+            this.MainScrollCon.Controls.Add(this.checkedListBoxControl1);
             this.MainScrollCon.Controls.Add(this.panel9);
             this.MainScrollCon.Controls.Add(this.DetailMemoEdit);
             this.MainScrollCon.Controls.Add(this.panel11);
@@ -399,6 +402,18 @@
             this.panel6.Size = new System.Drawing.Size(448, 22);
             this.panel6.TabIndex = 19;
             // 
+            // checkedListBoxControl1
+            // 
+            this.checkedListBoxControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxControl1.Appearance.Options.UseFont = true;
+            this.checkedListBoxControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxControl1.Location = new System.Drawing.Point(0, 248);
+            this.checkedListBoxControl1.MultiColumn = true;
+            this.checkedListBoxControl1.Name = "checkedListBoxControl1";
+            this.checkedListBoxControl1.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.checkedListBoxControl1.Size = new System.Drawing.Size(448, 95);
+            this.checkedListBoxControl1.TabIndex = 32;
+            // 
             // PositionAddForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -424,6 +439,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PositionEditView)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -458,5 +474,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn IdColumn;
         private DevExpress.XtraGrid.Columns.GridColumn TitleColumn;
         private DevExpress.XtraGrid.Columns.GridColumn DetailsColumn;
+        private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
     }
 }

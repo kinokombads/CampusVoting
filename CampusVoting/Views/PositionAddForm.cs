@@ -73,6 +73,13 @@ namespace CampusVoting.Views
             TypeLookUp.Properties.DataSource = PositionBl.PositionTypes; 
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
+
+            checkedListBoxControl1.DataSource = PositionBl.PositionTypes;
+            checkedListBoxControl1.DisplayMember = "Title";
+            checkedListBoxControl1.ValueMember = "Title";
+
+            checkedListBoxControl1.
+            
         }
 
         
@@ -112,11 +119,7 @@ namespace CampusVoting.Views
             properties.PopupFormSize = new Size(editor.Width, properties.PopupFormSize.Height);
         }
 
-        private void panel10_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         
     }
 }

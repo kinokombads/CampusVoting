@@ -8,7 +8,6 @@ using CampusVoting.Helpers;
 using CampusVoting.Models;
 using CampusVoting.ViewModels;
 using MySql.Data.MySqlClient;
-using Vota.Helpers;
 
 namespace CampusVoting.DataAccess
 {

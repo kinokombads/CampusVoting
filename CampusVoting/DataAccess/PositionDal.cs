@@ -6,18 +6,19 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class SectionDal : IRetrieve<DataTable, Section>, IManipulate<Section>
+    public class PositionDal : IRetrieve<DataTable, Position>, IManipulate<Position>
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
-        public DataTable GetList(Section p, ref string msg)
+        public DataTable GetList(Position p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "GetSections";
+            command.CommandText = "GetPositions";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strPositionType", p.PositionType).Direction = ParameterDirection.Input;
 
             DataTable dt = MyHelper.GetData(command, ref msg);
             try
@@ -31,13 +32,14 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool AddOne(Section p, ref string msg)
+        public bool AddOne(Position p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "AddSection";
+            command.CommandText = "AddPosition";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strPositionType", p.PositionType).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intCreatedById", p.CreatedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
@@ -57,14 +59,15 @@ namespace CampusVoting.DataAccess
 
         }
 
-        public bool EditOne(Section p, ref string msg)
+        public bool EditOne(Position p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "EditSection";
+            command.CommandText = "EditPosition";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strPositionType", p.PositionType).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intModifiedById", p.ModifiedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
@@ -83,10 +86,10 @@ namespace CampusVoting.DataAccess
             }
         }
 
-        public bool DeleteOne(Section p, ref string msg)
+        public bool DeleteOne(Position p, ref string msg)
         {
             MySqlCommand command = new MySqlCommand();
-            command.CommandText = "DeleteSection";
+            command.CommandText = "DeletePosition";
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;

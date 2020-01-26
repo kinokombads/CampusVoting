@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class SchoolYearDal : IRetrieve<SchoolYear>, IManipulate<SchoolYear>
+    public class SchoolYearDal : IRetrieve<DataTable, SchoolYear>, IManipulate<SchoolYear>
     {
         readonly ExceptionFound ef = new ExceptionFound();
 
@@ -18,6 +18,7 @@ namespace CampusVoting.DataAccess
 
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intActive", p.Active).Direction = ParameterDirection.Input;
 
             DataTable dt = MyHelper.GetData(command, ref msg);
             try
@@ -39,6 +40,7 @@ namespace CampusVoting.DataAccess
 
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("boolActive", p.Active).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intCreatedById", p.CreatedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
 
@@ -48,8 +50,7 @@ namespace CampusVoting.DataAccess
                 if ((int)command.Parameters["itExists"].Value == 0) return true;
                 msg = msg + "\nThis item is already in the database";
                 return false;
-            }
-            catch (Exception ex)
+            }catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
                 return false;
@@ -66,6 +67,7 @@ namespace CampusVoting.DataAccess
             command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strTitle", p.Title).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strDetails", p.Details).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("boolActive", p.Active).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intModifiedById", p.ModifiedById).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("itExists", MySqlDbType.Bit).Direction = ParameterDirection.Output;
 
@@ -89,7 +91,7 @@ namespace CampusVoting.DataAccess
             command.CommandText = "DeleteSchoolYear";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("intSchoolYearId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
 
             try
             {

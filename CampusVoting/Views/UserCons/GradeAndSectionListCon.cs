@@ -2,13 +2,12 @@
 using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
-using CampusVoting.Enums;
+using CampusVoting.EnumsAndDictionaries;
 using CampusVoting.Helpers;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Controls;
 using DevExpress.XtraGrid.Views.Grid;
-using Vota.Helpers;
 
 namespace CampusVoting.Views.UserCons
 {

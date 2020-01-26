@@ -19,16 +19,15 @@ namespace CampusVoting.Views
         }
 
         private const string PageName = "Grade Deletion";
-        private string id;
 
         public GradeBl GradeBl { get; set; }
         
 
         private void DisplayInfo()
         {
-            id = GradeBl.VmParams.Id;
             NameTextEdit.Text = GradeBl.VmParams.Title;
-            DetailMemoEdit.Text = GradeBl.VmParams.Details;}
+            DetailMemoEdit.Text = GradeBl.VmParams.Details;
+        }
 
         private void Save()
         {

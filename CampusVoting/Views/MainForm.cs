@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CampusVoting.PageHelpers;
 using CampusVoting.Views.UserCons;
 using DevExpress.XtraBars.Navigation;
 
@@ -25,31 +17,34 @@ namespace CampusVoting.Views
             AccordionControlElement navPressed = (AccordionControlElement)sender;
             MainContentPanel.Controls.Clear();
 
+            dynamic listCon = null;
+
+
             switch (navPressed.Text)
             {
                 case "Voting Session":
                     break;
                 case "School Years":
+                    listCon = new SchoolYearListCon { Dock = DockStyle.Fill };
+                    //MainContentPanel.Controls.Add(schoolYearList);
                     break;
                 case "Students":
                     break;
                 case "Candidates":
                     break;
-                case "Grades":
-                    var gradeList = new GradeListCon { Dock = DockStyle.Fill };
-                    MainContentPanel.Controls.Add(gradeList);
+                case "Grades":listCon = new GradeListCon { Dock = DockStyle.Fill };
                     break;
                 case "Sections":
-                    var sectionList = new SectionListCon { Dock = DockStyle.Fill };
-                    MainContentPanel.Controls.Add(sectionList);
+                    listCon = new SectionListCon { Dock = DockStyle.Fill };
                     break;
                 case "Grade And Sections":
-                    var gradeSectionList = new GradeAndSectionListCon { Dock = DockStyle.Fill };
-                    MainContentPanel.Controls.Add(gradeSectionList);
+                    listCon = new GradeAndSectionListCon { Dock = DockStyle.Fill };
                     break;
                 default:
                     break;
             }
+
+            if (listCon != null) MainContentPanel.Controls.Add(listCon);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

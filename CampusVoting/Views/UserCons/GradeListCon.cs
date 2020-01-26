@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
-using CampusVoting.Enums;
+using CampusVoting.EnumsAndDictionaries;
 using CampusVoting.Helpers;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;

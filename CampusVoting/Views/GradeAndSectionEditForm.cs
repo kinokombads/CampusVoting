@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
-using Vota.Helpers;
+using CampusVoting.Helpers;
 
 namespace CampusVoting.Views
 {

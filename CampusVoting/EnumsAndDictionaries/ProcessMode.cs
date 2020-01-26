@@ -1,4 +1,4 @@
-﻿namespace CampusVoting.Enums
+﻿namespace CampusVoting.EnumsAndDictionaries
 {
     public enum ProcessMode
     {

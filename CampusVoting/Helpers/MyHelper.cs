@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Data;
 using MySql.Data.MySqlClient;
-using Vota.Helpers;
 
 namespace CampusVoting.Helpers
 {

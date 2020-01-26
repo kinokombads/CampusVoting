@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
+using CampusVoting.Helpers;
 using CampusVoting.ViewModels;
 using CampusVoting.Views.UserCons;
 using DevExpress.XtraEditors.Repository;
-using Vota.Helpers;
 
 namespace CampusVoting.Views
 {

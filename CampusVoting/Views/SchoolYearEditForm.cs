@@ -5,41 +5,57 @@ using CampusVoting.Helpers;
 
 namespace CampusVoting.Views
 {
-    public partial class SchoolYearAddForm : Form
+    public partial class SchoolYearEditForm : Form
     {
-        public SchoolYearAddForm()
+        public SchoolYearEditForm()
         {
             InitializeComponent();
         }
 
-        public SchoolYearAddForm(SchoolYearBl bl)
+        public SchoolYearEditForm(SchoolYearBl bl)
         {
             InitializeComponent();
             SchoolYearBl = bl;
+            DisplayInfo();
             NameTextEdit.Select();
         }
 
+        private const string PageName = "School Year Edition";
+        private string id;
+        private string previousName = "";
+
         public SchoolYearBl SchoolYearBl { get; set; }
-        private const string PageName = "School Year Addition";
+
+        private void DisplayInfo()
+        {
+            id = SchoolYearBl.VmParams.Id;
+            previousName = SchoolYearBl.VmParams.Title; //previous value
+
+            NameTextEdit.Text = SchoolYearBl.VmParams.Title;
+            ActiveSwitch.IsOn = SchoolYearBl.VmParams.Active.GetInt().GetBool();
+            DetailMemoEdit.Text = SchoolYearBl.VmParams.Details;
+        }
 
         private void GetParams()
         {
             SchoolYearBl.ResetVmParams();
+            SchoolYearBl.VmParams.Id = id;
             SchoolYearBl.VmParams.Title = NameTextEdit.Text;
             SchoolYearBl.VmParams.Active = ActiveSwitch.EditValue.GetString();
             SchoolYearBl.VmParams.Details = DetailMemoEdit.Text;
-            SchoolYearBl.VmParams.CreatedById = "1"; //todo temp
+            SchoolYearBl.VmParams.ModifiedById = "1"; //todo temp
         }
 
         private void Save()
         {
             string msg = "";
-            if (SchoolYearBl.AddOne(SchoolYearBl.VmParams, ref msg))
+            if (SchoolYearBl.EditOne(SchoolYearBl.VmParams, ref msg))
             {
-                MessageBox.Show(string.Format("School Year {0} has been added.", NameTextEdit.Text), PageName);
+                MessageBox.Show(string.Format("School Year {0} is updated to School Year {1}",
+                    previousName, NameTextEdit.Text), PageName);
+
                 SchoolYearBl.ChangeOccured = true;
                 Close();
-
             }
             else if (msg != "")
             {
@@ -50,16 +66,16 @@ namespace CampusVoting.Views
         private void Clearer()
         {
             NameTextEdit.Text = "";
-            ActiveSwitch.EditValue = false;
             DetailMemoEdit.Text = "";
+            ActiveSwitch.EditValue = false;
         }
 
 
         private void LogoPictureBox_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-        
+
         private void SaveSimButton_Click(object sender, EventArgs e)
         {
             GetParams();
@@ -70,10 +86,10 @@ namespace CampusVoting.Views
         {
             Clearer();
         }
-        private void SchoolYearAddForm_FormClosing(object sender, FormClosingEventArgs e)
+
+        private void SchoolYearEditForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Dispose();
         }
-
     }
 }

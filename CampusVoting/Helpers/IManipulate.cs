@@ -1,6 +1,6 @@
-﻿namespace CampusVoting.DataAccess
+﻿namespace CampusVoting.Helpers
 {
-    public interface IManipulate<T>
+    public interface IManipulate<in T>
     {
         bool AddOne(T p, ref string msg);
 

@@ -6,11 +6,10 @@ using CampusVoting.DataAccess;
 using CampusVoting.Helpers;
 using CampusVoting.Models;
 using CampusVoting.ViewModels;
-using Vota.Helpers;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class GradeAndSectionBl
+    public class GradeAndSectionBl : IRetrieve<List<GradeAndSectionVm>, GradeAndSectionVm>, IManipulate<GradeAndSectionVm>, IDropDown<GradeAndSectionComboVm, GradeAndSectionVm>, IResetable
     {
         private readonly GradeAndSectionDal db = new GradeAndSectionDal();
         private ExceptionFound ef = new ExceptionFound();
@@ -50,13 +49,7 @@ namespace CampusVoting.BusinessLogics
             ListVm = new List<GradeAndSectionVm>();
         }
 
-        public void ResetCombo()
-        {
-            ComboItems = new List<GradeAndSectionComboVm>();
-        }
-
         
-
         private GradeAndSection MapProperties(GradeAndSectionVm p)
         {
             GradeAndSection baseObj = new GradeAndSection();
@@ -78,6 +71,7 @@ namespace CampusVoting.BusinessLogics
             ResetVmParams();
             VmParams = (GradeAndSectionVm)item;
         }
+
         
         public List<GradeAndSectionVm> GetList(GradeAndSectionVm p, ref string msg)
         {
@@ -147,6 +141,12 @@ namespace CampusVoting.BusinessLogics
         {
             if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
+        }
+
+
+        public void ResetCombo()
+        {
+            ComboItems = new List<GradeAndSectionComboVm>();
         }
 
         public List<GradeAndSectionComboVm> GetCombo(GradeAndSectionVm p, ref string msg)

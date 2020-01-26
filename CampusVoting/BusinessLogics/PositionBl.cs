@@ -9,23 +9,23 @@ using CampusVoting.ViewModels;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class GradeBl : IRetrieve<List<GradeVm>, GradeVm>, IManipulate<GradeVm>, IDropDown<GradeComboVm, GradeVm>, IResetable
+    public class PositionBl
     {
-        private readonly GradeDal db = new GradeDal();
+         private readonly PositionDal db = new PositionDal();
         private ExceptionFound ef = new ExceptionFound();
 
-        public GradeVm VmItem { get; set; }
+        public PositionVm VmItem { get; set; }
 
-        public GradeVm VmParams { get; set; }
+        public PositionVm VmParams { get; set; }
 
-        public List<GradeVm> ListVm { get; set; }
+        public List<PositionVm> ListVm { get; set; }
 
-        public List<GradeComboVm> ComboItems { get; set; }
+        public List<PositionComboVm> ComboItems { get; set; }
 
         public bool ChangeOccured { get; set; }
 
 
-        public GradeBl()
+        public PositionBl()
         {
             ResetVmItem();
             ResetVmParams();
@@ -36,25 +36,26 @@ namespace CampusVoting.BusinessLogics
 
         public void ResetVmItem()
         {
-            VmItem = new GradeVm();
+            VmItem = new PositionVm();
         }
 
         public void ResetVmParams()
         {
-            VmParams = new GradeVm();
+            VmParams = new PositionVm();
         }
 
         public void ResetVmList()
         {
-            ListVm = new List<GradeVm>();
+            ListVm = new List<PositionVm>();
         }
         
 
-        private Grade MapProperties(GradeVm p)
+        private Position MapProperties(PositionVm p)
         {
-            Grade baseObj = new Grade();
+            Position baseObj = new Position();
             baseObj.Id = p.Id.GetInt();
             baseObj.Title = p.Title.GetString();
+            baseObj.PositionType = p.PositionType.GetString();
             baseObj.Details = p.Details.GetString();
             baseObj.CreatedById = p.CreatedById.GetInt();
             baseObj.CreatedOn = p.CreatedOn.GetDateTime();
@@ -68,23 +69,24 @@ namespace CampusVoting.BusinessLogics
         {
             if (item == null) return;
             ResetVmParams();
-            VmParams = (GradeVm)item;
+            VmParams = (PositionVm)item;
         }
 
         
-        public List<GradeVm> GetList(GradeVm p, ref string msg)
+        public List<PositionVm> GetList(PositionVm p, ref string msg)
         {
-            List<GradeVm> items = new List<GradeVm>();
+            List<PositionVm> items = new List<PositionVm>();
             DataTable dt = db.GetList(MapProperties(p), ref msg);
-            if (msg != "") return new List<GradeVm>();
+            if (msg != "") return new List<PositionVm>();
 
             try
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    GradeVm item = new GradeVm();
-                    item.Id = row["gradeId"].GetString();
+                    PositionVm item = new PositionVm();
+                    item.Id = row["PositionId"].GetString();
                     item.Title = row["title"].GetString();
+                    item.PositionType = row["positionType"].GetString();
                     item.Details = row["details"].GetString();
                     item.CreatedById = row["createdById"].GetString();
                     item.CreatedBy = row["createdByName"].GetString();
@@ -101,11 +103,11 @@ namespace CampusVoting.BusinessLogics
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new List<GradeVm>();
+                return new List<PositionVm>();
             }
         }
 
-        public GradeVm GetOne(GradeVm p, ref string msg)
+        public PositionVm GetOne(PositionVm p, ref string msg)
         {
             try
             {
@@ -114,23 +116,23 @@ namespace CampusVoting.BusinessLogics
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new GradeVm();
+                return new PositionVm();
             }
         }
        
-        public bool AddOne(GradeVm viewModel, ref string msg)
+        public bool AddOne(PositionVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
             return db.AddOne(MapProperties(viewModel), ref msg);
         }
         
-        public bool EditOne(GradeVm viewModel, ref string msg)
+        public bool EditOne(PositionVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
             return db.EditOne(MapProperties(viewModel), ref msg);
         }
 
-        public bool DeleteOne(GradeVm viewModel, ref string msg)
+        public bool DeleteOne(PositionVm viewModel, ref string msg)
         {
             if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
@@ -139,22 +141,23 @@ namespace CampusVoting.BusinessLogics
 
         public void ResetCombo()
         {
-            ComboItems = new List<GradeComboVm>();
+            ComboItems = new List<PositionComboVm>();
         }
 
-        public List<GradeComboVm> GetCombo(GradeVm p, ref string msg)
+        public List<PositionComboVm> GetCombo(PositionVm p, ref string msg)
         {
-            List<GradeComboVm> items = new List<GradeComboVm>();
+            List<PositionComboVm> items = new List<PositionComboVm>();
             DataTable dt = db.GetList(MapProperties(p), ref msg);
-            if (msg != "") return new List<GradeComboVm>();
+            if (msg != "") return new List<PositionComboVm>();
 
             try
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    GradeComboVm item = new GradeComboVm();
-                    item.Id = row["gradeId"].GetString();
+                    PositionComboVm item = new PositionComboVm();
+                    item.Id = row["PositionId"].GetString();
                     item.Title = row["title"].GetString();
+                    item.PositionType = row["positionType"].GetString();
                     item.Details = row["details"].GetString();
 
                     items.Add(item);
@@ -165,7 +168,7 @@ namespace CampusVoting.BusinessLogics
             catch (Exception ex)
             {
                 msg = ef.GetExceptionMessage(ex, msg);
-                return new List<GradeComboVm>();
+                return new List<PositionComboVm>();
             }
         }
     }

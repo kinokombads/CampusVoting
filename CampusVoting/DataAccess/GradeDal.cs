@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace CampusVoting.DataAccess
 {
-    public class GradeDal : IRetrieve<Grade>, IManipulate<Grade>
+    public class GradeDal : IRetrieve<DataTable, Grade>, IManipulate<Grade>
     {
         readonly ExceptionFound ef = new ExceptionFound();
 

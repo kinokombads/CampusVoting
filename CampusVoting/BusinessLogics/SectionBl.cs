@@ -6,11 +6,10 @@ using CampusVoting.DataAccess;
 using CampusVoting.Helpers;
 using CampusVoting.Models;
 using CampusVoting.ViewModels;
-using Vota.Helpers;
 
 namespace CampusVoting.BusinessLogics
 {
-    public class SectionBl
+    public class SectionBl : IRetrieve<List<SectionVm>, SectionVm>, IManipulate<SectionVm>, IDropDown<SectionComboVm, SectionVm>, IResetable
     {
         private readonly SectionDal db = new SectionDal();
         private ExceptionFound ef = new ExceptionFound();
@@ -49,12 +48,7 @@ namespace CampusVoting.BusinessLogics
         {
             ListVm = new List<SectionVm>();
         }
-
-        public void ResetCombo()
-        {
-            ComboItems = new List<SectionComboVm>();
-        }
-
+        
         
 
         private Section MapProperties(SectionVm p)
@@ -140,6 +134,12 @@ namespace CampusVoting.BusinessLogics
         {
             if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
+        }
+
+
+        public void ResetCombo()
+        {
+            ComboItems = new List<SectionComboVm>();
         }
 
         public List<SectionComboVm> GetCombo(SectionVm p, ref string msg)

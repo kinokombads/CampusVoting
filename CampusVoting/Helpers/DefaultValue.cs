@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Vota.Helpers
+namespace CampusVoting.Helpers
 {
     public static class DefaultValue
     {
@@ -120,7 +120,9 @@ namespace Vota.Helpers
         {
             try
             {
-                return Convert.ToBoolean(obj);
+                var kko = false;
+                kko = Convert.ToBoolean(obj);
+                return kko;
             }
             catch (Exception)
             {

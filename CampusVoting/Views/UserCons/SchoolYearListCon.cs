@@ -8,30 +8,29 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace CampusVoting.Views.UserCons
 {
-    public partial class SectionListCon : UserControl
+    public partial class SchoolYearListCon : UserControl
     {
-        public SectionListCon()
+        public SchoolYearListCon()
         {
-            InitializeComponent();
-            NameTextEdit.Select();
+            InitializeComponent(); NameTextEdit.Select();
         }
 
         private string msg = "";
-        SectionBl sectionBl = new SectionBl();
+        SchoolYearBl schoolYearBl = new SchoolYearBl();
 
 
         public void GetParams()
         {
-            sectionBl.ResetVmParams();
-            sectionBl.VmParams.Title = NameTextEdit.Text;
+            schoolYearBl.ResetVmParams();
+            schoolYearBl.VmParams.Title = NameTextEdit.Text;
         }
 
         public void LoadList()
         {
-            sectionBl.ListVm = sectionBl.GetList(sectionBl.VmParams, ref msg);
+            schoolYearBl.ListVm = schoolYearBl.GetList(schoolYearBl.VmParams, ref msg);
             if (msg == "")
             {
-                ListGridControl.DataSource = sectionBl.ListVm;
+                ListGridControl.DataSource = schoolYearBl.ListVm;
             }
             else
             {
@@ -52,8 +51,7 @@ namespace CampusVoting.Views.UserCons
                     GetSelected(ProcessMode.Delete);
                     break;
                 case Keys.Enter:
-                    GetSelected(ProcessMode.Update);
-                    break;
+                    GetSelected(ProcessMode.Update); break;
             }
 
             return base.ProcessCmdKey(ref message, keyData);
@@ -67,17 +65,17 @@ namespace CampusVoting.Views.UserCons
 
             object item = gridView.GetRow(gridView.FocusedRowHandle);
 
-            sectionBl.MapToViewModel(item);
+            schoolYearBl.MapToViewModel(item);
 
             if (process == ProcessMode.Update)
             {
-                SectionEditForm editForm = new SectionEditForm(sectionBl);
+                SchoolYearEditForm editForm = new SchoolYearEditForm(schoolYearBl);
                 editForm.ShowDialog();
                 RefreshWhenChanged();
             }
             else
             {
-                SectionDeleteForm deleteForm = new SectionDeleteForm(sectionBl);
+                SchoolYearDeleteForm deleteForm = new SchoolYearDeleteForm(schoolYearBl);
                 deleteForm.ShowDialog();
                 RefreshWhenChanged();
             }
@@ -86,9 +84,9 @@ namespace CampusVoting.Views.UserCons
 
         private void RefreshWhenChanged()
         {
-            if (!sectionBl.ChangeOccured) return;
+            if (!schoolYearBl.ChangeOccured) return;
             LoadList();
-            sectionBl.ChangeOccured = false;
+            schoolYearBl.ChangeOccured = false;
         }
 
 
@@ -100,7 +98,7 @@ namespace CampusVoting.Views.UserCons
 
         private void AddSimButton_Click(object sender, EventArgs e)
         {
-            SectionAddForm addForm = new SectionAddForm(sectionBl);
+            SchoolYearAddForm addForm = new SchoolYearAddForm(schoolYearBl);
             addForm.ShowDialog();
             RefreshWhenChanged();
         }
@@ -114,19 +112,13 @@ namespace CampusVoting.Views.UserCons
         {
             GetSelected(ProcessMode.Update);
         }
-
-        private void SectionListCon_VisibleChanged(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
+        
+        
         private void NameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != 13 || ItemsGridView.IsFocusedView) return;
             GetParams();
             LoadList();
         }
-
-
     }
 }

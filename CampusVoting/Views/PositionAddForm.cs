@@ -7,6 +7,7 @@ using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
 using CampusVoting.Models;
 using CampusVoting.ViewModels;
+using DevExpress.Data.Helpers;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 
@@ -87,6 +88,14 @@ namespace CampusVoting.Views
             VoterClearanceCheckedListBoxCon.ValueMember = "Id";
         }
 
+        private void SaveClearances()
+        {
+            foreach (var item in CandidateClearanceCheckedListBoxCon.CheckedItems)
+            {
+                var koko = item;
+            }
+        }
+
         
         private void LogoPictureBox_Click(object sender, EventArgs e)
         {
@@ -95,8 +104,9 @@ namespace CampusVoting.Views
 
         private void SaveSimButton_Click(object sender, EventArgs e)
         {
-            GetParams();
-            Save();
+            //GetParams();
+            //Save();
+            SaveClearances();
         }
 
         private void ClearSimButton_Click(object sender, EventArgs e)

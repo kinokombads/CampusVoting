@@ -111,6 +111,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CampaignGroupVm.cs" />
+    <Compile Include="ViewModels\CandidateClearanceVm.cs" />
     <Compile Include="ViewModels\ComboList.cs" />
     <Compile Include="ViewModels\ConfigTableVm.cs" />
     <Compile Include="ViewModels\GradeAndSectionComboVm.cs" />

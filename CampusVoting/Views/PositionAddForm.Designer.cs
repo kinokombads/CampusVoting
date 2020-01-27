@@ -46,6 +46,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.MainPanelControl = new DevExpress.XtraEditors.PanelControl();
             this.MainScrollCon = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.ClearSimButton = new DevExpress.XtraEditors.SimpleButton();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.SaveSimButton = new DevExpress.XtraEditors.SimpleButton();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.CandidateClearanceCheckedListBoxCon = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.VoterClearanceCheckedListBoxCon = new DevExpress.XtraEditors.CheckedListBoxControl();
@@ -59,14 +63,10 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.TypeLookUp = new DevExpress.XtraEditors.GridLookUpEdit();
             this.PositionEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.IdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TitleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.ClearSimButton = new DevExpress.XtraEditors.SimpleButton();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.SaveSimButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
@@ -282,6 +282,54 @@
             this.MainScrollCon.Size = new System.Drawing.Size(448, 464);
             this.MainScrollCon.TabIndex = 10;
             // 
+            // ClearSimButton
+            // 
+            this.ClearSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearSimButton.Appearance.Options.UseFont = true;
+            this.ClearSimButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ClearSimButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearSimButton.Image")));
+            this.ClearSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.ClearSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.ClearSimButton.Location = new System.Drawing.Point(0, 412);
+            this.ClearSimButton.Name = "ClearSimButton";
+            this.ClearSimButton.Size = new System.Drawing.Size(448, 40);
+            this.ClearSimButton.TabIndex = 38;
+            this.ClearSimButton.Text = "CLEAR";
+            this.ClearSimButton.Click += new System.EventHandler(this.ClearSimButton_Click);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 407);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(448, 5);
+            this.panel14.TabIndex = 37;
+            // 
+            // SaveSimButton
+            // 
+            this.SaveSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveSimButton.Appearance.Options.UseFont = true;
+            this.SaveSimButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SaveSimButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveSimButton.Image")));
+            this.SaveSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.SaveSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.SaveSimButton.Location = new System.Drawing.Point(0, 367);
+            this.SaveSimButton.Name = "SaveSimButton";
+            this.SaveSimButton.Size = new System.Drawing.Size(448, 40);
+            this.SaveSimButton.TabIndex = 36;
+            this.SaveSimButton.Text = "SAVE  ";
+            this.SaveSimButton.Click += new System.EventHandler(this.SaveSimButton_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 362);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(448, 5);
+            this.panel13.TabIndex = 35;
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -330,7 +378,7 @@
             // 
             // panel10
             // 
-            this.panel10.BackColor = System.Drawing.Color.Purple;
+            this.panel10.BackColor = System.Drawing.Color.DimGray;
             this.panel10.Controls.Add(this.label7);
             this.panel10.Controls.Add(this.label6);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
@@ -454,6 +502,18 @@
             this.PositionEditView.OptionsView.RowAutoHeight = true;
             this.PositionEditView.OptionsView.ShowGroupPanel = false;
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.DimGray;
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Location = new System.Drawing.Point(0, 15);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(448, 22);
+            this.panel6.TabIndex = 19;
+            // 
             // IdColumn
             // 
             this.IdColumn.AppearanceCell.Options.UseTextOptions = true;
@@ -486,64 +546,6 @@
             this.DetailsColumn.OptionsColumn.AllowEdit = false;
             this.DetailsColumn.Visible = true;
             this.DetailsColumn.VisibleIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.DimGray;
-            this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel6.Location = new System.Drawing.Point(0, 15);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(448, 22);
-            this.panel6.TabIndex = 19;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 362);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(448, 5);
-            this.panel13.TabIndex = 35;
-            // 
-            // ClearSimButton
-            // 
-            this.ClearSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearSimButton.Appearance.Options.UseFont = true;
-            this.ClearSimButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ClearSimButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearSimButton.Image")));
-            this.ClearSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.ClearSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.ClearSimButton.Location = new System.Drawing.Point(0, 412);
-            this.ClearSimButton.Name = "ClearSimButton";
-            this.ClearSimButton.Size = new System.Drawing.Size(448, 40);
-            this.ClearSimButton.TabIndex = 38;
-            this.ClearSimButton.Text = "CLEAR";
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 407);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(448, 5);
-            this.panel14.TabIndex = 37;
-            // 
-            // SaveSimButton
-            // 
-            this.SaveSimButton.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveSimButton.Appearance.Options.UseFont = true;
-            this.SaveSimButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.SaveSimButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveSimButton.Image")));
-            this.SaveSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.SaveSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.SaveSimButton.Location = new System.Drawing.Point(0, 367);
-            this.SaveSimButton.Name = "SaveSimButton";
-            this.SaveSimButton.Size = new System.Drawing.Size(448, 40);
-            this.SaveSimButton.TabIndex = 36;
-            this.SaveSimButton.Text = "SAVE  ";
             // 
             // PositionAddForm
             // 

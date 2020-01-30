@@ -36,7 +36,8 @@ namespace CampusVoting.Views
 
         public PositionBl PositionBl { get; set; }
         private const string PageName = "Position Addition";
-
+        GradeBl bl1 = new GradeBl();
+        GradeBl bl2 = new GradeBl();
 
         private void GetParams()
         {
@@ -75,25 +76,32 @@ namespace CampusVoting.Views
             TypeLookUp.Properties.DataSource = PositionBl.PositionTypes; 
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
-
+            
             string msgs = "";
-            GradeBl bl = new GradeBl();
+            
 
-            CandidateClearanceCheckedListBoxCon.DataSource = bl.GetCombo(ref msgs);
+            CandidateClearanceCheckedListBoxCon.DataSource = bl1.GetCombo(ref msgs);
             CandidateClearanceCheckedListBoxCon.DisplayMember = "Title";
             CandidateClearanceCheckedListBoxCon.ValueMember = "Id";
 
-            VoterClearanceCheckedListBoxCon.DataSource = bl.GetCombo(ref msgs);
+            VoterClearanceCheckedListBoxCon.DataSource = bl2.GetCombo(ref msgs);
             VoterClearanceCheckedListBoxCon.DisplayMember = "Title";
             VoterClearanceCheckedListBoxCon.ValueMember = "Id";
         }
 
         private void SaveClearances()
         {
-            foreach (var item in CandidateClearanceCheckedListBoxCon.CheckedItems)
-            {
-                var koko = item;
-            }
+            //foreach (var grade in bl1.ComboItems)
+            //{
+            //    foreach (GradeComboVm item in CandidateClearanceCheckedListBoxCon.CheckedItems)
+            //    {
+            //        if (VScroll)
+            //        {
+                        
+            //        }
+            //    }
+            //}
+            
         }
 
         

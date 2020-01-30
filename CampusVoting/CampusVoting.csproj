@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogics\GradeAndSectionBl.cs" />
     <Compile Include="BusinessLogics\PositionBl.cs" />
+    <Compile Include="DataAccess\CandidateClearanceDal.cs" />
     <Compile Include="DataAccess\PositionDal.cs" />
     <Compile Include="EnumsAndDictionaries\DictionItems.cs" />
     <Compile Include="Helpers\IDropDown.cs" />

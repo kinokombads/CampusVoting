@@ -61,10 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogics\CandidateClearanceBl.cs" />
     <Compile Include="BusinessLogics\GradeAndSectionBl.cs" />
     <Compile Include="BusinessLogics\PositionBl.cs" />
+    <Compile Include="BusinessLogics\VoterClearanceBl.cs" />
     <Compile Include="DataAccess\CandidateClearanceDal.cs" />
     <Compile Include="DataAccess\PositionDal.cs" />
+    <Compile Include="DataAccess\VoterClearanceDal.cs" />
     <Compile Include="EnumsAndDictionaries\DictionItems.cs" />
     <Compile Include="Helpers\IDropDown.cs" />
     <Compile Include="Helpers\IResetable.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="ViewModels\SectionComboVm.cs" />
     <Compile Include="ViewModels\SectionVm.cs" />
     <Compile Include="ViewModels\StudentVm.cs" />
+    <Compile Include="ViewModels\VoterClearanceVm.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

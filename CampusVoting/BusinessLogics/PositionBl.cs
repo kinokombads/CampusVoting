@@ -124,10 +124,10 @@ namespace CampusVoting.BusinessLogics
             }
         }
        
-        public bool AddOne(PositionVm viewModel, ref string msg)
+        public bool AddOne(PositionVm viewModel, ref string msg, ref int newId)
         {
             if (!EntryChecker.IsNotNullOrNotWhiteSpace(viewModel.Title, ref msg)) return false;
-            return db.AddOne(MapProperties(viewModel), ref msg);
+            return db.AddOne(MapProperties(viewModel), ref msg, ref newId);
         }
         
         public bool EditOne(PositionVm viewModel, ref string msg)

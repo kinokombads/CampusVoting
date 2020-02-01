@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
-using CampusVoting.Models;
 using CampusVoting.ViewModels;
-using DevExpress.Data.Helpers;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 
@@ -21,7 +20,7 @@ namespace CampusVoting.Views
             PositionBl = new PositionBl();
             NameTextEdit.Select();
             LoadCombo();
-            TypeLookUp_SizeChanged(TypeLookUp, EventArgs.Empty);  
+            TypeLookUp_SizeChanged(TypeLookUp, EventArgs.Empty);
         }
 
         public PositionAddForm(PositionBl bl)
@@ -30,14 +29,18 @@ namespace CampusVoting.Views
             PositionBl = bl;
             NameTextEdit.Select();
             LoadCombo();
-            TypeLookUp_SizeChanged(TypeLookUp, EventArgs.Empty);  
+            TypeLookUp_SizeChanged(TypeLookUp, EventArgs.Empty);
         }
 
 
         public PositionBl PositionBl { get; set; }
         private const string PageName = "Position Addition";
-        GradeBl bl1 = new GradeBl();
-        GradeBl bl2 = new GradeBl();
+        readonly GradeBl bl1 = new GradeBl();
+        readonly GradeBl bl2 = new GradeBl();
+        readonly CandidateClearanceBl cbl = new CandidateClearanceBl();
+        readonly VoterClearanceBl vbl = new VoterClearanceBl();
+        
+        private int newId;
 
         private void GetParams()
         {
@@ -51,10 +54,12 @@ namespace CampusVoting.Views
         private void Save()
         {
             string msg = "";
-            if (PositionBl.AddOne(PositionBl.VmParams, ref msg))
+            if (PositionBl.AddOne(PositionBl.VmParams, ref msg, ref newId))
             {
                 MessageBox.Show(string.Format("Position {0} has been added.", NameTextEdit.Text), PageName);
                 PositionBl.ChangeOccured = true;
+                SaveCands();
+                SaveVoters();
                 Close();
 
             }
@@ -69,41 +74,69 @@ namespace CampusVoting.Views
             NameTextEdit.Text = "";
             TypeLookUp.EditValue = null;
             DetailMemoEdit.EditValue = "";
+            CandidateClearanceCheckListBoxCon.UnCheckAll();
+            VoterClearanceCheckedListBoxCon.UnCheckAll();
         }
 
         private void LoadCombo()
         {
+            string msgs = "";
+            bl1.ComboItems = bl1.GetCombo(ref msgs);
+            bl2.ComboItems = bl2.GetCombo(ref msgs);
+
             TypeLookUp.Properties.DataSource = PositionBl.PositionTypes; 
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
-            
-            string msgs = "";
-            
 
-            CandidateClearanceCheckedListBoxCon.DataSource = bl1.GetCombo(ref msgs);
-            CandidateClearanceCheckedListBoxCon.DisplayMember = "Title";
-            CandidateClearanceCheckedListBoxCon.ValueMember = "Id";
-
-            VoterClearanceCheckedListBoxCon.DataSource = bl2.GetCombo(ref msgs);
+            CandidateClearanceCheckListBoxCon.DataSource = bl1.ComboItems;
+            CandidateClearanceCheckListBoxCon.DisplayMember = "Title";
+            CandidateClearanceCheckListBoxCon.ValueMember = "Id";
+            
+            VoterClearanceCheckedListBoxCon.DataSource = bl2.ComboItems;
             VoterClearanceCheckedListBoxCon.DisplayMember = "Title";
             VoterClearanceCheckedListBoxCon.ValueMember = "Id";
         }
 
-        private void SaveClearances()
+        private void SaveCands()
         {
-            //foreach (var grade in bl1.ComboItems)
-            //{
-            //    foreach (GradeComboVm item in CandidateClearanceCheckedListBoxCon.CheckedItems)
-            //    {
-            //        if (VScroll)
-            //        {
-                        
-            //        }
-            //    }
-            //}
+            string newMsg = "";
+            cbl.ResetVmList();
+
+            List<GradeComboVm> checkCands = CandidateClearanceCheckListBoxCon.CheckedItems.Cast<GradeComboVm>().ToList();
+            
+            foreach (GradeComboVm grade in bl1.ComboItems)
+            {
+                CandidateClearanceVm newItem = new CandidateClearanceVm();
+                newItem.PositionId = newId.GetString();
+                newItem.GradeId = grade.Id;
+                newItem.Active = checkCands.Exists(i => i.Id == grade.Id).ToString();
+
+                if (cbl.AddOne(newItem, ref newMsg)) continue;
+                MessageBox.Show(newMsg, "Candidate Clearance Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                break;
+            }
             
         }
 
+        private void SaveVoters()
+        {
+            string newMsg = "";
+            vbl.ResetVmList();
+
+            List<GradeComboVm> checkVoters = VoterClearanceCheckedListBoxCon.CheckedItems.Cast<GradeComboVm>().ToList();
+
+            foreach (GradeComboVm grade in bl2.ComboItems)
+            {
+                VoterClearanceVm newItem = new VoterClearanceVm();
+                newItem.PositionId = newId.GetString();
+                newItem.GradeId = grade.Id;
+                newItem.Active = checkVoters.Exists(i => i.Id == grade.Id).ToString();
+
+                if (vbl.AddOne(newItem, ref newMsg)) continue;
+                MessageBox.Show(newMsg, "Voter Clearance Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                break;
+            }
+        }
         
         private void LogoPictureBox_Click(object sender, EventArgs e)
         {
@@ -112,9 +145,8 @@ namespace CampusVoting.Views
 
         private void SaveSimButton_Click(object sender, EventArgs e)
         {
-            //GetParams();
-            //Save();
-            SaveClearances();
+            GetParams();
+            Save();
         }
 
         private void ClearSimButton_Click(object sender, EventArgs e)

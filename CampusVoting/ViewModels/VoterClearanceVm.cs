@@ -1,6 +1,6 @@
 ﻿namespace CampusVoting.ViewModels
 {
-    public class CandidateClearanceVm
+    public class VoterClearanceVm
     {
         public string Id { get; set; }
         public string PositionId { get; set; }
@@ -9,7 +9,7 @@
         public string Grade { get; set; }
         public string Active { get; set; }
 
-        public CandidateClearanceVm()
+        public VoterClearanceVm()
         {
             Id = "0";
             PositionId = "0";
@@ -17,7 +17,6 @@
             GradeId = "0";
             Grade = "";
             Active = "";
-        }
-
+        } 
     }
 }

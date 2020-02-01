@@ -105,7 +105,18 @@
 
         public static bool IsNotZeroOrNull(int? p1, int? p2, ref string msg)
         {
-            if ((p1 != 0 && p1.HasValue) && (p2 != 0 && p2.HasValue)) return true;
+            if (!(p1.HasValue && p2.HasValue) || (p1 == 0) || (p2 == 0) )
+            {
+                msg = ErrorMessage2();
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsNotZeroOrNull(int? p1, int? p2, int? p3, ref string msg)
+        {
+            if (p1.HasValue && p2.HasValue && p3.HasValue && (p1 != 0) && (p2 != 0) && (p3 != 0)) return true;
             msg = ErrorMessage2();
             return false;
         }
@@ -117,12 +128,12 @@
         //    return false;
         //}
 
-        public static bool IsNotZeroOrNull(int? p1, int? p2, int? p3, ref string msg)
-        {
-            if ((p1 != 0 && p1.HasValue) && (p2 != 0 && p2.HasValue) && (p3 != 0 && p3.HasValue)) return true;
-            msg = ErrorMessage2();
-            return false;
-        }
+        //public static bool IsNotZeroOrNull(int? p1, int? p2, int? p3, ref string msg)
+        //{
+        //    if ((p1 != 0 && p1.HasValue) && (p2 != 0 && p2.HasValue) && (p3 != 0 && p3.HasValue)) return true;
+        //    msg = ErrorMessage2();
+        //    return false;
+        //}
 
         //public static bool IsNotZero(decimal p1)
         //{

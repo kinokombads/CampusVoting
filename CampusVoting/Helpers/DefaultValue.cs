@@ -29,6 +29,18 @@ namespace CampusVoting.Helpers
             }
         }
 
+        public static int? GetNullableInt(this object obj)
+        {
+            try
+            {
+                return (int) obj;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public static short GetShort(this object obj)
         {
             try

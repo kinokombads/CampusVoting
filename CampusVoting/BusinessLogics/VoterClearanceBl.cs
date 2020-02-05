@@ -20,7 +20,7 @@ namespace CampusVoting.BusinessLogics
 
         public List<VoterClearanceVm> ListVm { get; set; }
 
-        //public List<VoterClearanceComboVm> ComboItems { get; set; }
+        public List<VoterClearanceComboVm> ComboItems { get; set; }
 
         public bool ChangeOccured { get; set; }
 
@@ -30,7 +30,7 @@ namespace CampusVoting.BusinessLogics
             ResetVmItem();
             ResetVmParams();
             ResetVmList();
-            //ResetCombo();
+            ResetCombo();
             ChangeOccured = false;
         }
 
@@ -127,6 +127,41 @@ namespace CampusVoting.BusinessLogics
         {
             if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
-        } 
+        }
+
+        private void ResetCombo()
+        {
+            ComboItems = new List<VoterClearanceComboVm>();
+        }
+
+
+        public List<VoterClearanceComboVm> GetCombo(ref string msg)
+        {
+            List<VoterClearanceComboVm> items = new List<VoterClearanceComboVm>();
+            DataTable dt = db.GetList(new VoterClearanceVm(), ref msg);
+            if (msg != "") return new List<VoterClearanceComboVm>();
+
+            try
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    VoterClearanceComboVm item = new VoterClearanceComboVm();
+                    item.GradeId = row["gradeId"].GetString();
+                    item.Grade = row["gradeName"].GetString();
+                    item.PositionId = row["positionId"].GetString();
+                    item.Position = row["positionName"].GetString();
+                    item.Active = row["active"].GetBool();
+
+                    items.Add(item);
+                }
+
+                return items;
+            }
+            catch (Exception ex)
+            {
+                msg = ef.GetExceptionMessage(ex, msg);
+                return new List<VoterClearanceComboVm>();
+            }
+        }
     }
 }

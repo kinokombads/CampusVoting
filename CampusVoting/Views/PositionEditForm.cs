@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
-using CampusVoting.Helpers;
 
 namespace CampusVoting.Views
 {
-    public partial class PositionRegularEditForm : Form
+    public partial class PositionEditForm : Form
     {
-        public PositionRegularEditForm()
+        public PositionEditForm()
         {
             InitializeComponent();
         }
 
-        public PositionRegularEditForm(PositionBl bl)
-        {
+        public PositionEditForm(PositionBl bl){
             InitializeComponent();
             PositionBl = bl;
+            TempItem();
             LoadCombo();
             DisplayInfo();
             NameTextEdit.Select();
@@ -26,6 +25,17 @@ namespace CampusVoting.Views
         private string previousName = "";
 
         public PositionBl PositionBl { get; set; }
+        CandidateClearanceBl cbl = new CandidateClearanceBl();
+        VoterClearanceBl vbl = new VoterClearanceBl();
+
+        private void TempItem()
+        {
+            string msg = "";
+            PositionBl.VmParams.Id = "7";
+
+            PositionBl.VmParams = PositionBl.GetOne(PositionBl.VmParams, ref msg);
+
+        }
 
         private void DisplayInfo()
         {
@@ -33,7 +43,7 @@ namespace CampusVoting.Views
             previousName = PositionBl.VmParams.Title; //previous value
 
             NameTextEdit.Text = PositionBl.VmParams.Title;
-            TypeLookUp.EditValue = PositionBl.VmParams.PositionType;
+            TypeTextEdit.Text = PositionBl.VmParams.PositionType;
             DetailMemoEdit.Text = PositionBl.VmParams.Details;
         }
 
@@ -42,7 +52,7 @@ namespace CampusVoting.Views
             PositionBl.ResetVmParams();
             PositionBl.VmParams.Id = id;
             PositionBl.VmParams.Title = NameTextEdit.Text;
-            PositionBl.VmParams.PositionType = TypeLookUp.EditValue.GetString();
+            PositionBl.VmParams.PositionType = TypeTextEdit.Text;
             PositionBl.VmParams.Details = DetailMemoEdit.Text;
             PositionBl.VmParams.ModifiedById = "1"; //todo temp
         }
@@ -67,17 +77,39 @@ namespace CampusVoting.Views
         private void Clearer()
         {
             NameTextEdit.Text = "";
-            DetailMemoEdit.Text = "";
+            TypeTextEdit.Text = null;
+            DetailMemoEdit.EditValue = "";
+            CandidateClearanceCheckListBoxCon.UnCheckAll();
+            VoterClearanceCheckedListBoxCon.UnCheckAll();
         }
 
         private void LoadCombo()
         {
+            string msgs = "";
 
-            TypeLookUp.Properties.DataSource = PositionBl.PositionTypes;
-            TypeLookUp.Properties.DisplayMember = "Title";
-            TypeLookUp.Properties.ValueMember = "Id";
+            cbl.ComboItems = cbl.GetCombo(ref msgs);
+            
+            CandidateClearanceCheckListBoxCon.DataSource = cbl.ComboItems;
+            CandidateClearanceCheckListBoxCon.DisplayMember = "Grade";
+            CandidateClearanceCheckListBoxCon.ValueMember = "GradeId";
+
+            for (int i = 0; i < CandidateClearanceCheckListBoxCon.ItemCount; i++)
+            {
+                CandidateClearanceCheckListBoxCon.SetItemChecked(i, cbl.ComboItems[i].Active);
+            }
+
+
+            vbl.ComboItems = vbl.GetCombo(ref msgs);
+
+            VoterClearanceCheckedListBoxCon.DataSource = vbl.ComboItems;
+            VoterClearanceCheckedListBoxCon.DisplayMember = "Grade";
+            VoterClearanceCheckedListBoxCon.ValueMember = "GradeId";
+
+            for (int i = 0; i < VoterClearanceCheckedListBoxCon.ItemCount; i++)
+            {
+                VoterClearanceCheckedListBoxCon.SetItemChecked(i, cbl.ComboItems[i].Active);
+            }
         }
-
 
 
         private void LogoPictureBox_Click(object sender, EventArgs e)

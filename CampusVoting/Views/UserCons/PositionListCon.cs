@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.EnumsAndDictionaries;
@@ -8,30 +9,34 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace CampusVoting.Views.UserCons
 {
-    public partial class GradeListCon : UserControl
+    public partial class PositionListCon : UserControl
     {
-        public GradeListCon()
+        public PositionListCon()
         {
             InitializeComponent();
             NameTextEdit.Select();
+            LoadCombo();
         }
-        
+
+
         private string msg = "";
-        GradeBl gradeBl = new GradeBl();
+        PositionBl positionBl = new PositionBl();
+
 
 
         public void GetParams()
         {
-            gradeBl.ResetVmParams();
-            gradeBl.VmParams.Title = NameTextEdit.Text;
+            positionBl.ResetVmParams();
+            positionBl.VmParams.Title = NameTextEdit.Text;
         }
 
         public void LoadList()
         {
-            gradeBl.ListVm = gradeBl.GetList(gradeBl.VmParams, ref msg);
+            msg = "";
+            positionBl.ListVm = positionBl.GetList(positionBl.VmParams, ref msg);
             if (msg == "")
             {
-                ListGridControl.DataSource = gradeBl.ListVm;
+                ListGridControl.DataSource = positionBl.ListVm;
             }
             else
             {
@@ -67,29 +72,51 @@ namespace CampusVoting.Views.UserCons
 
             object item = gridView.GetRow(gridView.FocusedRowHandle);
 
-            gradeBl.MapToViewModel(item);
+            positionBl.MapToViewModel(item);
 
             if (process == ProcessMode.Update)
             {
-                GradeEditForm editForm = new GradeEditForm(gradeBl);
-                editForm.ShowDialog();
-                RefreshWhenChanged();
+                if (positionBl.VmParams.PositionType == "Regular")
+                {
+                    PositionEditForm form = new PositionEditForm(positionBl);
+                    form.ShowDialog();
+                    RefreshWhenChanged();
+                }
+                else
+                {
+                    
+                }
+                
             }
             else
             {
-                GradeDeleteForm deleteForm = new GradeDeleteForm(gradeBl);
-                deleteForm.ShowDialog();
-                RefreshWhenChanged();
+                //PositionDeleteForm deleteForm = new PositionDeleteForm(positionBl);
+                //deleteForm.ShowDialog();
+                //RefreshWhenChanged();
             }
 
         }
 
         private void RefreshWhenChanged()
         {
-            if (!gradeBl.ChangeOccured) return;
+            if (!positionBl.ChangeOccured) return;
             LoadList();
-            gradeBl.ChangeOccured = false;
+            positionBl.ChangeOccured = false;
         }
+
+        private void LoadCombo()
+        {
+            msg = "";
+            TypeEdit.Properties.DataSource = positionBl.PositionTypes;
+            TypeEdit.Properties.DisplayMember = "Title";
+            TypeEdit.Properties.ValueMember = "Title";
+
+            if (msg != "")
+            {
+                MessageBox.Show(msg, "Position Type Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -100,7 +127,7 @@ namespace CampusVoting.Views.UserCons
 
         private void AddSimButton_Click(object sender, EventArgs e)
         {
-            GradeAddForm addForm = new GradeAddForm(gradeBl);
+            PositionAddForm addForm = new PositionAddForm(positionBl);
             addForm.ShowDialog();
             RefreshWhenChanged();
         }
@@ -115,11 +142,10 @@ namespace CampusVoting.Views.UserCons
             GetSelected(ProcessMode.Update);
         }
 
-        private void GradeListCon_VisibleChanged(object sender, EventArgs e)
+        private void PositionListCon_VisibleChanged(object sender, EventArgs e)
         {
-            Dispose();
+            this.Dispose();
         }
-
         private void NameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != 13 || ItemsGridView.IsFocusedView) return;
@@ -127,6 +153,12 @@ namespace CampusVoting.Views.UserCons
             LoadList();
         }
 
-
+        private void TypeEdit_QueryPopUp(object sender, CancelEventArgs e)
+        {
+            if (TypeEdit.Properties.View.Columns["Id"].Visible)
+            {
+                TypeEdit.Properties.View.Columns["Id"].Visible = false;
+            }
+        }
     }
 }

@@ -35,8 +35,8 @@ namespace CampusVoting.Views
 
         public PositionBl PositionBl { get; set; }
         private const string PageName = "Position Addition";
-        readonly GradeBl bl1 = new GradeBl();
-        readonly GradeBl bl2 = new GradeBl();
+        readonly GradeBl gbl1 = new GradeBl();
+        readonly GradeBl gbl2 = new GradeBl();
         readonly CandidateClearanceBl cbl = new CandidateClearanceBl();
         readonly VoterClearanceBl vbl = new VoterClearanceBl();
         
@@ -81,18 +81,18 @@ namespace CampusVoting.Views
         private void LoadCombo()
         {
             string msgs = "";
-            bl1.ComboItems = bl1.GetCombo(ref msgs);
-            bl2.ComboItems = bl2.GetCombo(ref msgs);
+            gbl1.ComboItems = gbl1.GetCombo(ref msgs);
+            gbl2.ComboItems = gbl2.GetCombo(ref msgs);
 
             TypeLookUp.Properties.DataSource = PositionBl.PositionTypes; 
             TypeLookUp.Properties.DisplayMember = "Title";
             TypeLookUp.Properties.ValueMember = "Id";
 
-            CandidateClearanceCheckListBoxCon.DataSource = bl1.ComboItems;
+            CandidateClearanceCheckListBoxCon.DataSource = gbl1.ComboItems;
             CandidateClearanceCheckListBoxCon.DisplayMember = "Title";
             CandidateClearanceCheckListBoxCon.ValueMember = "Id";
             
-            VoterClearanceCheckedListBoxCon.DataSource = bl2.ComboItems;
+            VoterClearanceCheckedListBoxCon.DataSource = gbl2.ComboItems;
             VoterClearanceCheckedListBoxCon.DisplayMember = "Title";
             VoterClearanceCheckedListBoxCon.ValueMember = "Id";
         }
@@ -104,12 +104,12 @@ namespace CampusVoting.Views
 
             List<GradeComboVm> checkCands = CandidateClearanceCheckListBoxCon.CheckedItems.Cast<GradeComboVm>().ToList();
             
-            foreach (GradeComboVm grade in bl1.ComboItems)
+            foreach (GradeComboVm grade in gbl1.ComboItems)
             {
                 CandidateClearanceVm newItem = new CandidateClearanceVm();
                 newItem.PositionId = newId.GetString();
                 newItem.GradeId = grade.Id;
-                newItem.Active = checkCands.Exists(i => i.Id == grade.Id).ToString();
+                newItem.Active = checkCands.Exists(i => i.Id == grade.Id).GetBool();
 
                 if (cbl.AddOne(newItem, ref newMsg)) continue;
                 MessageBox.Show(newMsg, "Candidate Clearance Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -125,7 +125,7 @@ namespace CampusVoting.Views
 
             List<GradeComboVm> checkVoters = VoterClearanceCheckedListBoxCon.CheckedItems.Cast<GradeComboVm>().ToList();
 
-            foreach (GradeComboVm grade in bl2.ComboItems)
+            foreach (GradeComboVm grade in gbl2.ComboItems)
             {
                 VoterClearanceVm newItem = new VoterClearanceVm();
                 newItem.PositionId = newId.GetString();

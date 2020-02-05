@@ -42,7 +42,8 @@ namespace CampusVoting.Views.UserCons
         }
 
         private void LoadCombo()
-        {string msgs = "";
+        {
+            string msgs = "";
             gradeBl.ComboItems = gradeBl.GetCombo(ref msgs);
             GradeEdit.Properties.DataSource = gradeBl.ComboItems;
             GradeEdit.Properties.DisplayMember = "Title";
@@ -56,7 +57,8 @@ namespace CampusVoting.Views.UserCons
 
             sectionBl.ComboItems = sectionBl.GetCombo(ref msgs);
             SectionEdit.Properties.DataSource = sectionBl.ComboItems;
-            SectionEdit.Properties.DisplayMember = "Title";SectionEdit.Properties.ValueMember = "Title";
+            SectionEdit.Properties.DisplayMember = "Title";
+            SectionEdit.Properties.ValueMember = "Title";
 
             if (msg != "")
             {
@@ -122,9 +124,9 @@ namespace CampusVoting.Views.UserCons
             }
             else
             {
-                //GradeDeleteForm deleteForm = new GradeDeleteForm(gradeBl);
-                //deleteForm.ShowDialog();
-                //RefreshWhenChanged();
+                GradeDeleteForm deleteForm = new GradeDeleteForm(gradeBl);
+                deleteForm.ShowDialog();
+                RefreshWhenChanged();
             }
 
         }

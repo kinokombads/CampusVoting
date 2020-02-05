@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CampusVoting.BusinessLogics;
 using CampusVoting.Views;
 
 namespace CampusVoting
@@ -16,7 +17,7 @@ namespace CampusVoting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new PositionAddForm());
+            //Application.Run(new PositionEditForm(new PositionBl()));
             Application.Run(new MainForm());
         }
     }

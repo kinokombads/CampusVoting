@@ -33,7 +33,7 @@ namespace CampusVoting.Helpers
         {
             try
             {
-                return (int) obj;
+                return Convert.ToInt32(obj);
             }
             catch (Exception)
             {

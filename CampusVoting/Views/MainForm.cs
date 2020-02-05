@@ -27,8 +27,7 @@ namespace CampusVoting.Views
                 case "School Years":
                     listCon = new SchoolYearListCon { Dock = DockStyle.Fill };
                     //MainContentPanel.Controls.Add(schoolYearList);
-                    break;
-                case "Students":
+                    break;case "Students":
                     break;
                 case "Candidates":
                     break;
@@ -39,6 +38,9 @@ namespace CampusVoting.Views
                     break;
                 case "Grade And Sections":
                     listCon = new GradeAndSectionListCon { Dock = DockStyle.Fill };
+                    break;
+                case "Positions":
+                    listCon = new PositionListCon { Dock = DockStyle.Fill };
                     break;
                 default:
                     break;

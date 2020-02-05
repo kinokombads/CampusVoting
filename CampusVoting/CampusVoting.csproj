@@ -115,6 +115,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CampaignGroupVm.cs" />
+    <Compile Include="ViewModels\CandidateClearanceComboVm.cs" />
     <Compile Include="ViewModels\CandidateClearanceVm.cs" />
     <Compile Include="ViewModels\ComboList.cs" />
     <Compile Include="ViewModels\ConfigTableVm.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="ViewModels\SectionComboVm.cs" />
     <Compile Include="ViewModels\SectionVm.cs" />
     <Compile Include="ViewModels\StudentVm.cs" />
+    <Compile Include="ViewModels\VoterClearanceComboVm.cs" />
     <Compile Include="ViewModels\VoterClearanceVm.cs" />
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
@@ -173,11 +175,11 @@
     <Compile Include="Views\PositionAddForm.Designer.cs">
       <DependentUpon>PositionAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PositionRegularEditForm.cs">
+    <Compile Include="Views\PositionEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\PositionRegularEditForm.Designer.cs">
-      <DependentUpon>PositionRegularEditForm.cs</DependentUpon>
+    <Compile Include="Views\PositionEditForm.Designer.cs">
+      <DependentUpon>PositionEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PositionRepresentativeEditForm.cs">
       <SubType>Form</SubType>
@@ -245,6 +247,12 @@
     <Compile Include="Views\UserCons\GradeListCon.Designer.cs">
       <DependentUpon>GradeListCon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserCons\PositionListCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\PositionListCon.Designer.cs">
+      <DependentUpon>PositionListCon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\SchoolYearListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -289,8 +297,8 @@
     <EmbeddedResource Include="Views\PositionAddForm.resx">
       <DependentUpon>PositionAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\PositionRegularEditForm.resx">
-      <DependentUpon>PositionRegularEditForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\PositionEditForm.resx">
+      <DependentUpon>PositionEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SampleListPage.resx">
       <DependentUpon>SampleListPage.cs</DependentUpon>
@@ -321,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\GradeListCon.resx">
       <DependentUpon>GradeListCon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\PositionListCon.resx">
+      <DependentUpon>PositionListCon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\SchoolYearListCon.resx">
       <DependentUpon>SchoolYearListCon.cs</DependentUpon>

@@ -13,7 +13,6 @@ namespace CampusVoting.Views
             InitializeComponent();
             GradeAndSectionBl = new GradeAndSectionBl();
             LoadCombo();
-
         }
 
         public GradeAndSectionAddForm(GradeAndSectionBl bl)
@@ -34,7 +33,9 @@ namespace CampusVoting.Views
             GradeAndSectionBl.ResetVmParams();
             GradeAndSectionBl.VmParams.Title = NameTextEdit.Text;
             GradeAndSectionBl.VmParams.GradeId = GradeLookUp.EditValue.GetString();
+            GradeAndSectionBl.VmParams.Grade = GradeLookUp.Text;
             GradeAndSectionBl.VmParams.SectionId = SectionLookUp.EditValue.GetString();
+            GradeAndSectionBl.VmParams.Section = SectionLookUp.Text;
             GradeAndSectionBl.VmParams.CreatedById = "1"; //todo temp
         }
 
@@ -126,6 +127,22 @@ namespace CampusVoting.Views
             if (SectionLookUp.Properties.View.Columns["Id"].Visible)
             {
                 SectionLookUp.Properties.View.Columns["Id"].Visible = false;
+            }
+        }
+
+        private void GradeLookUp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 || e.KeyChar == 32)
+            {
+                GradeLookUp.ShowPopup();
+            }
+        }
+
+        private void SectionLookUp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 || e.KeyChar == 32)
+            {
+                SectionLookUp.ShowPopup();
             }
         }
 

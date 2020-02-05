@@ -20,7 +20,7 @@ namespace CampusVoting.BusinessLogics
 
         public List<CandidateClearanceVm> ListVm { get; set; }
 
-        //public List<CandidateClearanceComboVm> ComboItems { get; set; }
+        public List<CandidateClearanceComboVm> ComboItems { get; set; }
 
         public bool ChangeOccured { get; set; }
 
@@ -30,7 +30,7 @@ namespace CampusVoting.BusinessLogics
             ResetVmItem();
             ResetVmParams();
             ResetVmList();
-            //ResetCombo();
+            ResetCombo();
             ChangeOccured = false;
         }
 
@@ -53,7 +53,7 @@ namespace CampusVoting.BusinessLogics
         private CandidateClearance MapProperties(CandidateClearanceVm p)
         {
             CandidateClearance baseObj = new CandidateClearance();
-            baseObj.Id = p.Id.GetInt();
+            //baseObj.Id = p.Id.GetInt();
             baseObj.PositionId = p.PositionId.GetInt();
             baseObj.GradeId = p.GradeId.GetInt();
             baseObj.Active = p.Active.GetBool();
@@ -80,11 +80,12 @@ namespace CampusVoting.BusinessLogics
                 foreach (DataRow row in dt.Rows)
                 {
                     CandidateClearanceVm item = new CandidateClearanceVm();
-                    item.Id = row["candidateClearanceId"].GetString();
+                    //item.Id = row["candidateClearanceId"].GetString();
                     item.PositionId = row["positionId"].GetString();
                     item.Position = row["positionName"].GetString();
                     item.GradeId = row["gradeId"].GetString();
                     item.Grade = row["gradeName"].GetString();
+                    item.Active = row["active"].GetBool();
 
                     items.Add(item);
                 }
@@ -113,22 +114,56 @@ namespace CampusVoting.BusinessLogics
        
         public bool AddOne(CandidateClearanceVm viewModel, ref string msg)
         {
-            if (!EntryChecker.IsNotZeroOrNull(viewModel.GradeId.GetInt(), viewModel.PositionId.GetInt(), ref msg)) return false;
+            if (!EntryChecker.IsNotZeroOrNull(viewModel.GradeId.GetNullableInt(), viewModel.PositionId.GetNullableInt(), ref msg)) return false;
             return db.AddOne(MapProperties(viewModel), ref msg);
         }
         
         public bool EditOne(CandidateClearanceVm viewModel, ref string msg)
         {
-            if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), viewModel.GradeId.GetInt(), viewModel.PositionId.GetInt(), ref msg)) return false;
+            if (!EntryChecker.IsNotZeroOrNull(viewModel.GradeId.GetNullableInt(), viewModel.PositionId.GetNullableInt(), ref msg)) return false;
             return db.EditOne(MapProperties(viewModel), ref msg);
         }
 
+        //todo
         public bool DeleteOne(CandidateClearanceVm viewModel, ref string msg)
         {
-            if (!EntryChecker.IsNotZeroOrNull(viewModel.Id.GetInt(), ref msg)) return false;
+            if (!EntryChecker.IsNotZeroOrNull(viewModel.PositionId.GetInt(), ref msg)) return false;
             return db.DeleteOne(MapProperties(viewModel), ref msg);
         }
 
+        private void ResetCombo()
+        {
+            ComboItems = new List<CandidateClearanceComboVm>();
+        }
 
+
+        public List<CandidateClearanceComboVm> GetCombo(ref string msg)
+        {
+            List<CandidateClearanceComboVm> items = new List<CandidateClearanceComboVm>();
+            DataTable dt = db.GetList(new CandidateClearanceVm(), ref msg);
+            if (msg != "") return new List<CandidateClearanceComboVm>();
+
+            try
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    CandidateClearanceComboVm item = new CandidateClearanceComboVm();
+                    item.GradeId = row["gradeId"].GetString();
+                    item.Grade = row["gradeName"].GetString();
+                    item.PositionId = row["positionId"].GetString();
+                    item.Position = row["positionName"].GetString();
+                    item.Active = row["active"].GetBool();
+
+                    items.Add(item);
+                }
+
+                return items;
+            }
+            catch (Exception ex)
+            {
+                msg = ef.GetExceptionMessage(ex, msg);
+                return new List<CandidateClearanceComboVm>();
+            }
+        }
     }
 }

@@ -51,6 +51,7 @@
             this.SaveSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.CandidateClearanceCheckListBoxCon = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.VoterClearanceCheckedListBoxCon = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.TitleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.CandidateClearanceCheckListBoxCon = new DevExpress.XtraEditors.CheckedListBoxControl();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
@@ -78,6 +78,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceCheckListBoxCon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VoterClearanceCheckedListBoxCon)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetailMemoEdit.Properties)).BeginInit();
@@ -85,7 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TypeLookUp.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionEditView)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceCheckListBoxCon)).BeginInit();
             this.SuspendLayout();
             // 
             // LogoPictureBox
@@ -170,7 +170,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(56, 0);
+            this.label2.Location = new System.Drawing.Point(46, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(19, 22);
             this.label2.TabIndex = 1;
@@ -183,7 +183,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 22);
+            this.label1.Size = new System.Drawing.Size(46, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
@@ -191,7 +191,7 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 65);
+            this.panel7.Location = new System.Drawing.Point(0, 63);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(448, 5);
             this.panel7.TabIndex = 21;
@@ -205,7 +205,7 @@
             this.NameTextEdit.Properties.Appearance.Options.UseFont = true;
             this.NameTextEdit.Properties.NullValuePrompt = "Position name";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            this.NameTextEdit.Size = new System.Drawing.Size(448, 28);
+            this.NameTextEdit.Size = new System.Drawing.Size(448, 26);
             this.NameTextEdit.TabIndex = 0;
             // 
             // label3
@@ -214,7 +214,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Left;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 22);
+            this.label3.Size = new System.Drawing.Size(91, 19);
             this.label3.TabIndex = 0;
             this.label3.Text = "Position Type";
             // 
@@ -225,7 +225,7 @@
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel8.Location = new System.Drawing.Point(0, 70);
+            this.panel8.Location = new System.Drawing.Point(0, 68);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(448, 22);
             this.panel8.TabIndex = 22;
@@ -235,7 +235,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Left;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(119, 0);
+            this.label4.Location = new System.Drawing.Point(91, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 22);
             this.label4.TabIndex = 2;
@@ -290,7 +290,7 @@
             this.ClearSimButton.Image = ((System.Drawing.Image)(resources.GetObject("ClearSimButton.Image")));
             this.ClearSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.ClearSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.ClearSimButton.Location = new System.Drawing.Point(0, 412);
+            this.ClearSimButton.Location = new System.Drawing.Point(0, 408);
             this.ClearSimButton.Name = "ClearSimButton";
             this.ClearSimButton.Size = new System.Drawing.Size(448, 40);
             this.ClearSimButton.TabIndex = 38;
@@ -301,7 +301,7 @@
             // 
             this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 407);
+            this.panel14.Location = new System.Drawing.Point(0, 403);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(448, 5);
             this.panel14.TabIndex = 37;
@@ -314,7 +314,7 @@
             this.SaveSimButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveSimButton.Image")));
             this.SaveSimButton.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.SaveSimButton.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.SaveSimButton.Location = new System.Drawing.Point(0, 367);
+            this.SaveSimButton.Location = new System.Drawing.Point(0, 363);
             this.SaveSimButton.Name = "SaveSimButton";
             this.SaveSimButton.Size = new System.Drawing.Size(448, 40);
             this.SaveSimButton.TabIndex = 36;
@@ -325,7 +325,7 @@
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 362);
+            this.panel13.Location = new System.Drawing.Point(0, 358);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(448, 5);
             this.panel13.TabIndex = 35;
@@ -333,7 +333,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 274);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 270);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -350,10 +350,25 @@
             this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 34;
             // 
+            // CandidateClearanceCheckListBoxCon
+            // 
+            this.CandidateClearanceCheckListBoxCon.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CandidateClearanceCheckListBoxCon.Appearance.Options.UseFont = true;
+            this.CandidateClearanceCheckListBoxCon.CheckOnClick = true;
+            this.CandidateClearanceCheckListBoxCon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CandidateClearanceCheckListBoxCon.Location = new System.Drawing.Point(0, 0);
+            this.CandidateClearanceCheckListBoxCon.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.CandidateClearanceCheckListBoxCon.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.CandidateClearanceCheckListBoxCon.Name = "CandidateClearanceCheckListBoxCon";
+            this.CandidateClearanceCheckListBoxCon.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.CandidateClearanceCheckListBoxCon.Size = new System.Drawing.Size(224, 88);
+            this.CandidateClearanceCheckListBoxCon.TabIndex = 0;
+            // 
             // VoterClearanceCheckedListBoxCon
             // 
             this.VoterClearanceCheckedListBoxCon.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VoterClearanceCheckedListBoxCon.Appearance.Options.UseFont = true;
+            this.VoterClearanceCheckedListBoxCon.CheckOnClick = true;
             this.VoterClearanceCheckedListBoxCon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.VoterClearanceCheckedListBoxCon.Location = new System.Drawing.Point(0, 0);
             this.VoterClearanceCheckedListBoxCon.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
@@ -370,7 +385,7 @@
             this.panel10.Controls.Add(this.label6);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel10.Location = new System.Drawing.Point(0, 252);
+            this.panel10.Location = new System.Drawing.Point(0, 248);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(448, 22);
             this.panel10.TabIndex = 33;
@@ -381,7 +396,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Left;
             this.label7.Location = new System.Drawing.Point(224, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 22);
+            this.label7.Size = new System.Drawing.Size(107, 19);
             this.label7.TabIndex = 1;
             this.label7.Text = "Voter Clearance";
             // 
@@ -398,7 +413,7 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 247);
+            this.panel9.Location = new System.Drawing.Point(0, 243);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(448, 5);
             this.panel9.TabIndex = 31;
@@ -406,7 +421,7 @@
             // DetailMemoEdit
             // 
             this.DetailMemoEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DetailMemoEdit.Location = new System.Drawing.Point(0, 147);
+            this.DetailMemoEdit.Location = new System.Drawing.Point(0, 143);
             this.DetailMemoEdit.Name = "DetailMemoEdit";
             this.DetailMemoEdit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetailMemoEdit.Properties.Appearance.Options.UseFont = true;
@@ -421,7 +436,7 @@
             this.panel11.Controls.Add(this.label5);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel11.Location = new System.Drawing.Point(0, 125);
+            this.panel11.Location = new System.Drawing.Point(0, 121);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(448, 22);
             this.panel11.TabIndex = 29;
@@ -432,7 +447,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 22);
+            this.label5.Size = new System.Drawing.Size(50, 19);
             this.label5.TabIndex = 0;
             this.label5.Text = "Details";
             // 
@@ -440,7 +455,7 @@
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 120);
+            this.panel12.Location = new System.Drawing.Point(0, 116);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(448, 5);
             this.panel12.TabIndex = 28;
@@ -448,7 +463,7 @@
             // TypeLookUp
             // 
             this.TypeLookUp.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TypeLookUp.Location = new System.Drawing.Point(0, 92);
+            this.TypeLookUp.Location = new System.Drawing.Point(0, 90);
             this.TypeLookUp.Name = "TypeLookUp";
             this.TypeLookUp.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TypeLookUp.Properties.Appearance.Options.UseFont = true;
@@ -458,7 +473,7 @@
             this.TypeLookUp.Properties.NullValuePrompt = "Select Position Type";
             this.TypeLookUp.Properties.NullValuePromptShowForEmptyValue = true;
             this.TypeLookUp.Properties.View = this.PositionEditView;
-            this.TypeLookUp.Size = new System.Drawing.Size(448, 28);
+            this.TypeLookUp.Size = new System.Drawing.Size(448, 26);
             this.TypeLookUp.TabIndex = 24;
             this.TypeLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.TypeLookUp_QueryPopUp);
             this.TypeLookUp.SizeChanged += new System.EventHandler(this.TypeLookUp_SizeChanged);
@@ -534,18 +549,6 @@
             this.panel6.Size = new System.Drawing.Size(448, 22);
             this.panel6.TabIndex = 19;
             // 
-            // CandidateClearanceCheckListBoxCon
-            // 
-            this.CandidateClearanceCheckListBoxCon.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CandidateClearanceCheckListBoxCon.Appearance.Options.UseFont = true;
-            this.CandidateClearanceCheckListBoxCon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CandidateClearanceCheckListBoxCon.Location = new System.Drawing.Point(0, 0);
-            this.CandidateClearanceCheckListBoxCon.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
-            this.CandidateClearanceCheckListBoxCon.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.CandidateClearanceCheckListBoxCon.Name = "CandidateClearanceCheckListBoxCon";
-            this.CandidateClearanceCheckListBoxCon.Size = new System.Drawing.Size(224, 88);
-            this.CandidateClearanceCheckListBoxCon.TabIndex = 0;
-            // 
             // PositionAddForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -568,6 +571,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceCheckListBoxCon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.VoterClearanceCheckedListBoxCon)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -578,7 +582,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PositionEditView)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceCheckListBoxCon)).EndInit();
             this.ResumeLayout(false);
 
         }

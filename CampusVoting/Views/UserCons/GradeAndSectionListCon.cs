@@ -124,7 +124,7 @@ namespace CampusVoting.Views.UserCons
             }
             else
             {
-                GradeDeleteForm deleteForm = new GradeDeleteForm(gradeBl);
+                GradeAndSectionDeleteForm deleteForm = new GradeAndSectionDeleteForm(gradeAndSectionBl);
                 deleteForm.ShowDialog();
                 RefreshWhenChanged();
             }

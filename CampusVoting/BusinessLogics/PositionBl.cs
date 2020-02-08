@@ -11,7 +11,7 @@ namespace CampusVoting.BusinessLogics
 {
     public class PositionBl
     {
-         private readonly PositionDal db = new PositionDal();
+        private readonly PositionDal db = new PositionDal();
         private ExceptionFound ef = new ExceptionFound();
 
         public PositionVm VmItem { get; set; }
@@ -182,7 +182,7 @@ namespace CampusVoting.BusinessLogics
             {
                 Id = "Regular",
                 Title = "Regular",
-                Details = "Regular positions that has requires one winner."
+                Details = "Regular positions that requires one winner."
             });
 
             PositionTypes.Add(new PositionTypeComboVm

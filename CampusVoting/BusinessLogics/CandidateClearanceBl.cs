@@ -53,7 +53,7 @@ namespace CampusVoting.BusinessLogics
         private CandidateClearance MapProperties(CandidateClearanceVm p)
         {
             CandidateClearance baseObj = new CandidateClearance();
-            //baseObj.Id = p.Id.GetInt();
+            baseObj.Id = p.Id.GetInt();
             baseObj.PositionId = p.PositionId.GetInt();
             baseObj.GradeId = p.GradeId.GetInt();
             baseObj.Active = p.Active.GetBool();
@@ -148,6 +148,7 @@ namespace CampusVoting.BusinessLogics
                 foreach (DataRow row in dt.Rows)
                 {
                     CandidateClearanceComboVm item = new CandidateClearanceComboVm();
+                    item.Id = row["candidateClearanceId"].GetString();
                     item.GradeId = row["gradeId"].GetString();
                     item.Grade = row["gradeName"].GetString();
                     item.PositionId = row["positionId"].GetString();

@@ -32,7 +32,6 @@ namespace CampusVoting.Views
             TypeLookUp_SizeChanged(TypeLookUp, EventArgs.Empty);
         }
 
-
         public PositionBl PositionBl { get; set; }
         private const string PageName = "Position Addition";
         readonly GradeBl gbl1 = new GradeBl();

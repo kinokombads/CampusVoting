@@ -57,7 +57,6 @@ namespace CampusVoting.BusinessLogics
             baseObj.PositionId = p.PositionId.GetInt();
             baseObj.GradeId = p.GradeId.GetInt();
             baseObj.Active = p.Active.GetBool();
-
             return baseObj;
         }
         
@@ -146,6 +145,7 @@ namespace CampusVoting.BusinessLogics
                 foreach (DataRow row in dt.Rows)
                 {
                     VoterClearanceComboVm item = new VoterClearanceComboVm();
+                    item.Id = row["voterClearanceId"].GetString();
                     item.GradeId = row["gradeId"].GetString();
                     item.Grade = row["gradeName"].GetString();
                     item.PositionId = row["positionId"].GetString();

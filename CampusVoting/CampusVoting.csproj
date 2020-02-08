@@ -151,6 +151,12 @@
     <Compile Include="Views\GradeAndSectionAddForm.Designer.cs">
       <DependentUpon>GradeAndSectionAddForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\GradeAndSectionDeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\GradeAndSectionDeleteForm.Designer.cs">
+      <DependentUpon>GradeAndSectionDeleteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GradeAndSectionEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +180,12 @@
     </Compile>
     <Compile Include="Views\PositionAddForm.Designer.cs">
       <DependentUpon>PositionAddForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PositionDeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PositionDeleteForm.Designer.cs">
+      <DependentUpon>PositionDeleteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PositionEditForm.cs">
       <SubType>Form</SubType>
@@ -285,6 +297,9 @@
     <EmbeddedResource Include="Views\GradeAndSectionAddForm.resx">
       <DependentUpon>GradeAndSectionAddForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\GradeAndSectionDeleteForm.resx">
+      <DependentUpon>GradeAndSectionDeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\GradeAndSectionEditForm.resx">
       <DependentUpon>GradeAndSectionEditForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PositionAddForm.resx">
       <DependentUpon>PositionAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PositionDeleteForm.resx">
+      <DependentUpon>PositionDeleteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PositionEditForm.resx">
       <DependentUpon>PositionEditForm.cs</DependentUpon>
@@ -354,12 +372,16 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="ImageSource\add.ico" />
+    <Content Include="ImageSource\add2.ico" />
+    <Content Include="ImageSource\clear 01.ico" />
     <Content Include="ImageSource\cross.png" />
-    <Content Include="ImageSource\data.png" />
+    <Content Include="ImageSource\Custom-Icon-Design-Pretty-Office-7-Save-as.ico" />
+    <Content Include="ImageSource\Dakirby309-Windows-8-Metro-Other-Save-Metro.ico" />
     <Content Include="ImageSource\delete trash can.png" />
     <Content Include="ImageSource\delete trash.png" />
+    <Content Include="ImageSource\delete-sign 01.ico" />
     <Content Include="ImageSource\delete.png" />
-    <Content Include="ImageSource\edit.png" />
     <Content Include="ImageSource\icons8-add-50 25x25.png" />
     <Content Include="ImageSource\icons8-add-50.png" />
     <Content Include="ImageSource\icons8-add-new-50.png" />
@@ -378,14 +400,27 @@
     <Content Include="ImageSource\icons8-user-account-50.png" />
     <Content Include="ImageSource\icons8-waste-50.png" />
     <Content Include="ImageSource\idea.png" />
-    <Content Include="ImageSource\magnifying-glass.png" />
-    <Content Include="ImageSource\money.png" />
+    <Content Include="ImageSource\magnifying glass-25x25.ico" />
+    <Content Include="ImageSource\Oxygen-Icons.org-Oxygen-Actions-document-save.ico" />
+    <Content Include="ImageSource\pencil.ico" />
+    <Content Include="ImageSource\pencil16.ico" />
     <Content Include="ImageSource\plus.png" />
-    <Content Include="ImageSource\school.png" />
-    <Content Include="ImageSource\search.png" />
+    <Content Include="ImageSource\save icon tob.png" />
+    <Content Include="ImageSource\save icon toc.png" />
+    <Content Include="ImageSource\save icon tod.png" />
+    <Content Include="ImageSource\save icon toe 25.png" />
+    <Content Include="ImageSource\save icon toe.png" />
+    <Content Include="ImageSource\save icon tof 25.png" />
+    <Content Include="ImageSource\save icon tof.png" />
+    <Content Include="ImageSource\Save-as-icon 25.png" />
+    <Content Include="ImageSource\Save-as-icon 50.png" />
+    <Content Include="ImageSource\Save-as-icon.png" />
+    <Content Include="ImageSource\Save_Icon-512.png" />
+    <Content Include="ImageSource\Seanau-Email-Clear.ico" />
     <Content Include="ImageSource\Transparent.png" />
-    <Content Include="ImageSource\user.png" />
-    <Content Include="ImageSource\work.png" />
+    <Content Include="ImageSource\trash-bin.ico" />
+    <Content Include="ImageSource\trash.png" />
+    <Content Include="ImageSource\wastebin16.ico" />
     <Content Include="MySqlLibraries\Antlr3.Runtime.dll" />
     <Content Include="MySqlLibraries\mysql.data.dll" />
     <Content Include="MySqlLibraries\mysql.data.entity.dll" />

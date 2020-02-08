@@ -46,8 +46,7 @@ namespace CampusVoting.DataAccess
             {
                 MyHelper.ExecuteNonQuery(command, ref msg);
                 if ((int)command.Parameters["itExists"].Value == 0) return true;
-                msg = msg + "\nThis item is already in the database";
-                return false;
+                msg = msg + "\nThis item is already in the database";return false;
             }
             catch (Exception ex)
             {

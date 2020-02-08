@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
+using CampusVoting.Helpers;
+using CampusVoting.ViewModels;
 
 namespace CampusVoting.Views
 {
@@ -11,10 +15,11 @@ namespace CampusVoting.Views
             InitializeComponent();
         }
 
-        public PositionEditForm(PositionBl bl){
+        public PositionEditForm(PositionBl bl)
+        {
             InitializeComponent();
             PositionBl = bl;
-            TempItem();
+            //TempItem();//todo erase
             LoadCombo();
             DisplayInfo();
             NameTextEdit.Select();
@@ -64,7 +69,8 @@ namespace CampusVoting.Views
             {
                 MessageBox.Show(string.Format("Position {0} is updated to Position {1}",
                     previousName, NameTextEdit.Text), PageName);
-
+                SaveCands();
+                SaveVoters();
                 PositionBl.ChangeOccured = true;
                 Close();
             }
@@ -107,7 +113,48 @@ namespace CampusVoting.Views
 
             for (int i = 0; i < VoterClearanceCheckedListBoxCon.ItemCount; i++)
             {
-                VoterClearanceCheckedListBoxCon.SetItemChecked(i, cbl.ComboItems[i].Active);
+                VoterClearanceCheckedListBoxCon.SetItemChecked(i, vbl.ComboItems[i].Active);
+            }
+        }
+
+        private void SaveCands()
+        {
+            string newMsg = "";
+            cbl.ResetVmList();
+
+            List<CandidateClearanceComboVm> checkCands = CandidateClearanceCheckListBoxCon.CheckedItems.Cast<CandidateClearanceComboVm>().ToList();
+
+            foreach (var clearance in cbl.ComboItems)
+            {
+                CandidateClearanceVm newItem = new CandidateClearanceVm();
+                newItem.PositionId = clearance.PositionId.GetString();
+                newItem.GradeId = clearance.GradeId;
+                newItem.Active = checkCands.Exists(i => i.Id == clearance.Id).GetBool();
+
+                if (cbl.EditOne(newItem, ref newMsg)) continue;
+                MessageBox.Show(newMsg, "Candidate Clearance Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                break;
+            }
+
+        }
+
+        private void SaveVoters()
+        {
+            string newMsg = "";
+            vbl.ResetVmList();
+
+            List<VoterClearanceComboVm> checkVoters = VoterClearanceCheckedListBoxCon.CheckedItems.Cast<VoterClearanceComboVm>().ToList();
+
+            foreach (var clearance in vbl.ComboItems)
+            {
+                VoterClearanceVm newItem = new VoterClearanceVm();
+                newItem.PositionId = clearance.PositionId.GetString();
+                newItem.GradeId = clearance.GradeId;
+                newItem.Active = checkVoters.Exists(i => i.Id == clearance.Id).ToString();
+
+                if (vbl.EditOne(newItem, ref newMsg)) continue;
+                MessageBox.Show(newMsg, "Voter Clearance Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                break;
             }
         }
 

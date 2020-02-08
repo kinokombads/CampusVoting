@@ -79,6 +79,7 @@ namespace CampusVoting.Views.UserCons
             {
                 GradeDeleteForm deleteForm = new GradeDeleteForm(gradeBl);
                 deleteForm.ShowDialog();
+                gradeBl.ResetVmParams();
                 RefreshWhenChanged();
             }
 

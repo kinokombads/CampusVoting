@@ -33,6 +33,10 @@
         {
             Id = "0";
             Title = "";
+            GradeId = "0";
+            Grade = "";
+            SectionId = "0";
+            Section = "";
             LoggedUser = "";
             CreatedById = "0";
             CreatedBy = "";

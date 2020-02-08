@@ -79,6 +79,7 @@ namespace CampusVoting.Views.UserCons
             {
                 SectionDeleteForm deleteForm = new SectionDeleteForm(sectionBl);
                 deleteForm.ShowDialog();
+                sectionBl.ResetVmParams();
                 RefreshWhenChanged();
             }
 

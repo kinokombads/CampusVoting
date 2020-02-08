@@ -92,6 +92,7 @@ namespace CampusVoting.Views.UserCons
             {
                 //PositionDeleteForm deleteForm = new PositionDeleteForm(positionBl);
                 //deleteForm.ShowDialog();
+                positionBl.ResetVmParams();
                 //RefreshWhenChanged();
             }
 

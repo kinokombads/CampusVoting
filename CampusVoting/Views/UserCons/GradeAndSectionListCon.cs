@@ -17,6 +17,8 @@ namespace CampusVoting.Views.UserCons
         {
             InitializeComponent();
             LoadCombo();
+            //GetParams();
+            LoadList();
         }
 
         private string msg = "";
@@ -126,6 +128,7 @@ namespace CampusVoting.Views.UserCons
             {
                 GradeAndSectionDeleteForm deleteForm = new GradeAndSectionDeleteForm(gradeAndSectionBl);
                 deleteForm.ShowDialog();
+                gradeAndSectionBl.ResetVmParams();
                 RefreshWhenChanged();
             }
 

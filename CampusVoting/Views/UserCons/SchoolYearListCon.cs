@@ -77,6 +77,7 @@ namespace CampusVoting.Views.UserCons
             {
                 SchoolYearDeleteForm deleteForm = new SchoolYearDeleteForm(schoolYearBl);
                 deleteForm.ShowDialog();
+                schoolYearBl.ResetVmParams();
                 RefreshWhenChanged();
             }
 

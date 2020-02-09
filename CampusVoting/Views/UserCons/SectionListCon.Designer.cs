@@ -51,6 +51,7 @@
             this.ModifiedOnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EditColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EditRepoButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.NoteLabel = new System.Windows.Forms.Label();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListGridControl)).BeginInit();
@@ -60,6 +61,7 @@
             // 
             // SearchPanel
             // 
+            this.SearchPanel.Controls.Add(this.NoteLabel);
             this.SearchPanel.Controls.Add(this.AddSimButton);
             this.SearchPanel.Controls.Add(this.SearchButton);
             this.SearchPanel.Controls.Add(this.NameTextEdit);
@@ -113,7 +115,7 @@
             this.NameTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.NameTextEdit.Properties.NullValuePrompt = "Search Section";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            this.NameTextEdit.Size = new System.Drawing.Size(300, 30);
+            this.NameTextEdit.Size = new System.Drawing.Size(300, 26);
             this.NameTextEdit.TabIndex = 3;
             this.NameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextEdit_KeyPress);
             // 
@@ -124,7 +126,7 @@
             this.ListNameLabel.Location = new System.Drawing.Point(2, 0);
             this.ListNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ListNameLabel.Name = "ListNameLabel";
-            this.ListNameLabel.Size = new System.Drawing.Size(171, 37);
+            this.ListNameLabel.Size = new System.Drawing.Size(144, 31);
             this.ListNameLabel.TabIndex = 1;
             this.ListNameLabel.Text = "Section List";
             // 
@@ -247,6 +249,16 @@
             this.EditRepoButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.EditRepoButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.EditRepoButton_ButtonClick);
             // 
+            // NoteLabel
+            // 
+            this.NoteLabel.AutoSize = true;
+            this.NoteLabel.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.NoteLabel.Location = new System.Drawing.Point(54, 101);
+            this.NoteLabel.Name = "NoteLabel";
+            this.NoteLabel.Size = new System.Drawing.Size(61, 19);
+            this.NoteLabel.TabIndex = 6;
+            this.NoteLabel.Text = "Result: 0";
+            // 
             // SectionListCon
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -286,5 +298,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn ModifiedOnColumn;
         private DevExpress.XtraEditors.SimpleButton AddSimButton;
         private DevExpress.XtraEditors.SimpleButton SearchButton;
+        private System.Windows.Forms.Label NoteLabel;
     }
 }

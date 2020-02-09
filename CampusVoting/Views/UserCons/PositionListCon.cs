@@ -16,6 +16,7 @@ namespace CampusVoting.Views.UserCons
             InitializeComponent();
             NameTextEdit.Select();
             LoadCombo();
+            LoadList();
         }
 
 
@@ -37,6 +38,7 @@ namespace CampusVoting.Views.UserCons
             if (msg == "")
             {
                 ListGridControl.DataSource = positionBl.ListVm;
+                NoteLabel.Text = "Result: " + positionBl.ListVm.Count;
             }
             else
             {
@@ -76,24 +78,16 @@ namespace CampusVoting.Views.UserCons
 
             if (process == ProcessMode.Update)
             {
-                if (positionBl.VmParams.PositionType == "Regular")
-                {
-                    PositionEditForm form = new PositionEditForm(positionBl);
-                    form.ShowDialog();
-                    RefreshWhenChanged();
-                }
-                else
-                {
-                    
-                }
+                PositionEditForm form = new PositionEditForm(positionBl);
+                form.ShowDialog();
+                RefreshWhenChanged();
                 
             }
             else
             {
-                //PositionDeleteForm deleteForm = new PositionDeleteForm(positionBl);
-                //deleteForm.ShowDialog();
-                positionBl.ResetVmParams();
-                //RefreshWhenChanged();
+                PositionDeleteForm deleteForm = new PositionDeleteForm(positionBl);
+                deleteForm.ShowDialog();
+                RefreshWhenChanged();
             }
 
         }

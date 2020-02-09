@@ -82,6 +82,7 @@ namespace CampusVoting.Views.UserCons
             if (msg == "")
             {
                 ListGridControl.DataSource = gradeAndSectionBl.ListVm;
+                NoteLabel.Text = "Result: " + gradeAndSectionBl.ListVm.Count;
             }
             else
             {

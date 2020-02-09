@@ -18,8 +18,9 @@ namespace CampusVoting.DataAccess
             command.CommandText = "GetCandidateClearances";
             command.CommandType = CommandType.StoredProcedure;
 
-            //command.Parameters.AddWithValue("intId", p.Id.GetInt()).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intPositionId", p.PositionId.GetInt()).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strPosition", p.Position).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intGradeId", p.GradeId.GetInt()).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strGrade", p.Grade).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("boolActive", p.Active).Direction = ParameterDirection.Input;
 
@@ -67,7 +68,7 @@ namespace CampusVoting.DataAccess
             command.CommandText = "EditCandidateClearance";
             command.CommandType = CommandType.StoredProcedure;
 
-            //command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intId", p.Id).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intGradeId", p.GradeId).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("intPositionId", p.PositionId).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("boolActive", p.Active).Direction = ParameterDirection.Input;

@@ -134,10 +134,10 @@ namespace CampusVoting.BusinessLogics
         }
 
 
-        public List<VoterClearanceComboVm> GetCombo(ref string msg)
+        public List<VoterClearanceComboVm> GetCombo(string positionId, ref string msg)
         {
             List<VoterClearanceComboVm> items = new List<VoterClearanceComboVm>();
-            DataTable dt = db.GetList(new VoterClearanceVm(), ref msg);
+            DataTable dt = db.GetList(new VoterClearanceVm{ PositionId = positionId }, ref msg);
             if (msg != "") return new List<VoterClearanceComboVm>();
 
             try

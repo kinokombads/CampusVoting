@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 
@@ -62,28 +56,22 @@ namespace CampusVoting.Views
         {
             string msgs = "";
 
-            cbl.ComboItems = cbl.GetCombo(ref msgs).Where(x => x.Active).ToList();
+
+            //this will load the checked candidate clearances
+            cbl.ComboItems = cbl.GetCombo(PositionBl.VmParams.Id, ref msgs).Where(x => x.Active).ToList();
 
             CandidateClearanceListBoxControl.DataSource = cbl.ComboItems;
             CandidateClearanceListBoxControl.DisplayMember = "Grade";
             CandidateClearanceListBoxControl.ValueMember = "GradeId";
 
-            //for (int i = 0; i < CandidateClearanceCheckListBoxCon.ItemCount; i++)
-            //{
-            //    CandidateClearanceCheckListBoxCon.SetItemChecked(i, cbl.ComboItems[i].Active);
-            //}
 
+            //this will load the checked voter clearances
+            vbl.ComboItems = vbl.GetCombo(PositionBl.VmParams.Id, ref msgs);
 
-            vbl.ComboItems = vbl.GetCombo(ref msgs);
-
-            VoterClearanceCheckedListBoxCon.DataSource = vbl.ComboItems;
-            VoterClearanceCheckedListBoxCon.DisplayMember = "Grade";
-            VoterClearanceCheckedListBoxCon.ValueMember = "GradeId";
-
-            for (int i = 0; i < VoterClearanceCheckedListBoxCon.ItemCount; i++)
-            {
-                VoterClearanceCheckedListBoxCon.SetItemChecked(i, cbl.ComboItems[i].Active);
-            }
+            VoterClearanceListBoxControl.DataSource = vbl.ComboItems;
+            VoterClearanceListBoxControl.DisplayMember = "Grade";
+            VoterClearanceListBoxControl.ValueMember = "GradeId";
+            
         }
 
 

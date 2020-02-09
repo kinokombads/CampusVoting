@@ -18,7 +18,6 @@ namespace CampusVoting
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new PositionEditForm(new PositionBl()));
-            Application.Run(new MainForm());
-        }
+            Application.Run(new MainForm());}
     }
 }

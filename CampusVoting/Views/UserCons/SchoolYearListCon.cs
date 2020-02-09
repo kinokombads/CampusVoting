@@ -12,7 +12,9 @@ namespace CampusVoting.Views.UserCons
     {
         public SchoolYearListCon()
         {
-            InitializeComponent(); NameTextEdit.Select();
+            InitializeComponent(); 
+            NameTextEdit.Select();
+            LoadList();
         }
 
         private string msg = "";
@@ -31,6 +33,7 @@ namespace CampusVoting.Views.UserCons
             if (msg == "")
             {
                 ListGridControl.DataSource = schoolYearBl.ListVm;
+                NoteLabel.Text = "Result: " + schoolYearBl.ListVm.Count;
             }
             else
             {

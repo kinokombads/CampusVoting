@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PositionListCon));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.NoteLabel = new System.Windows.Forms.Label();
             this.TypeEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.AddSimButton = new DevExpress.XtraEditors.SimpleButton();
@@ -65,6 +66,7 @@
             // 
             // SearchPanel
             // 
+            this.SearchPanel.Controls.Add(this.NoteLabel);
             this.SearchPanel.Controls.Add(this.TypeEdit);
             this.SearchPanel.Controls.Add(this.AddSimButton);
             this.SearchPanel.Controls.Add(this.SearchButton);
@@ -75,6 +77,16 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(848, 125);
             this.SearchPanel.TabIndex = 0;
+            // 
+            // NoteLabel
+            // 
+            this.NoteLabel.AutoSize = true;
+            this.NoteLabel.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.NoteLabel.Location = new System.Drawing.Point(54, 101);
+            this.NoteLabel.Name = "NoteLabel";
+            this.NoteLabel.Size = new System.Drawing.Size(61, 19);
+            this.NoteLabel.TabIndex = 8;
+            this.NoteLabel.Text = "Result: 0";
             // 
             // TypeEdit
             // 
@@ -91,7 +103,7 @@
             this.TypeEdit.Properties.NullValuePrompt = "Search By Type";
             this.TypeEdit.Properties.NullValuePromptShowForEmptyValue = true;
             this.TypeEdit.Properties.View = this.searchLookUpEdit1View;
-            this.TypeEdit.Size = new System.Drawing.Size(171, 30);
+            this.TypeEdit.Size = new System.Drawing.Size(171, 26);
             this.TypeEdit.TabIndex = 7;
             this.TypeEdit.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.TypeEdit_QueryPopUp);
             // 
@@ -145,7 +157,7 @@
             this.NameTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.NameTextEdit.Properties.NullValuePrompt = "Search Position";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            this.NameTextEdit.Size = new System.Drawing.Size(300, 30);
+            this.NameTextEdit.Size = new System.Drawing.Size(300, 26);
             this.NameTextEdit.TabIndex = 3;
             this.NameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextEdit_KeyPress);
             // 
@@ -156,7 +168,7 @@
             this.ListNameLabel.Location = new System.Drawing.Point(2, 0);
             this.ListNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ListNameLabel.Name = "ListNameLabel";
-            this.ListNameLabel.Size = new System.Drawing.Size(180, 37);
+            this.ListNameLabel.Size = new System.Drawing.Size(151, 31);
             this.ListNameLabel.TabIndex = 1;
             this.ListNameLabel.Text = "Position List";
             // 
@@ -227,6 +239,7 @@
             this.TypeColumn.Caption = "Type";
             this.TypeColumn.FieldName = "PositionType";
             this.TypeColumn.Name = "TypeColumn";
+            this.TypeColumn.OptionsColumn.AllowEdit = false;
             this.TypeColumn.Visible = true;
             this.TypeColumn.VisibleIndex = 1;
             // 
@@ -277,13 +290,13 @@
             // EditRepoButton
             // 
             this.EditRepoButton.AutoHeight = false;
-            toolTipItem3.Text = "Edit";
-            superToolTip3.Items.Add(toolTipItem3);
-            toolTipItem4.Text = "Delete";
-            superToolTip4.Items.Add(toolTipItem4);
+            toolTipItem1.Text = "Edit";
+            superToolTip1.Items.Add(toolTipItem1);
+            toolTipItem2.Text = "Delete";
+            superToolTip2.Items.Add(toolTipItem2);
             this.EditRepoButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "Edit Item", null, superToolTip3, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "Delete Item", null, superToolTip4, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Edit Item", null, superToolTip1, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Delete Item", null, superToolTip2, true)});
             this.EditRepoButton.Name = "EditRepoButton";
             this.EditRepoButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.EditRepoButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.EditRepoButton_ButtonClick);
@@ -332,5 +345,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn TypeColumn;
         private DevExpress.XtraEditors.SearchLookUpEdit TypeEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private System.Windows.Forms.Label NoteLabel;
     }
 }

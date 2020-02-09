@@ -137,12 +137,11 @@ namespace CampusVoting.BusinessLogics
         }
 
 
-        public List<CandidateClearanceComboVm> GetCombo(ref string msg)
+        public List<CandidateClearanceComboVm> GetCombo(string positionId, ref string msg)
         {
             List<CandidateClearanceComboVm> items = new List<CandidateClearanceComboVm>();
-            DataTable dt = db.GetList(new CandidateClearanceVm(), ref msg);
+            DataTable dt = db.GetList(new CandidateClearanceVm{ PositionId = positionId }, ref msg);
             if (msg != "") return new List<CandidateClearanceComboVm>();
-
             try
             {
                 foreach (DataRow row in dt.Rows)
@@ -154,7 +153,6 @@ namespace CampusVoting.BusinessLogics
                     item.PositionId = row["positionId"].GetString();
                     item.Position = row["positionName"].GetString();
                     item.Active = row["active"].GetBool();
-
                     items.Add(item);
                 }
 

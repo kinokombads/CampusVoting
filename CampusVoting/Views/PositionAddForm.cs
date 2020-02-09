@@ -173,6 +173,14 @@ namespace CampusVoting.Views
             properties.PopupFormSize = new Size(editor.Width, properties.PopupFormSize.Height);
         }
 
+        private void TypeLookUp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13 || e.KeyChar == 32)
+            {
+                TypeLookUp.ShowPopup();
+            }
+        }
+
         
         
     }

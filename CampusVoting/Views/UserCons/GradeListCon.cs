@@ -14,6 +14,7 @@ namespace CampusVoting.Views.UserCons
         {
             InitializeComponent();
             NameTextEdit.Select();
+            LoadList();
         }
         
         private string msg = "";
@@ -32,6 +33,7 @@ namespace CampusVoting.Views.UserCons
             if (msg == "")
             {
                 ListGridControl.DataSource = gradeBl.ListVm;
+                NoteLabel.Text = "Result: " + gradeBl.ListVm.Count;
             }
             else
             {

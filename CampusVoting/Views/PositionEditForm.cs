@@ -20,8 +20,8 @@ namespace CampusVoting.Views
             InitializeComponent();
             PositionBl = bl;
             //TempItem();//todo erase
-            LoadCombo();
             DisplayInfo();
+            LoadCombo();
             NameTextEdit.Select();
         }
 
@@ -93,7 +93,7 @@ namespace CampusVoting.Views
         {
             string msgs = "";
 
-            cbl.ComboItems = cbl.GetCombo(ref msgs);
+            cbl.ComboItems = cbl.GetCombo(id, ref msgs);
             
             CandidateClearanceCheckListBoxCon.DataSource = cbl.ComboItems;
             CandidateClearanceCheckListBoxCon.DisplayMember = "Grade";
@@ -105,7 +105,7 @@ namespace CampusVoting.Views
             }
 
 
-            vbl.ComboItems = vbl.GetCombo(ref msgs);
+            vbl.ComboItems = vbl.GetCombo(PositionBl.VmParams.Id, ref msgs);
 
             VoterClearanceCheckedListBoxCon.DataSource = vbl.ComboItems;
             VoterClearanceCheckedListBoxCon.DisplayMember = "Grade";
@@ -127,7 +127,8 @@ namespace CampusVoting.Views
             foreach (var clearance in cbl.ComboItems)
             {
                 CandidateClearanceVm newItem = new CandidateClearanceVm();
-                newItem.PositionId = clearance.PositionId.GetString();
+                newItem.Id = clearance.Id;
+                newItem.PositionId = clearance.PositionId;
                 newItem.GradeId = clearance.GradeId;
                 newItem.Active = checkCands.Exists(i => i.Id == clearance.Id).GetBool();
 
@@ -148,7 +149,8 @@ namespace CampusVoting.Views
             foreach (var clearance in vbl.ComboItems)
             {
                 VoterClearanceVm newItem = new VoterClearanceVm();
-                newItem.PositionId = clearance.PositionId.GetString();
+                newItem.Id = clearance.Id;
+                newItem.PositionId = clearance.PositionId;
                 newItem.GradeId = clearance.GradeId;
                 newItem.Active = checkVoters.Exists(i => i.Id == clearance.Id).ToString();
 

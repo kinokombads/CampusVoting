@@ -477,6 +477,7 @@
             this.TypeLookUp.TabIndex = 24;
             this.TypeLookUp.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.TypeLookUp_QueryPopUp);
             this.TypeLookUp.SizeChanged += new System.EventHandler(this.TypeLookUp_SizeChanged);
+            this.TypeLookUp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TypeLookUp_KeyPress);
             // 
             // PositionEditView
             // 

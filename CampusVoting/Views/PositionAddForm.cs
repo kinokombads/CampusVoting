@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.PageHelpers;
 using CampusVoting.ViewModels;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
@@ -47,7 +48,7 @@ namespace CampusVoting.Views
             PositionBl.VmParams.Title = NameTextEdit.Text;
             PositionBl.VmParams.PositionType = TypeLookUp.EditValue.GetString();
             PositionBl.VmParams.Details = DetailMemoEdit.EditValue.GetString();
-            PositionBl.VmParams.CreatedById = "1"; //todo temp
+            PositionBl.VmParams.CreatedById = LoginDetail.UserId;
         }
 
         private void Save()

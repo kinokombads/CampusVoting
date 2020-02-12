@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.PageHelpers;
 using CampusVoting.ViewModels;
 
 namespace CampusVoting.Views
@@ -59,7 +60,7 @@ namespace CampusVoting.Views
             PositionBl.VmParams.Title = NameTextEdit.Text;
             PositionBl.VmParams.PositionType = TypeTextEdit.Text;
             PositionBl.VmParams.Details = DetailMemoEdit.Text;
-            PositionBl.VmParams.ModifiedById = "1"; //todo temp
+            PositionBl.VmParams.ModifiedById = LoginDetail.UserId;
         }
 
         private void Save()

@@ -136,6 +136,18 @@
     <Compile Include="ViewModels\StudentVm.cs" />
     <Compile Include="ViewModels\VoterClearanceComboVm.cs" />
     <Compile Include="ViewModels\VoterClearanceVm.cs" />
+    <Compile Include="Views\CampaignGroupDeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CampaignGroupDeleteForm.Designer.cs">
+      <DependentUpon>CampaignGroupDeleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CampaignGroupEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CampaignGroupEditForm.Designer.cs">
+      <DependentUpon>CampaignGroupEditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CampaignGroupAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +274,12 @@
     <Compile Include="Views\SectionEditForm.Designer.cs">
       <DependentUpon>SectionEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserCons\CampaignGroupListCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\CampaignGroupListCon.Designer.cs">
+      <DependentUpon>CampaignGroupListCon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\GradeAndSectionListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -303,6 +321,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\CampaignGroupAddForm.resx">
+      <DependentUpon>CampaignGroupAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CampaignGroupDeleteForm.resx">
+      <DependentUpon>CampaignGroupDeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CampaignGroupEditForm.resx">
+      <DependentUpon>CampaignGroupEditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

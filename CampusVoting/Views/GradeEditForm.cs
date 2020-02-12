@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
+using CampusVoting.PageHelpers;
 
 namespace CampusVoting.Views
 {
@@ -40,7 +41,7 @@ namespace CampusVoting.Views
             GradeBl.VmParams.Id = id;
             GradeBl.VmParams.Title = NameTextEdit.Text;
             GradeBl.VmParams.Details = DetailMemoEdit.Text;
-            GradeBl.VmParams.ModifiedById = "1"; //todo temp
+            GradeBl.VmParams.ModifiedById = LoginDetail.UserId;
         }
 
         private void Save()

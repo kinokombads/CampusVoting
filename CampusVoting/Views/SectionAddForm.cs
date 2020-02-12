@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
+using CampusVoting.PageHelpers;
 
 namespace CampusVoting.Views
 {
@@ -33,7 +34,7 @@ namespace CampusVoting.Views
             SectionBl.ResetVmParams();
             SectionBl.VmParams.Title = NameTextEdit.Text;
             SectionBl.VmParams.Details = DetailMemoEdit.Text;
-            SectionBl.VmParams.CreatedById = "1"; //todo temp
+            SectionBl.VmParams.CreatedById = LoginDetail.UserId;
         }
 
         private void Save()

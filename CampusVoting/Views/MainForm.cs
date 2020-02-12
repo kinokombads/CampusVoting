@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using CampusVoting.PageHelpers;
 using CampusVoting.Views.UserCons;
 using DevExpress.XtraBars.Navigation;
 
@@ -10,6 +11,7 @@ namespace CampusVoting.Views
         public MainForm()
         {
             InitializeComponent();
+            LoginDetail.UserId = "1";
         }
 
         private void Navigation_Click(object sender, EventArgs e)

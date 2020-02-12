@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.PageHelpers;
 
 namespace CampusVoting.Views
 {
@@ -36,7 +37,7 @@ namespace CampusVoting.Views
             GradeAndSectionBl.VmParams.Grade = GradeLookUp.Text;
             GradeAndSectionBl.VmParams.SectionId = SectionLookUp.EditValue.GetString();
             GradeAndSectionBl.VmParams.Section = SectionLookUp.Text;
-            GradeAndSectionBl.VmParams.CreatedById = "1"; //todo temp
+            GradeAndSectionBl.VmParams.CreatedById = LoginDetail.UserId;
         }
 
         private void Save()

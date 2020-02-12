@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.PageHelpers;
 
 namespace CampusVoting.Views
 {
@@ -43,7 +44,7 @@ namespace CampusVoting.Views
             SchoolYearBl.VmParams.Title = NameTextEdit.Text;
             SchoolYearBl.VmParams.Active = ActiveSwitch.EditValue.GetString();
             SchoolYearBl.VmParams.Details = DetailMemoEdit.Text;
-            SchoolYearBl.VmParams.ModifiedById = "1"; //todo temp
+            SchoolYearBl.VmParams.ModifiedById = LoginDetail.UserId;
         }
 
         private void Save()

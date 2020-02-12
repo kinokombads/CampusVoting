@@ -170,5 +170,16 @@ namespace CampusVoting.BusinessLogics
                 return new List<SchoolYearComboVm>();
             }
         }
+
+        public bool GetActive()
+        {
+            string msg = "";
+            ResetVmParams();
+            VmParams = GetOne(new SchoolYearVm {Active = "true"}, ref msg);
+
+            return msg == "" && VmParams.Id != "0";
+        }
+
+        
     }
 }

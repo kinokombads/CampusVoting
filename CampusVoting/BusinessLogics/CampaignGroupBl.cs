@@ -84,7 +84,7 @@ namespace CampusVoting.BusinessLogics
                 foreach (DataRow row in dt.Rows)
                 {
                     CampaignGroupVm item = new CampaignGroupVm();
-                    item.Id = row["CampaignGroupId"].GetString();
+                    item.Id = row["campaignGroupId"].GetString();
                     item.Title = row["title"].GetString();
                     item.SchoolYearId = row["schoolYearId"].GetString();
                     item.Details = row["details"].GetString();

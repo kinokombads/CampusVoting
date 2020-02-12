@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
 using CampusVoting.Helpers;
+using CampusVoting.PageHelpers;
 
 namespace CampusVoting.Views
 {
@@ -51,7 +52,7 @@ namespace CampusVoting.Views
             GradeAndSectionBl.VmParams.Grade = GradeLookUp.Properties.GetDisplayValueByKeyValue(GradeLookUp.EditValue).GetString();
             GradeAndSectionBl.VmParams.SectionId = SectionLookUp.EditValue.GetString();
             GradeAndSectionBl.VmParams.Section = SectionLookUp.Properties.GetDisplayValueByKeyValue(SectionLookUp.EditValue).GetString();
-            GradeAndSectionBl.VmParams.ModifiedById = "1"; //todo temp
+            GradeAndSectionBl.VmParams.ModifiedById = LoginDetail.UserId;
         }
 
         private void Save()

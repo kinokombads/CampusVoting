@@ -25,6 +25,7 @@ namespace CampusVoting.Views
             InitializeComponent();
             GetActiveSchoolYear();
             CampaignGroupBl = bl;
+            DisplayInfo();
             SchoolYearTextEdit.Tag = schoolYearBl.VmParams.Id;
             SchoolYearTextEdit.Text = schoolYearBl.VmParams.Title;
             NameTextEdit.Select();

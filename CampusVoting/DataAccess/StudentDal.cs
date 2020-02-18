@@ -22,12 +22,13 @@ namespace CampusVoting.DataAccess
             command.CommandType = CommandType.StoredProcedure;
 
             command.Parameters.AddWithValue("intId", p.Id.GetInt()).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strLrn", p.Lrn).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strLrn", p.LRN).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strLastName", p.LastName).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strFirstName", p.FirstName).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strMiddleName", p.MiddleName).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strSectionName", p.SectionName).Direction = ParameterDirection.Input;
-            command.Parameters.AddWithValue("strGradeName", p.GradeName).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strSectionName", p.Section).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("strGradeName", p.Grade).Direction = ParameterDirection.Input;
+            command.Parameters.AddWithValue("intSchoolYearId", p.SchoolYearId).Direction = ParameterDirection.Input;
             command.Parameters.AddWithValue("strCurrentSectionName", p.CurrentSectionName).Direction = ParameterDirection.Input;
 
             List<StudentVm> items = new List<StudentVm>();
@@ -39,14 +40,16 @@ namespace CampusVoting.DataAccess
                 {
                     StudentVm item = new StudentVm();
                     item.Id = row["StudentId"].GetString();
-                    item.Lrn = row["Lrn"].GetString();item.LastName = row["LastName"].GetString();
+                    item.LRN = row["Lrn"].GetString();item.LastName = row["LastName"].GetString();
                     item.FirstName = row["FirstName"].GetString();
                     item.MiddleName = row["MiddleName"].GetString();
-                    item.GradeId = row["Id"].GetString();
-                    item.GradeName = row["GradeName"].GetString();
-                    item.SectionId = row["Id"].GetString();
-                    item.SectionName = row["SectionName"].GetString();
-                    item.CurrentGradeAndSectionId = row["Id"].GetString();
+                    item.GradeId = row["GradeId"].GetString();
+                    item.Grade = row["GradeName"].GetString();
+                    item.SectionId = row["SectionId"].GetString();
+                    item.Section = row["SectionName"].GetString();
+                    item.SchoolYearId = row["SchoolYearId"].GetString();
+                    item.SchoolYear = row["SchoolYearName"].GetString();
+                    item.CurrentGradeAndSectionId = row["CurrentGradeAndSectionId"].GetString();
                     item.CurrentSectionName = row["CurrentSectionName"].GetString();
                     
                     items.Add(item);

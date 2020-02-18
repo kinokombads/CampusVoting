@@ -84,6 +84,7 @@ namespace CampusVoting.BusinessLogics
                     item.Position = row["positionName"].GetString();
                     item.GradeId = row["gradeId"].GetString();
                     item.Grade = row["gradeName"].GetString();
+                    item.Active = row["active"].GetBool();
 
                     items.Add(item);
                 }

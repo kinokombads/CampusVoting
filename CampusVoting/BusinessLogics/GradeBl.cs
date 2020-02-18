@@ -22,6 +22,8 @@ namespace CampusVoting.BusinessLogics
 
         public List<GradeComboVm> ComboItems { get; set; }
 
+        public List<GradeCheckComboVm> CheckComboItems { get; set; }
+
         public bool ChangeOccured { get; set; }
 
 
@@ -31,6 +33,7 @@ namespace CampusVoting.BusinessLogics
             ResetVmParams();
             ResetVmList();
             ResetCombo();
+            ResetCheckCombo();
             ChangeOccured = false;
         }
 
@@ -142,6 +145,11 @@ namespace CampusVoting.BusinessLogics
             ComboItems = new List<GradeComboVm>();
         }
 
+        public void ResetCheckCombo()
+        {
+            CheckComboItems = new List<GradeCheckComboVm>();
+        }
+
         public List<GradeComboVm> GetCombo(ref string msg)
         {
             List<GradeComboVm> items = new List<GradeComboVm>();
@@ -166,6 +174,33 @@ namespace CampusVoting.BusinessLogics
             {
                 msg = ef.GetExceptionMessage(ex, msg);
                 return new List<GradeComboVm>();
+            }
+        }
+
+        public List<GradeCheckComboVm> GetCheckCombo(ref string msg)
+        {
+            List<GradeCheckComboVm> items = new List<GradeCheckComboVm>();
+            DataTable dt = db.GetList(MapProperties(new GradeVm()), ref msg);
+            if (msg != "") return new List<GradeCheckComboVm>();
+
+            try
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    GradeCheckComboVm item = new GradeCheckComboVm();
+                    item.Id = row["gradeId"].GetString();
+                    item.Title = row["title"].GetString();
+                    //item.Active = row["active"].GetString();
+
+                    items.Add(item);
+                }
+
+                return items;
+            }
+            catch (Exception ex)
+            {
+                msg = ef.GetExceptionMessage(ex, msg);
+                return new List<GradeCheckComboVm>();
             }
         }
     }

@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CampaignGroupListCon));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             this.SearchPanel = new System.Windows.Forms.Panel();
+            this.NoteLabel = new System.Windows.Forms.Label();
             this.AddSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.SearchButton = new DevExpress.XtraEditors.SimpleButton();
             this.NameTextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -44,7 +48,7 @@
             this.ItemsGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.IdColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.TitleColumn = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ActiveColumn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.SchoolYearColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DetailsColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CreatedByColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CreatedOnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,7 +56,6 @@
             this.ModifiedOnColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EditColumn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.EditRepoButton = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.NoteLabel = new System.Windows.Forms.Label();
             this.SearchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListGridControl)).BeginInit();
@@ -72,6 +75,16 @@
             this.SearchPanel.Name = "SearchPanel";
             this.SearchPanel.Size = new System.Drawing.Size(848, 125);
             this.SearchPanel.TabIndex = 0;
+            // 
+            // NoteLabel
+            // 
+            this.NoteLabel.AutoSize = true;
+            this.NoteLabel.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.NoteLabel.Location = new System.Drawing.Point(54, 101);
+            this.NoteLabel.Name = "NoteLabel";
+            this.NoteLabel.Size = new System.Drawing.Size(81, 22);
+            this.NoteLabel.TabIndex = 7;
+            this.NoteLabel.Text = "Result: 0";
             // 
             // AddSimButton
             // 
@@ -116,7 +129,7 @@
             this.NameTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.NameTextEdit.Properties.NullValuePrompt = "Search Campaign Group";
             this.NameTextEdit.Properties.NullValuePromptShowForEmptyValue = true;
-            this.NameTextEdit.Size = new System.Drawing.Size(300, 26);
+            this.NameTextEdit.Size = new System.Drawing.Size(300, 30);
             this.NameTextEdit.TabIndex = 3;
             this.NameTextEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextEdit_KeyPress);
             // 
@@ -127,7 +140,7 @@
             this.ListNameLabel.Location = new System.Drawing.Point(2, 0);
             this.ListNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ListNameLabel.Name = "ListNameLabel";
-            this.ListNameLabel.Size = new System.Drawing.Size(194, 31);
+            this.ListNameLabel.Size = new System.Drawing.Size(301, 37);
             this.ListNameLabel.TabIndex = 1;
             this.ListNameLabel.Text = "Campaign Group List";
             // 
@@ -156,7 +169,7 @@
             this.ItemsGridView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.IdColumn,
             this.TitleColumn,
-            this.ActiveColumn,
+            this.SchoolYearColumn,
             this.DetailsColumn,
             this.CreatedByColumn,
             this.CreatedOnColumn,
@@ -184,14 +197,14 @@
             this.TitleColumn.Visible = true;
             this.TitleColumn.VisibleIndex = 0;
             // 
-            // ActiveColumn
+            // SchoolYearColumn
             // 
-            this.ActiveColumn.Caption = "Active";
-            this.ActiveColumn.FieldName = "Active";
-            this.ActiveColumn.Name = "ActiveColumn";
-            this.ActiveColumn.OptionsColumn.AllowEdit = false;
-            this.ActiveColumn.Visible = true;
-            this.ActiveColumn.VisibleIndex = 2;
+            this.SchoolYearColumn.Caption = "School Year";
+            this.SchoolYearColumn.FieldName = "SchoolYear";
+            this.SchoolYearColumn.Name = "SchoolYearColumn";
+            this.SchoolYearColumn.OptionsColumn.AllowEdit = false;
+            this.SchoolYearColumn.Visible = true;
+            this.SchoolYearColumn.VisibleIndex = 2;
             // 
             // DetailsColumn
             // 
@@ -249,26 +262,19 @@
             // EditRepoButton
             // 
             this.EditRepoButton.AutoHeight = false;
-            toolTipItem1.Text = "Edit";
-            superToolTip1.Items.Add(toolTipItem1);
-            toolTipItem2.Text = "Delete";
-            superToolTip2.Items.Add(toolTipItem2);
+            toolTipItem4.Text = "Edit";
+            superToolTip4.Items.Add(toolTipItem4);
+            toolTipItem5.Text = "Delete";
+            superToolTip5.Items.Add(toolTipItem5);
+            toolTipItem6.Text = "Roster Management";
+            superToolTip6.Items.Add(toolTipItem6);
             this.EditRepoButton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "Edit Item", null, superToolTip1, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "Delete Item", null, superToolTip2, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Edit", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "Edit Item", null, superToolTip4, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Delete", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "Delete Item", null, superToolTip5, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Roster Management", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EditRepoButton.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "Roster Management", null, superToolTip6, true)});
             this.EditRepoButton.Name = "EditRepoButton";
             this.EditRepoButton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.EditRepoButton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.EditRepoButton_ButtonClick);
-            // 
-            // NoteLabel
-            // 
-            this.NoteLabel.AutoSize = true;
-            this.NoteLabel.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.NoteLabel.Location = new System.Drawing.Point(54, 101);
-            this.NoteLabel.Name = "NoteLabel";
-            this.NoteLabel.Size = new System.Drawing.Size(61, 19);
-            this.NoteLabel.TabIndex = 7;
-            this.NoteLabel.Text = "Result: 0";
             // 
             // CampaignGroupListCon
             // 
@@ -280,6 +286,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "CampaignGroupListCon";
             this.Size = new System.Drawing.Size(848, 592);
+            this.VisibleChanged += new System.EventHandler(this.CampaignGroupListCon_VisibleChanged);
             this.SearchPanel.ResumeLayout(false);
             this.SearchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameTextEdit.Properties)).EndInit();
@@ -309,7 +316,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn ModifiedOnColumn;
         private DevExpress.XtraEditors.SimpleButton AddSimButton;
         private DevExpress.XtraEditors.SimpleButton SearchButton;
-        private DevExpress.XtraGrid.Columns.GridColumn ActiveColumn;
+        private DevExpress.XtraGrid.Columns.GridColumn SchoolYearColumn;
         private System.Windows.Forms.Label NoteLabel;
     }
 }

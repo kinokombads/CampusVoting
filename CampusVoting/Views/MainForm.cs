@@ -35,6 +35,9 @@ namespace CampusVoting.Views
                     break;
                 case "Grades":listCon = new GradeListCon { Dock = DockStyle.Fill };
                     break;
+                case "Campaign Groups":
+                    listCon = new CampaignGroupListCon { Dock = DockStyle.Fill };
+                    break;
                 case "Sections":
                     listCon = new SectionListCon { Dock = DockStyle.Fill };
                     break;

@@ -27,7 +27,7 @@ namespace CampusVoting.Views
         private void GetParams()
         {
             bl.ResetParameters();
-            bl.Parameters.Lrn = TitleTextEdit.Text;
+            bl.Parameters.LRN = TitleTextEdit.Text;
         }
 
         private void LoadList()

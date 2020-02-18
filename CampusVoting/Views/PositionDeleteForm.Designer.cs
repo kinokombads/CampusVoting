@@ -36,7 +36,7 @@
             this.SaveSimButton = new DevExpress.XtraEditors.SimpleButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.CandidateClearanceListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
+            this.CandidateClearanceListBoxCon = new DevExpress.XtraEditors.ListBoxControl();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.VoterClearanceListBoxControl = new DevExpress.XtraEditors.ListBoxControl();
+            this.VoterClearanceListBoxCon = new DevExpress.XtraEditors.ListBoxControl();
             ((System.ComponentModel.ISupportInitialize)(this.MainPanelControl)).BeginInit();
             this.MainPanelControl.SuspendLayout();
             this.MainScrollCon.SuspendLayout();
@@ -68,7 +68,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceListBoxControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceListBoxCon)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetailMemoEdit.Properties)).BeginInit();
             this.panel11.SuspendLayout();
@@ -78,7 +78,7 @@
             this.panel6.SuspendLayout();
             this.HeaderPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VoterClearanceListBoxControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VoterClearanceListBoxCon)).BeginInit();
             this.SuspendLayout();
             // 
             // MainPanelControl
@@ -179,28 +179,28 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.CandidateClearanceListBoxControl);
+            this.splitContainer1.Panel1.Controls.Add(this.CandidateClearanceListBoxCon);
             this.splitContainer1.Panel1MinSize = 222;
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.VoterClearanceListBoxControl);
+            this.splitContainer1.Panel2.Controls.Add(this.VoterClearanceListBoxCon);
             this.splitContainer1.Panel2MinSize = 222;
             this.splitContainer1.Size = new System.Drawing.Size(448, 88);
             this.splitContainer1.SplitterDistance = 224;
             this.splitContainer1.TabIndex = 37;
             // 
-            // CandidateClearanceListBoxControl
+            // CandidateClearanceListBoxCon
             // 
-            this.CandidateClearanceListBoxControl.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CandidateClearanceListBoxControl.Appearance.Options.UseFont = true;
-            this.CandidateClearanceListBoxControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CandidateClearanceListBoxControl.Location = new System.Drawing.Point(0, 0);
-            this.CandidateClearanceListBoxControl.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
-            this.CandidateClearanceListBoxControl.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.CandidateClearanceListBoxControl.Name = "CandidateClearanceListBoxControl";
-            this.CandidateClearanceListBoxControl.Size = new System.Drawing.Size(224, 88);
-            this.CandidateClearanceListBoxControl.TabIndex = 0;
+            this.CandidateClearanceListBoxCon.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CandidateClearanceListBoxCon.Appearance.Options.UseFont = true;
+            this.CandidateClearanceListBoxCon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CandidateClearanceListBoxCon.Location = new System.Drawing.Point(0, 0);
+            this.CandidateClearanceListBoxCon.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.CandidateClearanceListBoxCon.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.CandidateClearanceListBoxCon.Name = "CandidateClearanceListBoxCon";
+            this.CandidateClearanceListBoxCon.Size = new System.Drawing.Size(224, 88);
+            this.CandidateClearanceListBoxCon.TabIndex = 0;
             // 
             // panel12
             // 
@@ -439,17 +439,17 @@
             this.panel2.Size = new System.Drawing.Size(458, 5);
             this.panel2.TabIndex = 6;
             // 
-            // VoterClearanceListBoxControl
+            // VoterClearanceListBoxCon
             // 
-            this.VoterClearanceListBoxControl.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VoterClearanceListBoxControl.Appearance.Options.UseFont = true;
-            this.VoterClearanceListBoxControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VoterClearanceListBoxControl.Location = new System.Drawing.Point(0, 0);
-            this.VoterClearanceListBoxControl.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
-            this.VoterClearanceListBoxControl.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.VoterClearanceListBoxControl.Name = "VoterClearanceListBoxControl";
-            this.VoterClearanceListBoxControl.Size = new System.Drawing.Size(222, 88);
-            this.VoterClearanceListBoxControl.TabIndex = 1;
+            this.VoterClearanceListBoxCon.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.VoterClearanceListBoxCon.Appearance.Options.UseFont = true;
+            this.VoterClearanceListBoxCon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VoterClearanceListBoxCon.Location = new System.Drawing.Point(0, 0);
+            this.VoterClearanceListBoxCon.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.VoterClearanceListBoxCon.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.VoterClearanceListBoxCon.Name = "VoterClearanceListBoxCon";
+            this.VoterClearanceListBoxCon.Size = new System.Drawing.Size(222, 88);
+            this.VoterClearanceListBoxCon.TabIndex = 1;
             // 
             // PositionDeleteForm
             // 
@@ -470,7 +470,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceListBoxControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CandidateClearanceListBoxCon)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetailMemoEdit.Properties)).EndInit();
@@ -484,7 +484,7 @@
             this.panel6.PerformLayout();
             this.HeaderPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.VoterClearanceListBoxControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VoterClearanceListBoxCon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,7 +521,7 @@
         private DevExpress.XtraEditors.SimpleButton CancelSimButton;
         private System.Windows.Forms.Panel panel14;
         private DevExpress.XtraEditors.SimpleButton SaveSimButton;
-        private DevExpress.XtraEditors.ListBoxControl CandidateClearanceListBoxControl;
-        private DevExpress.XtraEditors.ListBoxControl VoterClearanceListBoxControl;
+        private DevExpress.XtraEditors.ListBoxControl CandidateClearanceListBoxCon;
+        private DevExpress.XtraEditors.ListBoxControl VoterClearanceListBoxCon;
     }
 }

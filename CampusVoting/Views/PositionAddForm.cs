@@ -130,7 +130,7 @@ namespace CampusVoting.Views
                 VoterClearanceVm newItem = new VoterClearanceVm();
                 newItem.PositionId = newId.GetString();
                 newItem.GradeId = grade.Id;
-                newItem.Active = checkVoters.Exists(i => i.Id == grade.Id).ToString();
+                newItem.Active = checkVoters.Exists(i => i.Id == grade.Id);
 
                 if (vbl.AddOne(newItem, ref newMsg)) continue;
                 MessageBox.Show(newMsg, "Voter Clearance Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

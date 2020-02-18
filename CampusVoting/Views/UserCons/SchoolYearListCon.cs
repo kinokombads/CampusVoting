@@ -116,7 +116,11 @@ namespace CampusVoting.Views.UserCons
         {
             GetSelected(ProcessMode.Update);
         }
-        
+
+        private void SchoolYearListCon_VisibleChanged(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
         
         private void NameTextEdit_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -124,5 +128,7 @@ namespace CampusVoting.Views.UserCons
             GetParams();
             LoadList();
         }
+
+        
     }
 }

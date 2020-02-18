@@ -210,7 +210,7 @@ namespace CampusVoting.Views
             // LrnColumn
             // 
             this.LrnColumn.Caption = "LRN";
-            this.LrnColumn.FieldName = "Lrn";
+            this.LrnColumn.FieldName = "LRN";
             this.LrnColumn.Name = "LrnColumn";
             this.LrnColumn.Visible = true;
             this.LrnColumn.VisibleIndex = 0;

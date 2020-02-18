@@ -124,6 +124,7 @@
     <Compile Include="ViewModels\ConfigTableVm.cs" />
     <Compile Include="ViewModels\GradeAndSectionComboVm.cs" />
     <Compile Include="ViewModels\GradeAndSectionVm.cs" />
+    <Compile Include="ViewModels\GradeCheckComboVm.cs" />
     <Compile Include="ViewModels\GradeComboVm.cs" />
     <Compile Include="ViewModels\GradeVm.cs" />
     <Compile Include="ViewModels\PositionComboVm.cs" />
@@ -298,6 +299,12 @@
     <Compile Include="Views\UserCons\PositionListCon.Designer.cs">
       <DependentUpon>PositionListCon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserCons\RosterManagementCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\RosterManagementCon.Designer.cs">
+      <DependentUpon>RosterManagementCon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserCons\SchoolYearListCon.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -309,6 +316,12 @@
     </Compile>
     <Compile Include="Views\UserCons\SectionListCon.Designer.cs">
       <DependentUpon>SectionListCon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserCons\StudentListCon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserCons\StudentListCon.Designer.cs">
+      <DependentUpon>StudentListCon.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -387,6 +400,9 @@
     <EmbeddedResource Include="Views\SectionEditForm.resx">
       <DependentUpon>SectionEditForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\CampaignGroupListCon.resx">
+      <DependentUpon>CampaignGroupListCon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\GradeAndSectionListCon.resx">
       <DependentUpon>GradeAndSectionListCon.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,11 +412,17 @@
     <EmbeddedResource Include="Views\UserCons\PositionListCon.resx">
       <DependentUpon>PositionListCon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\RosterManagementCon.resx">
+      <DependentUpon>RosterManagementCon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\SchoolYearListCon.resx">
       <DependentUpon>SchoolYearListCon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserCons\SectionListCon.resx">
       <DependentUpon>SectionListCon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserCons\StudentListCon.resx">
+      <DependentUpon>StudentListCon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

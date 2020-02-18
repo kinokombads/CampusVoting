@@ -17,10 +17,11 @@ namespace CampusVoting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var bl = new CampaignGroupBl();
-            bl.VmParams.Id = "1";
-            Application.Run(new CampaignGroupEditForm(bl));
-            //Application.Run(new MainForm());
+            //var bl = new CampaignGroupBl();
+            //bl.VmParams.Id = "1";
+            //string msg = "";
+            //bl.VmParams = bl.GetOne(bl.VmParams, ref msg);
+            //Application.Run(new CampaignGroupEditForm(bl));
+            Application.Run(new MainForm());
         }
-    }
-}
+    }}

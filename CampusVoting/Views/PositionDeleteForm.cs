@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using CampusVoting.BusinessLogics;
+using CampusVoting.ViewModels;
 
 namespace CampusVoting.Views
 {
@@ -22,10 +23,12 @@ namespace CampusVoting.Views
         }
 
         private const string PageName = "Position Deletion";
-
+        
         public PositionBl PositionBl { get; set; }
         CandidateClearanceBl cbl = new CandidateClearanceBl();
         VoterClearanceBl vbl = new VoterClearanceBl();
+        GradeBl gbl1 = new GradeBl();
+        GradeBl gbl2 = new GradeBl();
         
 
         private void DisplayInfo()
@@ -56,22 +59,53 @@ namespace CampusVoting.Views
         {
             string msgs = "";
 
+            //gbl1.ComboItems = gbl1.GetCombo(ref msgs);
+            ////attempt to add all 
+            ////will fail if dupplicate
+            //foreach (var item in gbl1.ComboItems)
+            //{
+            //    CandidateClearanceVm obj = new CandidateClearanceVm();
+            //    obj.GradeId = item.Id;
+            //    obj.PositionId = PositionBl.VmParams.Id;
 
-            //this will load the checked candidate clearances
-            cbl.ComboItems = cbl.GetCombo(PositionBl.VmParams.Id, ref msgs).Where(x => x.Active).ToList();
+            //    cbl.AddOne(obj, ref msgs);
+            //}
 
-            CandidateClearanceListBoxControl.DataSource = cbl.ComboItems;
-            CandidateClearanceListBoxControl.DisplayMember = "Grade";
-            CandidateClearanceListBoxControl.ValueMember = "GradeId";
+            //retieve the candidate clearances
+            msgs = "";
+            cbl.VmParams.PositionId = PositionBl.VmParams.Id;
+            cbl.ListVm = cbl.GetList(cbl.VmParams, ref msgs).Where(x => x.Active).ToList();
+
+            //make the candidate clearances as the datasource
+            CandidateClearanceListBoxCon.DataSource = cbl.ListVm;
+            CandidateClearanceListBoxCon.DisplayMember = "Grade";
+            CandidateClearanceListBoxCon.ValueMember = "Id";
 
 
-            //this will load the checked voter clearances
-            vbl.ComboItems = vbl.GetCombo(PositionBl.VmParams.Id, ref msgs);
 
-            VoterClearanceListBoxControl.DataSource = vbl.ComboItems;
-            VoterClearanceListBoxControl.DisplayMember = "Grade";
-            VoterClearanceListBoxControl.ValueMember = "GradeId";
-            
+
+            //gbl2.ComboItems = gbl2.GetCombo(ref msgs);
+            ////attempt to add all 
+            ////will fail if duplicate
+            //foreach (var item in gbl2.ComboItems)
+            //{
+            //    VoterClearanceVm obj = new VoterClearanceVm();
+            //    obj.GradeId = item.Id;
+            //    obj.PositionId = PositionBl.VmParams.Id;
+
+            //    vbl.AddOne(obj, ref msgs);
+            //}
+
+            //retieve the voter clearances
+            msgs = "";
+            vbl.VmParams.PositionId = PositionBl.VmParams.Id;
+            vbl.ListVm = vbl.GetList(vbl.VmParams, ref msgs).Where(x => x.Active).ToList();
+
+            //make the voter clearances as the datasource
+            VoterClearanceListBoxCon.DataSource = vbl.ListVm;
+            VoterClearanceListBoxCon.DisplayMember = "Grade";
+            VoterClearanceListBoxCon.ValueMember = "Id";
+
         }
 
 

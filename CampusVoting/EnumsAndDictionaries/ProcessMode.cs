@@ -2,6 +2,6 @@
 {
     public enum ProcessMode
     {
-        Insert, Update, Delete
+        Insert, Update, Delete, RosterManagement
     }
 }

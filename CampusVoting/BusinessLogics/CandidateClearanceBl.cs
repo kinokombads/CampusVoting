@@ -80,7 +80,7 @@ namespace CampusVoting.BusinessLogics
                 foreach (DataRow row in dt.Rows)
                 {
                     CandidateClearanceVm item = new CandidateClearanceVm();
-                    //item.Id = row["candidateClearanceId"].GetString();
+                    item.Id = row["candidateClearanceId"].GetString();
                     item.PositionId = row["positionId"].GetString();
                     item.Position = row["positionName"].GetString();
                     item.GradeId = row["gradeId"].GetString();

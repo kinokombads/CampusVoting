@@ -87,6 +87,7 @@ namespace CampusVoting.BusinessLogics
                     item.Id = row["campaignGroupId"].GetString();
                     item.Title = row["title"].GetString();
                     item.SchoolYearId = row["schoolYearId"].GetString();
+                    item.SchoolYear = row["schoolYearName"].GetString();
                     item.Details = row["details"].GetString();
                     item.CreatedById = row["createdById"].GetString();
                     item.CreatedBy = row["createdByName"].GetString();
